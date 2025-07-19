@@ -10,10 +10,14 @@ const Cover = ({ onOpen }) => {
       <img src={flowerTop} alt="Ornamen Bunga Atas" className="w-[500px] md:w-[500px] h-auto" />
       <div className="flex flex-col items-center gap-6 my-8">
         <p className="font-display text-lg">Undangan Pernikahan</p>
-        <h1 className="font-display text-5xl md:text-7xl italic">
-          {groom} & {bride}
+        <h1 className="font-display text-5xl md:text-7xl italic flex flex-col md:flex-row items-center justify-center text-center leading-snug">
+          <span>{bride}</span>
+          <span className="md:hidden">&</span>
+          <span className="md:hidden">{groom}</span>
+          <span className="hidden md:inline px-5">&</span>
+          <span className="hidden md:inline">{groom}</span>
         </h1>
-        
+
         <div className="flex items-center gap-4 font-sans font-semibold">
           <span>{weddingDate.day}</span>
           <div className="w-px h-12 bg-custom-brown"></div>

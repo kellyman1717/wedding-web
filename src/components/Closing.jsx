@@ -11,7 +11,7 @@ const Closing = () => {
                 Atas kehadiran dan doa restu, kami ucapkan terima kasih.
             </p>
             <p className="font-sans text-lg mb-4">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
-            <p className="font-display text-4xl italic text-custom-pink-dark">{groom} & {bride}</p>
+            <p className="font-display text-4xl italic text-custom-pink-dark">{bride} & {groom}</p>
         </div>
     );
 };

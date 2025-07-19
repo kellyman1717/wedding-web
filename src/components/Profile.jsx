@@ -23,17 +23,17 @@ const Profile = () => {
       <p className="max-w-3xl mx-auto mb-12">
         Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
       </p>
-      <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20">
-        <ProfileCard 
-          name={invitationData.groom} 
-          {...invitationData.groomProfile} 
-          isBride={false}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+        <ProfileCard
+          name={invitationData.bride}
+          {...invitationData.brideProfile}
+          isBride={true}
         />
         <span className="font-display text-5xl text-custom-pink-dark">&</span>
-        <ProfileCard 
-          name={invitationData.bride} 
-          {...invitationData.brideProfile} 
-          isBride={true}
+        <ProfileCard
+          name={invitationData.groom}
+          {...invitationData.groomProfile}
+          isBride={false}
         />
       </div>
     </div>
