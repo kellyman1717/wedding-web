@@ -8,7 +8,6 @@ const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
     <h3 className="font-display text-4xl italic text-custom-pink-dark">{name}</h3>
     <p className="font-sans text-lg">{fullName}</p>
     <div className="text-center">
-      {/* Logika untuk menampilkan teks yang benar berdasarkan isBride */}
       <p className="font-semibold">{isBride ? 'Putri dari Pasangan' : 'Putra dari Pasangan'}</p>
       <p>{father}</p>
       <p>&</p>
@@ -25,20 +24,16 @@ const Profile = () => {
         Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
       </p>
       <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20">
-        {/* Memanggil ProfileCard untuk mempelai pria */}
         <ProfileCard 
           name={invitationData.groom} 
           {...invitationData.groomProfile} 
-          isBride={false} // Set isBride ke false untuk pria
+          isBride={false}
         />
-        
         <span className="font-display text-5xl text-custom-pink-dark">&</span>
-        
-        {/* Memanggil ProfileCard untuk mempelai wanita */}
         <ProfileCard 
           name={invitationData.bride} 
           {...invitationData.brideProfile} 
-          isBride={true} // Set isBride ke true untuk wanita
+          isBride={true}
         />
       </div>
     </div>

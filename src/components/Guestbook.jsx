@@ -10,7 +10,7 @@ const Guestbook = () => {
 
     useEffect(() => {
         const unsubscribe = getGuestbookEntries(setEntries);
-        return () => unsubscribe(); // Cleanup listener on component unmount
+        return () => unsubscribe();
     }, []);
     
     const handleSubmit = async (e) => {

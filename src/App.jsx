@@ -30,8 +30,6 @@ function App() {
   };
 
   return (
-    // Gunakan fragment <> sebagai root. Komponen ini hanya bertugas
-    // untuk beralih antara halaman Cover dan InvitationPage.
     <>
       <audio ref={audioRef} src={backgroundMusic} loop />
       {isOpened && <MusicPlayer isPlaying={isPlaying} onTogglePlay={togglePlayPause} />}

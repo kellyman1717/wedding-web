@@ -1,17 +1,16 @@
 // Import gambar untuk galeri
-//import gallery1 from '../assets/images/gallery-1.jpg';
-//import gallery2 from '../assets/images/gallery-2.jpg';
-//import gallery3 from '../assets/images/gallery-3.jpg';
-//import gallery4 from '../assets/images/gallery-4.jpg';
-//import gallery5 from '../assets/images/gallery-5.jpg';
-//import gallery6 from '../assets/images/gallery-6.jpg';
+import gallery1 from '../assets/images/gallery-1.png';
+import gallery2 from '../assets/images/gallery-2.png';
+import gallery3 from '../assets/images/gallery-3.png';
+import gallery4 from '../assets/images/gallery-4.png';
+import gallery5 from '../assets/images/gallery-5.png';
+import gallery6 from '../assets/images/gallery-6.png';
 
 // Import gambar profil yang sudah ada
 import groomPhoto from '../assets/images/groom.png';
-import bridePhoto from '../assets/images/bride.jpg';
+import bridePhoto from '../assets/images/bride.png';
 
 export const invitationData = {
-  // ... (data yang sudah ada sebelumnya jangan dihapus)
   groom: "Nama Pria",
   bride: "Nama Wanita",
   weddingDate: {
@@ -54,7 +53,7 @@ export const invitationData = {
 
   // DATA BARU DIMULAI DARI SINI
   galleryImages: [
-    //gallery1, gallery2, gallery3, gallery4, gallery5, gallery6
+    gallery1, gallery2, gallery3, gallery4, gallery5, gallery6
   ],
 
   loveStory: [

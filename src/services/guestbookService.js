@@ -3,7 +3,6 @@ import { collection, addDoc, query, orderBy, onSnapshot } from 'firebase/firesto
 
 const guestbookCollection = collection(db, 'guestbook');
 
-// Fungsi untuk mengirim ucapan
 export const addGuestbookEntry = async (name, message) => {
   try {
     await addDoc(guestbookCollection, {
@@ -18,7 +17,6 @@ export const addGuestbookEntry = async (name, message) => {
   }
 };
 
-// Fungsi untuk mengambil ucapan secara real-time
 export const getGuestbookEntries = (callback) => {
   const q = query(guestbookCollection, orderBy('timestamp', 'desc'));
   return onSnapshot(q, (querySnapshot) => {
