@@ -1,4 +1,3 @@
-// Import gambar untuk galeri
 import gallery1 from '../assets/images/gallery-1.png';
 import gallery2 from '../assets/images/gallery-2.png';
 import gallery3 from '../assets/images/gallery-3.png';
@@ -6,7 +5,6 @@ import gallery4 from '../assets/images/gallery-4.png';
 import gallery5 from '../assets/images/gallery-5.png';
 import gallery6 from '../assets/images/gallery-6.png';
 
-// Import gambar profil yang sudah ada
 import groomPhoto from '../assets/images/groom.png';
 import bridePhoto from '../assets/images/bride.png';
 
@@ -47,11 +45,10 @@ export const invitationData = {
       time: "11:00 - 14:00 WIB",
       location: "Gedung Resepsi",
       address: "Jl. Contoh Alamat Resepsi No. 456, Kota",
-      mapUrl: "https://maps.app.goo.gl/..."
+      mapUrl: "https://maps.app.goo.gl/3EQ7w3E8LLU3XmyK6"
     }
   ],
 
-  // DATA BARU DIMULAI DARI SINI
   galleryImages: [
     gallery1, gallery2, gallery3, gallery4, gallery5, gallery6
   ],

@@ -5,18 +5,24 @@ const Hero = () => {
   const { groom, bride, weddingDate } = invitationData;
 
   return (
-    <div 
+    <div
       className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6"
-      style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>
+      
       <div className="relative z-10 flex flex-col gap-4">
         <p className="font-sans text-lg tracking-widest uppercase">The Wedding Of</p>
         <h1 className="font-display text-6xl md:text-8xl italic">
           {groom} & {bride}
         </h1>
         <p className="font-sans text-xl mt-4">
-          {`${weddingDate.date} . ${weddingDate.month} . ${weddingDate.year}`}
+          {`${weddingDate.date}.${weddingDate.month}.${weddingDate.year}`}
         </p>
       </div>
     </div>

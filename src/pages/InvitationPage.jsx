@@ -10,7 +10,7 @@ import LocationMap from "../components/LocationMap.jsx";
 import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
 const InvitationPage = () => {
-  const fadeHero = useScrollFadeIn(); // default dari bawah
+  const fadeHero = useScrollFadeIn();
   const fadeProfile = useScrollFadeIn(); 
   const fadeEvent = useScrollFadeIn();
   const fadeGallery = useScrollFadeIn("left");
