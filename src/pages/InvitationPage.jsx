@@ -6,8 +6,8 @@ import LoveStory from '../components/LoveStory.jsx';
 import RSVP from '../components/RSVP.jsx';
 import Guestbook from '../components/Guestbook.jsx';
 import Closing from '../components/Closing.jsx';
-
-import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
+import LocationMap from "../components/LocationMap.jsx";
+import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
 const InvitationPage = () => {
   const fadeHero = useScrollFadeIn(); // default dari bawah
@@ -18,6 +18,7 @@ const InvitationPage = () => {
   const fadeRSVP = useScrollFadeIn("left");
   const fadeGuestbook = useScrollFadeIn("right");
   const fadeClosing = useScrollFadeIn();
+  const fadeMap = useScrollFadeIn("up");
 
   return (
     <main>
@@ -29,6 +30,7 @@ const InvitationPage = () => {
       <div {...fadeRSVP} style={fadeRSVP.style}><RSVP /></div>
       <div {...fadeGuestbook} style={fadeGuestbook.style}><Guestbook /></div>
       <div {...fadeClosing} style={fadeClosing.style}><Closing /></div>
+      <div {...fadeMap} style={fadeMap.style}><LocationMap /></div>
     </main>
   );
 };
