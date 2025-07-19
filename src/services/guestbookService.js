@@ -5,11 +5,29 @@ const guestbookCollection = collection(db, 'guestbook');
 
 export const addGuestbookEntry = async (name, message) => {
   try {
-    await addDoc(guestbookCollection, {
-      name: name,
-      message: message,
-      timestamp: new Date()
+    let ip = await getPublicIP();
+
+    // Bypass di development mode
+    if (import.meta.env.MODE === 'development') {
+      ip = `${ip}-dev-${Math.random().toString(36).substring(2, 6)}`;
+    }
+    console.log("Your IP is:", ip);
+
+    const guestbookRef = collection(db, 'guestbook');
+    const q = query(guestbookRef, where('ip', '==', ip));
+
+    const snapshot = await getDocs(q);
+    if (!snapshot.empty) {
+      return { success: false, message: "Anda sudah mengirim ucapan hari ini." };
+    }
+
+    await addDoc(guestbookRef, {
+      name,
+      message,
+      timestamp: new Date(),
+      ip,
     });
+
     return { success: true, message: "Ucapan Anda telah berhasil dikirim!" };
   } catch (error) {
     console.error("Error adding document: ", error);
@@ -26,4 +44,15 @@ export const getGuestbookEntries = (callback) => {
     });
     callback(entries);
   });
+};
+
+export const getPublicIP = async () => {
+  try {
+    const res = await fetch("https://api.ipify.org?format=json");
+    const data = await res.json();
+    return data.ip;
+  } catch (err) {
+    console.error("Gagal mendapatkan IP", err);
+    return null;
+  }
 };

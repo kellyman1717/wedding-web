@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { invitationData } from '../data/invitationData.js';
 import heroBg from '../assets/images/hero-bg.jpg';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
+import CoupleNames from './CoupleNames.jsx';
 
 const Hero = () => {
   const { groom, bride, weddingDate } = invitationData;
@@ -51,40 +52,20 @@ const Hero = () => {
       >
         <div className="relative z-10 flex flex-col gap-4">
           <p className="font-sans text-lg tracking-widest uppercase">The Wedding Of</p>
-          <h1 className="font-display text-6xl md:text-8xl italic flex flex-col md:flex-row items-center justify-center text-center leading-snug">
-            <span>{bride}</span>
-            <span className="md:hidden">&</span>
-            <span className="md:hidden">{groom}</span>
-            <span className="hidden md:inline px-5">&</span>
-            <span className="hidden md:inline">{groom}</span>
-          </h1>
-
+          <CoupleNames bride={bride} groom={groom} className="text-6xl md:text-8xl" />
           <p className="font-sans text-xl mt-4">
             {`${weddingDate.date}.${weddingDate.month}.${weddingDate.year}`}
           </p>
         </div>
 
         <div className="mt-8">
-          <div className="flex items-center justify-center space-x-2 md:space-x-4 text-center font-sans">
-            <div className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px]">
-              <div className="text-3xl md:text-xl font-bold">{String(timeLeft.days || '00').padStart(2, '0')}</div>
-              <div className="text-xs md:text-sm uppercase tracking-widest">Hari</div>
-            </div>
-            <div className="text-3xl md:text-xl font-bold">:</div>
-            <div className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px]">
-              <div className="text-3xl md:text-xl font-bold">{String(timeLeft.hours || '00').padStart(2, '0')}</div>
-              <div className="text-xs md:text-sm uppercase tracking-widest">Jam</div>
-            </div>
-            <div className="text-3xl md:text-xl font-bold">:</div>
-            <div className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px]">
-              <div className="text-3xl md:text-xl font-bold">{String(timeLeft.minutes || '00').padStart(2, '0')}</div>
-              <div className="text-xs md:text-sm uppercase tracking-widest">Menit</div>
-            </div>
-            <div className="text-3xl md:text-xl font-bold">:</div>
-            <div className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px]">
-              <div className="text-3xl md:text-xl font-bold">{String(timeLeft.seconds || '00').padStart(2, '0')}</div>
-              <div className="text-xs md:text-sm uppercase tracking-widest">Detik</div>
-            </div>
+          <div className="flex items-center justify-center space-x-2 md:space-x-4 text-center font-sans animate-fade-up">
+            {['days', 'hours', 'minutes', 'seconds'].map((unit, i) => (
+              <div key={unit} className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px] animate-bounce-smooth" style={{ animationDelay: `${i * 0.2}s` }}>
+                <div className="text-3xl md:text-xl font-bold">{String(timeLeft[unit] || '00').padStart(2, '0')}</div>
+                <div className="text-xs md:text-sm uppercase tracking-widest">{unit === 'days' ? 'Hari' : unit === 'hours' ? 'Jam' : unit === 'minutes' ? 'Menit' : 'Detik'}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

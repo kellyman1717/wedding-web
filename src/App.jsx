@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        // Menambahkan .catch() untuk menangani error jika audio gagal diputar
         audioRef.current.play().catch(e => console.error("Pemutaran audio gagal:", e));
       } else {
         audioRef.current.pause();
@@ -35,9 +34,13 @@ function App() {
       {isOpened && <MusicPlayer isPlaying={isPlaying} onTogglePlay={togglePlayPause} />}
 
       {isOpened ? (
-        <InvitationPage />
+        <div className="animate-fade-in duration-700">
+          <InvitationPage />
+        </div>
       ) : (
-        <Cover onOpen={handleOpenInvitation} />
+        <div className="animate-fade-in duration-700">
+          <Cover onOpen={handleOpenInvitation} />
+        </div>
       )}
     </>
   );
