@@ -13,10 +13,10 @@ export const invitationData = {
   bride: "Nama Wanita",
   weddingDate: {
     day: "Jumat",
-    date: 11,
-    fullDate: "2025-07-11T09:00:00",
+    date: 27,
+    fullDate: "2025-12-27T09:00:00",
     year: 2025,
-    month: "Juli",
+    month: "Desember",
   },
   groomProfile: {
     fullName: "Nama Lengkap Pria",

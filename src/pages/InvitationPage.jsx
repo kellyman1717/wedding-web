@@ -1,3 +1,5 @@
+// wedding-invitation/src/pages/InvitationPage.jsx
+
 import Hero from '../components/Hero.jsx';
 import Profile from '../components/Profile.jsx';
 import EventDetails from '../components/EventDetails.jsx';
@@ -10,8 +12,10 @@ import LocationMap from "../components/LocationMap.jsx";
 import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
 const InvitationPage = () => {
-  const fadeHero = useScrollFadeIn();
-  const fadeProfile = useScrollFadeIn(); 
+  // Animasi untuk Hero sekarang sudah dipindahkan ke dalam komponen Hero.jsx
+  // const fadeHero = useScrollFadeIn(); // Baris ini tidak lagi diperlukan
+
+  const fadeProfile = useScrollFadeIn();
   const fadeEvent = useScrollFadeIn();
   const fadeGallery = useScrollFadeIn("left");
   const fadeLoveStory = useScrollFadeIn("right");
@@ -22,7 +26,9 @@ const InvitationPage = () => {
 
   return (
     <main>
-      <div {...fadeHero} style={fadeHero.style}><Hero /></div>
+      {/* Komponen Hero sekarang dirender langsung tanpa div pembungkus animasi */}
+      <Hero />
+      
       <div {...fadeProfile} style={fadeProfile.style}><Profile /></div>
       <div {...fadeEvent} style={fadeEvent.style}><EventDetails /></div>
       <div {...fadeGallery} style={fadeGallery.style}><Gallery /></div>
