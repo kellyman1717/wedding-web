@@ -4,7 +4,6 @@ import gallery3 from '../assets/images/gallery-3.png';
 import gallery4 from '../assets/images/gallery-4.png';
 import gallery5 from '../assets/images/gallery-5.png';
 import gallery6 from '../assets/images/gallery-6.png';
-
 import groomPhoto from '../assets/images/groom.png';
 import bridePhoto from '../assets/images/bride.png';
 
