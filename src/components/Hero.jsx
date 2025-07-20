@@ -7,17 +7,26 @@ import CoupleNames from './CoupleNames.jsx';
 const Hero = () => {
   const { groom, bride, weddingDate } = invitationData;
   const fadeInContent = useScrollFadeIn('up', 300);
-
-  // State dan handler untuk efek parallax
   const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
 
+  // Perubahan utama ada di sini
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    // Ambil referensi elemen body
+    const body = document.body;
+
+    // Fungsi untuk memantau scroll pada body
+    const handleScroll = () => {
+      setOffsetY(body.scrollTop); // Ambil posisi scroll dari body
     };
-  }, []);
+
+    // Daftarkan event listener ke body, bukan window
+    body.addEventListener('scroll', handleScroll);
+
+    // Hapus event listener saat komponen tidak lagi digunakan
+    return () => {
+      body.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // [] berarti efek ini hanya berjalan sekali saat komponen pertama kali muncul
 
   const calculateTimeLeft = () => {
     const difference = +new Date(invitationData.weddingDate.fullDate) - +new Date();
@@ -44,12 +53,12 @@ const Hero = () => {
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundPositionY: offsetY * 0.5, // Menambahkan properti ini untuk efek parallax
+        backgroundPositionY: offsetY * 0.5,
       }}
     >
       <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>

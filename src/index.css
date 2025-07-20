@@ -5,9 +5,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ======================================================= */
+/* ==               Perbaikan Scrollbar Definitif               == */
+/* ======================================================= */
+/*
+  Tujuan:
+  1. Mencegah `<html>` untuk bisa di-scroll.
+  2. Menjadikan `<body>` sebagai satu-satunya wadah scroll utama.
+  3. Memastikan tidak ada scroll horizontal sama sekali.
+*/
+
+html {
+  height: 100%;
+  /* Kunci #1: Nonaktifkan semua jenis scroll pada elemen html */
+  overflow: hidden;
+}
+
 body {
+  /* Kunci #2: Jadikan body sebagai elemen yang bisa di-scroll */
+  height: 100%;
+  overflow-y: auto; /* Izinkan scroll vertikal */
+  overflow-x: hidden; /* Larang scroll horizontal */
+  -webkit-overflow-scrolling: touch; /* Scroll lebih halus di perangkat mobile */
+
+  /* Menerapkan style dari Tailwind */
   @apply bg-custom-pink text-custom-brown;
-  overflow-x: hidden;
 }
 
 
@@ -22,9 +44,7 @@ body {
       transform: translateY(0);
     }
   }
-
   .animate-fade-in {
     animation: fade-in 0.7s ease-out both;
   }
 }
-

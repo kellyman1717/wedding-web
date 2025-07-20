@@ -20,6 +20,7 @@ const InvitationPage = () => {
   const fadeMap = useScrollFadeIn("up");
 
   return (
+    // Hapus className="overflow-x-hidden" dari tag main ini
     <main>
       <Hero />
       <div {...fadeProfile} style={fadeProfile.style}><Profile /></div>
