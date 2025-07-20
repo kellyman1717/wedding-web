@@ -1,12 +1,11 @@
 import { db } from './firebaseConfig.js';
-import { collection, addDoc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, query, orderBy, onSnapshot, where, getDocs } from 'firebase/firestore';
 
 const guestbookCollection = collection(db, 'guestbook');
 
 export const addGuestbookEntry = async (name, message) => {
   try {
     let ip = await getPublicIP();
-
     // Bypass di development mode
     if (import.meta.env.MODE === 'development') {
       ip = `${ip}-dev-${Math.random().toString(36).substring(2, 6)}`;
@@ -14,9 +13,11 @@ export const addGuestbookEntry = async (name, message) => {
     console.log("Your IP is:", ip);
 
     const guestbookRef = collection(db, 'guestbook');
-    const q = query(guestbookRef, where('ip', '==', ip));
 
+    const q = query(guestbookRef, where('ip', '==', ip));
+    
     const snapshot = await getDocs(q);
+
     if (!snapshot.empty) {
       return { success: false, message: "Anda sudah mengirim ucapan hari ini." };
     }
@@ -27,7 +28,6 @@ export const addGuestbookEntry = async (name, message) => {
       timestamp: new Date(),
       ip,
     });
-
     return { success: true, message: "Ucapan Anda telah berhasil dikirim!" };
   } catch (error) {
     console.error("Error adding document: ", error);
