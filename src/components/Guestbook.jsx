@@ -31,7 +31,7 @@ const Guestbook = () => {
 
   return (
     <div className="py-16 px-6 bg-white text-center">
-      <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Buku Tamu</h2>
+      <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-custom-pink-light p-8 rounded-lg shadow-lg mb-8">
           <div className="mb-4">
