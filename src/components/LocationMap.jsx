@@ -1,8 +1,6 @@
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
 import { invitationData } from "../data/invitationData.js";
 
 const resepsiIcon = new L.Icon({
@@ -19,10 +17,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
-
 const LocationMap = () => {
   const receptionLocation = {
-    ...invitationData.events[1], 
+    ...invitationData.events[1],
     position: [-7.681279, 111.498453],
     icon: resepsiIcon,
   };
@@ -56,14 +53,14 @@ const LocationMap = () => {
         </MapContainer>
       </div>
       <div className="mt-6 flex justify-center">
-          <a
-            href={receptionLocation.mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-custom-pink-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-pink-700 transition-all"
-          >
-            Buka {receptionLocation.name} di Google Maps
-          </a>
+        <a
+          href={receptionLocation.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-custom-pink-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-pink-700 transition-all transform hover:scale-105" // Diperbarui
+        >
+          Buka {receptionLocation.name} di Google Maps
+        </a>
       </div>
     </div>
   );

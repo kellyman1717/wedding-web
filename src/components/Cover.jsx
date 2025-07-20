@@ -21,9 +21,9 @@ const Cover = ({ onOpen }) => {
         </div>
       </div>
       <div className="flex flex-col items-center gap-4">
-        <button 
+        <button
           onClick={onOpen}
-          className="bg-custom-pink-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-pink-700 transition-all duration-300"
+          className="bg-custom-pink-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-pink-700 transition-all duration-300 transform hover:scale-105" // Tambahkan transform & hover:scale-105
         >
           Buka Undangan
         </button>

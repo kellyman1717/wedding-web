@@ -6,11 +6,11 @@ export default function useScrollFadeIn(direction = "up", delay = 0) {
 
   const getTransform = (visible) => {
     if (direction === "left") {
-      return visible ? "translateX(0)" : "translateX(-30px)";
+      return visible ? "translateX(0)" : "translateX(-50px)";
     } else if (direction === "right") {
-      return visible ? "translateX(0)" : "translateX(30px)";
+      return visible ? "translateX(0)" : "translateX(50px)";
     } else {
-      return visible ? "translateY(0)" : "translateY(20px)";
+      return visible ? "translateY(0)" : "translateY(40px)";
     }
   };
 
