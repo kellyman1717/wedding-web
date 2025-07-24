@@ -33,7 +33,7 @@ const Guestbook = () => {
     <div className="py-16 px-6 bg-white text-center">
       <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
-        <form onSubmit={handleSubmit} className="bg-custom-pink-light p-8 rounded-lg shadow-lg mb-8">
+        <form onSubmit={handleSubmit} className="bg-custom-blue-light p-8 rounded-lg shadow-lg mb-8">
           <div className="mb-4">
             <input type="text" placeholder="Nama Anda" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2 border rounded" />
           </div>
@@ -43,7 +43,7 @@ const Guestbook = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="bg-custom-pink-dark text-white w-full py-3 rounded-md font-semibold hover:bg-pink-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
+            className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
           >
             {isLoading ? (
               <>
@@ -62,7 +62,7 @@ const Guestbook = () => {
         <div className="h-96 overflow-y-auto bg-gray-50 p-4 rounded-lg shadow-inner">
           {entries.length > 0 ? entries.map(entry => (
             <div key={entry.id} className="border-b border-gray-200 p-4 text-left">
-              <p className="font-bold font-display text-lg text-custom-pink-dark">{entry.name}</p>
+              <p className="font-bold font-display text-lg text-custom-blue-dark">{entry.name}</p>
               <p className="font-sans text-base my-1">{entry.message}</p>
               <p className="font-sans text-xs text-gray-400">{new Date(entry.timestamp.seconds * 1000).toLocaleString()}</p>
             </div>

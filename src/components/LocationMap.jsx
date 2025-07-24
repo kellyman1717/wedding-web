@@ -57,7 +57,7 @@ const LocationMap = () => {
           href={receptionLocation.mapUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-custom-pink-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-pink-700 transition-all transform hover:scale-105" // Diperbarui
+          className="inline-block bg-custom-blue-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-blue-700 transition-all transform hover:scale-105" // Diperbarui
         >
           Buka {receptionLocation.name} di Google Maps
         </a>

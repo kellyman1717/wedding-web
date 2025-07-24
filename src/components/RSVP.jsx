@@ -26,7 +26,7 @@ const RSVP = () => {
   };
 
   return (
-    <div className="py-16 px-6 bg-custom-pink-light text-center">
+    <div className="py-16 px-6 bg-custom-blue-light text-center">
       <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Konfirmasi Kehadiran</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
         <div className="mb-4">
@@ -49,7 +49,7 @@ const RSVP = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-custom-pink-dark text-white w-full py-3 rounded-md font-semibold hover:bg-pink-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
+          className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
         >
           {isLoading ? (
             <>

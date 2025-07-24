@@ -2,7 +2,7 @@ const MusicPlayer = ({ isPlaying, onTogglePlay }) => {
   return (
     <button
       onClick={onTogglePlay}
-      className={`fixed bottom-5 right-5 z-50 w-12 h-12 bg-custom-pink-dark text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none transition-all transform hover:scale-110 ${
+      className={`fixed bottom-5 right-5 z-50 w-12 h-12 bg-custom-blue-dark text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none transition-all transform hover:scale-110 ${
         isPlaying ? 'animate-pulse' : ''
       }`}
       aria-label="Play/Pause Music"

@@ -27,9 +27,9 @@ const Countdown = () => {
   }, [targetDate]);
 
   return (
-    <div className="py-16 px-6 bg-custom-pink-light text-center">
+    <div className="py-16 px-6 bg-custom-blue-light text-center">
       <h2 className="font-display text-4xl text-custom-brown mb-4">Menuju Hari Bahagia</h2>
-      <div className="flex justify-center gap-6 text-custom-pink-dark font-display text-3xl">
+      <div className="flex justify-center gap-6 text-custom-blue-dark font-display text-3xl">
         <div>{timeLeft.days} <p className="text-sm">Hari</p></div>
         <div>{timeLeft.hours} <p className="text-sm">Jam</p></div>
         <div>{timeLeft.minutes} <p className="text-sm">Menit</p></div>

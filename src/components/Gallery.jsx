@@ -12,7 +12,7 @@ const Gallery = () => {
   const fadeIn6 = useScrollFadeIn("up", 500);
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-custom-pink-light">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-custom-blue-light">
       <div className="text-center mb-12">
         <h2 className="font-display text-4xl md:text-5xl text-custom-brown">Momen Bahagia Kami</h2>
         <p className="font-sans mt-4 text-lg">Bagian dari tawa dan cinta yang membangun cerita kami.</p>

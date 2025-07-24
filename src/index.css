@@ -29,7 +29,7 @@ body {
   -webkit-overflow-scrolling: touch; /* Scroll lebih halus di perangkat mobile */
 
   /* Menerapkan style dari Tailwind */
-  @apply bg-custom-pink text-custom-brown;
+  @apply bg-custom-blue text-custom-brown;
 }
 
 
