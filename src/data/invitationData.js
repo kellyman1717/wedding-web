@@ -31,16 +31,8 @@ export const invitationData = {
   },
   events: [
     {
-      name: "Akad Nikah",
-      date: "Jumat, 11 Juli 2025",
-      time: "09:00 - 10:00 WIB",
-      location: "Gedung Akad",
-      address: "Jl. Contoh Alamat Akad No. 123, Kota",
-      mapUrl: "https://maps.app.goo.gl/..."
-    },
-    {
-      name: "Resepsi",
-      date: "Jumat, 11 Juli 2025",
+      name: "Resepsi Pernikahan",
+      date: "Sabtu, 27 Desember 2025",
       time: "11:00 - 14:00 WIB",
       location: "Gedung Resepsi",
       address: "Jl. Contoh Alamat Resepsi No. 456, Kota",

@@ -1,4 +1,5 @@
 import { invitationData } from '../data/invitationData.js';
+
 const EventCard = ({ name, date, time, location, address, icon }) => (
   <div className="bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
     <span className="text-5xl mb-4">{icon}</span>
@@ -11,12 +12,12 @@ const EventCard = ({ name, date, time, location, address, icon }) => (
 );
 
 const EventDetails = () => {
-  const receptionEvent = invitationData.events[1];
+  const receptionEvent = invitationData.events[0];
 
   return (
     <div className="py-16 px-6 bg-white">
-      <div className="flex flex-col md:flex-row justify-center items-stretch gap-8">
-        {receptionEvent && <EventCard {...receptionEvent} icon="🎉" />}
+      <div className="flex justify-center items-stretch">
+        {receptionEvent && <EventCard {...receptionEvent} />}
       </div>
     </div>
   );

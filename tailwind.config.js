@@ -21,16 +21,16 @@ export default {
         'display': ['"Playfair Display"', 'serif'],
       },
       animation: {
-        'wind-blow': 'wind-blow 2s ease-in-out infinite',
+        'wind-blow': 'wind-blow 0.1s ease-in-out infinite',
         'wind-blow-rotated': 'wind-blow-rotated 3s ease-in-out infinite',
       },
       keyframes: {
         'wind-blow': {
           '0%, 100%': {
-            transform: 'rotate(-1deg) translateX(-1%)',
+            transform: 'rotate(-3deg) translateX(-4%)',
           },
           '50%': {
-            transform: 'rotate(2deg) translateX(1%)',
+            transform: 'rotate(3deg) translateX(4%)',
           },
         },
         'wind-blow-rotated': {

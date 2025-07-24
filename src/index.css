@@ -37,27 +37,27 @@ body {
 
   @keyframes wind-blow {
     0%, 100% {
-      transform: rotate(-1deg) translateX(-1%);
+      transform: rotate(-2deg) translateX(-3%);
     }
     50% {
-      transform: rotate(2deg) translateX(1%);
+      transform: rotate(2deg) translateX(3%);
     }
   }
 
   @keyframes wind-blow-rotated {
     0%, 100% {
-      transform: rotate(180deg) rotate(-1deg) translateX(-1%);
+      transform: rotate(180deg) rotate(-2deg) translateX(-3%);
     }
     50% {
-      transform: rotate(180deg) rotate(2deg) translateX(1%);
+      transform: rotate(180deg) rotate(2deg) translateX(3%);
     }
   }
 
   .animate-wind-blow {
-    animation: wind-blow 10s ease-in-out infinite;
+    animation: wind-blow 7s ease-in-out infinite;
   }
 
   .animate-wind-blow-rotated {
-    animation: wind-blow-rotated 10s ease-in-out infinite;
+    animation: wind-blow-rotated 8s ease-in-out infinite;
   }
 }
