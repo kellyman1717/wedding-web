@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { invitationData } from '../data/invitationData.js';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
-import flowerTop from '../assets/images/flower-top.png';
-import flowerBottom from '../assets/images/flower-bottom.png';
 
 const LoveStory = () => {
   // State untuk melacak apakah tampilan saat ini adalah desktop (lebar >= 768px)
@@ -20,8 +18,6 @@ const LoveStory = () => {
 
   return (
     <div className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
-      <img src={flowerTop} alt="Ornamen Atas" className="absolute top-4 left-4 w-20 opacity-40" />
-      <img src={flowerBottom} alt="Ornamen Bawah" className="absolute bottom-4 right-4 w-20 opacity-40" />
       <div className="text-center mb-16">
         <h2 className="font-display text-4xl md:text-5xl text-custom-brown">Kisah Cinta Kami</h2>
         <p className="font-sans mt-4 text-lg">Perjalanan yang membawa kami hingga ke titik ini.</p>

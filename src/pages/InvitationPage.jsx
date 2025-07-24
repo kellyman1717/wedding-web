@@ -20,17 +20,16 @@ const InvitationPage = () => {
   const fadeMap = useScrollFadeIn("up");
 
   return (
-    // Hapus className="overflow-x-hidden" dari tag main ini
     <main>
       <Hero />
       <div {...fadeProfile} style={fadeProfile.style}><Profile /></div>
       <div {...fadeEvent} style={fadeEvent.style}><EventDetails /></div>
       <div {...fadeGallery} style={fadeGallery.style}><Gallery /></div>
       <div {...fadeLoveStory} style={fadeLoveStory.style}><LoveStory /></div>
+      <div {...fadeMap} style={fadeMap.style}><LocationMap /></div>
       <div {...fadeRSVP} style={fadeRSVP.style}><RSVP /></div>
       <div {...fadeGuestbook} style={fadeGuestbook.style}><Guestbook /></div>
       <div {...fadeClosing} style={fadeClosing.style}><Closing /></div>
-      <div {...fadeMap} style={fadeMap.style}><LocationMap /></div>
     </main>
   );
 };

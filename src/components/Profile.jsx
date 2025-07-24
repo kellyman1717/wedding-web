@@ -83,7 +83,7 @@ const Profile = () => {
       />
       <img
         src={fern2}
-        alt="Ornamen Pakis Bawah Kiri"
+        alt="Ornamen Pakis Bawah Kanan"
         className="absolute bottom-[30px] right-[-45px] w-[320px] max-w-md h-auto z-0 opacity-80 rotate-90 "
       />
     </div>

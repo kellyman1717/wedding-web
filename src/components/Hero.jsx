@@ -9,24 +9,18 @@ const Hero = () => {
   const fadeInContent = useScrollFadeIn('up', 300);
   const [offsetY, setOffsetY] = useState(0);
 
-  // Perubahan utama ada di sini
   useEffect(() => {
-    // Ambil referensi elemen body
     const body = document.body;
 
-    // Fungsi untuk memantau scroll pada body
     const handleScroll = () => {
-      setOffsetY(body.scrollTop); // Ambil posisi scroll dari body
+      setOffsetY(body.scrollTop);
     };
-
-    // Daftarkan event listener ke body, bukan window
     body.addEventListener('scroll', handleScroll);
 
-    // Hapus event listener saat komponen tidak lagi digunakan
     return () => {
       body.removeEventListener('scroll', handleScroll);
     };
-  }, []); // [] berarti efek ini hanya berjalan sekali saat komponen pertama kali muncul
+  }, []);
 
   const calculateTimeLeft = () => {
     const difference = +new Date(invitationData.weddingDate.fullDate) - +new Date();

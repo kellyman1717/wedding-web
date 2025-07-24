@@ -24,12 +24,12 @@ const Cover = ({ onOpen }) => {
       <img
         src={flower2}
         alt="Ornamen Bunga Atas"
-        className="absolute top-[-60px] right-[-20px] w-[250px] max-w-md h-auto z-0"
+        className="animate-wind-blow absolute top-[-60px] right-[-20px] w-[250px] max-w-md h-auto z-0"
       />
       <img
         src={flower1}
         alt="Ornamen Bunga Atas"
-        className="absolute top-[-20px] right-[-20px] w-[330px] max-w-md h-auto z-0"
+        className="animate-wind-blow absolute top-[-20px] right-[-20px] w-[330px] max-w-md h-auto z-0"
       />
       {/* Konten Utama */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full p-8 text-center text-custom-brown">
@@ -72,12 +72,12 @@ const Cover = ({ onOpen }) => {
       <img
         src={flower2}
         alt="Ornamen Bunga Bawah"
-        className="absolute bottom-[-60px] left-[-20px] w-[250px] max-w-md h-auto z-0 rotate-180"
+        className="animate-wind-blow-rotated absolute bottom-[-60px] left-[-20px] w-[250px] max-w-md h-auto z-0 rotate-180"
       />
       <img
         src={flower1}
         alt="Ornamen Bunga Bawah"
-        className="absolute bottom-[-20px] left-[-20px] w-[330px] max-w-md h-auto z-0 rotate-180"
+        className="animate-wind-blow-rotated absolute bottom-[-20px] left-[-20px] w-[330px] max-w-md h-auto z-0 rotate-180"
       />
     </div>
   );
