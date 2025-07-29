@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { invitationData } from '../data/invitationData.js';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
+import gunungan from '../assets/images/gunungan_wayang.png';
+import leafB1 from '../assets/images/leaf-branches-3.png';
+import leaf1 from '../assets/images/leaf-5.png';
 
 const LoveStory = () => {
   // State untuk melacak apakah tampilan saat ini adalah desktop (lebar >= 768px)
@@ -18,6 +21,18 @@ const LoveStory = () => {
 
   return (
     <div className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
+      {/* Leaf Atas*/}
+      <img
+        src={leafB1}
+        alt="Ornamen LeafB1 Kiri"
+        className="absolute top-[170px] left-[-25px] w-[215px] max-w-md h-auto z-0 rotate-[165deg] opacity-90"
+      />
+      <img
+        src={leaf1}
+        alt="Ornamen Leaf Kiri"
+        className="absolute top-[120px] left-[-100px] w-[235px] max-w-md h-auto z-0 rotate-[35deg] transform scale-x-[-1] opacity-50"
+      />
+      
       <div className="text-center mb-16">
         <h2 className="font-display text-4xl md:text-5xl text-custom-brown">Kisah Cinta Kami</h2>
         <p className="font-sans mt-4 text-lg">Perjalanan yang membawa kami hingga ke titik ini.</p>
@@ -52,9 +67,22 @@ const LoveStory = () => {
           );
         })}
       </div>
-      <p className="text-center mt-12 italic text-custom-brown max-w-xl mx-auto text-lg">
+      
+      <p className="relative z-10 text-center mt-12 italic text-custom-brown max-w-xl mx-auto text-lg">
         "Setiap langkah kisah cinta ini adalah takdir terindah dari-Nya."
       </p>
+      {/* Gunungan*/}
+      <img
+        src={gunungan}
+        alt="Ornamen Gunungan Kiri"
+        className="z-1 absolute bottom-[-65px] left-[-25px] w-[160px] max-w-md h-auto z-0 rotate-[30deg] opacity-40"
+      />
+      <img
+        src={gunungan}
+        alt="Ornamen Gunungan Kanan"
+        className="absolute bottom-[-65px] right-[-25px] w-[160px] max-w-md h-auto z-0 rotate-[-30deg] opacity-40"
+      />
+      
     </div>
   );
 };

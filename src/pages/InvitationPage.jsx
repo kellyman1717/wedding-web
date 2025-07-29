@@ -24,12 +24,13 @@ const InvitationPage = () => {
       <Hero />
       <div {...fadeProfile}><Profile /></div>
       <div {...fadeEvent}><EventDetails /></div>
-      <div {...fadeMap}><LocationMap /></div>
       <div {...fadeGallery}><Gallery /></div>
       <div {...fadeLoveStory}><LoveStory /></div>
+      <div {...fadeMap}><LocationMap /></div>
       <div {...fadeRSVP}><RSVP /></div>
       <div {...fadeGuestbook}><Guestbook /></div>
       <div {...fadeClosing}><Closing /></div>
+      
     </main>
   );
 };

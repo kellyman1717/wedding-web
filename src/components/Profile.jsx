@@ -6,6 +6,8 @@ import flower2 from '../assets/images/blue_floral_bouquet 2.png';
 import flower3 from '../assets/images/blue_floral_bouquet 1.png';
 import fern from '../assets/images/fern-1.png';
 import fern2 from '../assets/images/fern-2.png';
+import floral1 from '../assets/images/floral-circle-1.png';
+import floral2 from '../assets/images/floral-circle-1.png';
 
 const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
   <div className="flex flex-col items-center gap-4">
@@ -79,12 +81,12 @@ const Profile = () => {
       <img
         src={fern}
         alt="Ornamen Pakis Bawah Kiri"
-        className="absolute bottom-0 left-0 w-[350px] max-w-md h-auto z-0 opacity-80"
+        className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] max-w-md h-auto z-0 opacity-80"
       />
       <img
         src={fern2}
         alt="Ornamen Pakis Bawah Kanan"
-        className="absolute bottom-[30px] right-[-45px] w-[320px] max-w-md h-auto z-0 opacity-80 rotate-90 "
+        className="absolute bottom-[35px] right-[-45px] w-[320px] max-w-md h-auto z-0 opacity-80 rotate-90 "
       />
     </div>
   );
