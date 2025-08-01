@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import { submitRsvp } from '../services/rsvpService.js';
-import floralStraight from '../assets/images/floral-straight-3.png';
-import floralBouquet1 from '../assets/images/floral-bouquet-10.png';
-import floralBouquet2 from '../assets/images/floral-bouquet-16.png';
-import leaf1 from '../assets/images/leaf-branches-6.png';
 
 const RSVP = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
