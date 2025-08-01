@@ -3,7 +3,9 @@ import { invitationData } from '../data/invitationData.js';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
 import gunungan from '../assets/images/gunungan_wayang.png';
 import leafB1 from '../assets/images/leaf-branches-3.png';
+import leafB2 from '../assets/images/leaf-branches-1.png';
 import leaf1 from '../assets/images/leaf-5.png';
+import flowerBouquet from '../assets/images/floral-bouquet-2.png';
 
 const LoveStory = () => {
   // State untuk melacak apakah tampilan saat ini adalah desktop (lebar >= 768px)
@@ -20,22 +22,34 @@ const LoveStory = () => {
   }, []);
 
   return (
-    <div className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
-      {/* Leaf Atas*/}
+    <div className="relative py-[55px] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
+      {/* Main Leaf*/}
       <img
         src={leafB1}
         alt="Ornamen LeafB1 Kiri"
-        className="absolute top-[170px] left-[-25px] w-[215px] max-w-md h-auto z-0 rotate-[165deg] opacity-90"
+        className="absolute top-[370px] left-[-25px] w-[215px] max-w-md h-auto z-0 rotate-[165deg] opacity-90"
       />
+      <img
+        src={leafB2}
+        alt="Ornamen LeafB1 Kanan"
+        className="absolute bottom-[160px] right-[-45px] w-[215px] max-w-md h-auto z-0 rotate-[-155deg]"
+      />
+      <img
+        src={flowerBouquet}
+        alt="Ornamen Bouquet Tengah"
+        className="absolute top-[115px] right-[20px] w-[200px] max-w-md h-auto z-0 opacity-70"
+      />
+
+      {/*Leaf Support*/}
       <img
         src={leaf1}
         alt="Ornamen Leaf Kiri"
-        className="absolute top-[120px] left-[-100px] w-[235px] max-w-md h-auto z-0 rotate-[35deg] transform scale-x-[-1] opacity-50"
+        className="absolute top-[320px] left-[-100px] w-[235px] max-w-md h-auto z-0 rotate-[35deg] transform scale-x-[-1] opacity-50"
       />
       
       <div className="text-center mb-16">
-        <h2 className="font-display text-4xl md:text-5xl text-custom-brown">Kisah Cinta Kami</h2>
-        <p className="font-sans mt-4 text-lg">Perjalanan yang membawa kami hingga ke titik ini.</p>
+        <h2 className="relative font-display text-4xl md:text-5xl text-custom-brown">Kisah Cinta Kami</h2>
+        <p className="relative font-sans mt-4 text-lg">Perjalanan yang membawa kami hingga ke titik ini.</p>
       </div>
       <div className="relative max-w-3xl mx-auto">
         <div className="absolute left-6 md:left-1/2 w-0.5 h-full bg-custom-blue-dark transform md:-translate-x-1/2 z-0"></div>

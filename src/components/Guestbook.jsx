@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import { addGuestbookEntry, getGuestbookEntries } from '../services/guestbookService.js';
+import flowerStraight1 from '../assets/images/floral-straight-4.png';
+import flowerStraight2 from '../assets/images/floral-straight-5.png';
+import floralBouquet1 from '../assets/images/floral-bouquet-14.png';
+import fern from '../assets/images/fern-2.png';
+
 
 const Guestbook = () => {
   const [entries, setEntries] = useState([]);
@@ -30,8 +35,29 @@ const Guestbook = () => {
   };
 
   return (
-    <div className="py-16 px-6 bg-white text-center">
-      <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Buku Ucapan</h2>
+    <div className="relative py-16 px-6 bg-white text-center bg-gradient-to-b from-custom-blue to-white">
+      {/* Bunga Tengah */}
+      <img
+        src={fern}
+        alt="Ornamen Bunga Atas kanan"
+        className="absolute top-[10px] left-[0px] w-[250px] max-w-md h-auto z-0 scale-x-[-1]"
+      />
+      <img
+        src={floralBouquet1}
+        alt="Ornamen Bunga Atas kanan"
+        className="absolute top-[-65px] right-[-50px] w-[200px] max-w-md h-auto z-0 rotate-[-155deg] scale-x-[-1]"
+      />
+      <img
+        src={flowerStraight1}
+        alt="Ornamen Bunga Tengah Atas Kiri"
+        className="absolute top-[-55px] left-[-20px] w-[280px] max-w-md h-auto z-0"
+      />
+      <img
+        src={flowerStraight2}
+        alt="Ornamen Bunga Tengah Atas Kanan"
+        className="absolute top-[-55px] right-[-20px] w-[280px] max-w-md h-auto z-0"
+      />
+      <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-custom-blue-light p-8 rounded-lg shadow-lg mb-8">
           <div className="mb-4">

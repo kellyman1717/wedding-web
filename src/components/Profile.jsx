@@ -1,13 +1,14 @@
 import { invitationData } from '../data/invitationData.js';
 import profileBg from '../assets/images/profile-bg.png';
 import bismillah from '../assets/images/bismillah.png';
-import flower from '../assets/images/blue_rose_flower.png';
-import flower2 from '../assets/images/blue_floral_bouquet 2.png';
-import flower3 from '../assets/images/blue_floral_bouquet 1.png';
+import flowerStraight1 from '../assets/images/floral-straight-11.png';
+import flowerStraight2 from '../assets/images/floral-straight-7.png';
+import flowerStraight3 from '../assets/images/floral-straight-5.png';
+import flowerCorner1 from '../assets/images/floral-bouquet-18.png';
+import flowerCorner2 from '../assets/images/floral-bouquet-17.png';
+import flower from '../assets/images/leaf-branches-7.png';
 import fern from '../assets/images/fern-1.png';
 import fern2 from '../assets/images/fern-2.png';
-import floral1 from '../assets/images/floral-circle-1.png';
-import floral2 from '../assets/images/floral-circle-1.png';
 
 const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
   <div className="flex flex-col items-center gap-4">
@@ -28,26 +29,68 @@ const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
 const Profile = () => {
   return (
     <div className="text-center py-16 px-6 bg-custom-blue-light" style={{ backgroundImage: `url(${profileBg})` }}>
-      {/* Bagian Ornamen Atas*/}
+      {/* Bagian Bunga Atas*/}
       <img
-        src={flower2}
+        src={flowerCorner2}
         alt="Ornamen Bunga Atas Tengah"
-        className="absolute top-[-65px] left-1/2 -translate-x-1/2 w-[150px] max-w-md h-auto z-10 transform rotate-90"
+        className="absolute top-[-5px] left-[0px] w-[160px] max-w-md h-auto z-10 scale-y-[-1]"
       />
       <img
-        src={flower}
-        alt="Ornamen Bunga Atas Kiri"
-        className="absolute top-0 left-[-10px] w-[300px] max-w-md h-auto z-10 rotate-180"
+        src={flowerCorner1}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[-5px] right-[0px] w-[160px] max-w-md h-auto z-10 rotate-[180deg]"
       />
       <img
-        src={flower}
-        alt="Ornamen Bunga Atas Kanan"
-        className="absolute top-0 right-[-10px] w-[300px] max-w-md h-auto z-10 transform scale-y-[-1]"
+        src={flowerStraight3}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[-45px] right-[-40px] w-[210px] max-w-md h-auto z-10 scale-x-[-1]"
+      />
+      <img
+        src={flowerStraight3}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[-45px] left-[-40px] w-[210px] max-w-md h-auto z-10 scale-x-[-1]"
+      />
+      <img
+        src={flowerStraight2}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[-35px] left-1/2 -translate-x-1/2 w-[280px] max-w-md h-auto z-10"
+      />
+      <img
+        src={flowerStraight1}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[10px] left-0 w-[250px] max-w-md h-auto z-0"
+      />
+      <img
+        src={flowerStraight1}
+        alt="Ornamen Bunga Atas Tengah"
+        className="absolute top-[10px] right-0 w-[250px] max-w-md h-auto z-0"
       />
       <img
         src={bismillah}
         alt="Bismillah"
         className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[270px] max-w-md h-auto z-10"
+      />
+      
+      {/* Bagian Bunga Bawah*/}
+      <img
+        src={flower}
+        alt="Ornamen Bunga Bawah Kiri"
+        className="absolute bottom-[35rem] left-[-70px] w-[200px] max-w-md h-auto z-0 opacity-75 rotate-[-26deg]"
+      />
+      <img
+        src={flower}
+        alt="Ornamen Bunga Bawah Kanan"
+        className="absolute bottom-[20rem] right-[-80px] w-[200px] max-w-md h-auto z-10 opacity-80 rotate-[-75deg]"
+      />
+      <img
+        src={fern}
+        alt="Ornamen Pakis Bawah Kiri"
+        className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] max-w-md h-auto z-0 opacity-80"
+      />
+      <img
+        src={fern2}
+        alt="Ornamen Pakis Bawah Kanan"
+        className="absolute bottom-[35px] right-[-45px] w-[320px] max-w-md h-auto z-0 opacity-80 rotate-90 "
       />
 
       <p className="max-w-3xl mx-auto mb-12 mt-[150px]">
@@ -66,28 +109,6 @@ const Profile = () => {
           isBride={false}
         />
       </div>
-
-      {/* Bagian Ornamen Bawah*/}
-      <img
-        src={flower3}
-        alt="Ornamen Bunga Bawah Kiri"
-        className="absolute bottom-[35rem] left-[-80px] w-[200px] max-w-md h-auto z-10 opacity-80 rotate-[35deg]"
-      />
-      <img
-        src={flower3}
-        alt="Ornamen Bunga Bawah Kanan"
-        className="absolute bottom-[25rem] right-[-80px] w-[200px] max-w-md h-auto z-10 opacity-80 rotate-[-35deg]"
-      />
-      <img
-        src={fern}
-        alt="Ornamen Pakis Bawah Kiri"
-        className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] max-w-md h-auto z-0 opacity-80"
-      />
-      <img
-        src={fern2}
-        alt="Ornamen Pakis Bawah Kanan"
-        className="absolute bottom-[35px] right-[-45px] w-[320px] max-w-md h-auto z-0 opacity-80 rotate-90 "
-      />
     </div>
   );
 };

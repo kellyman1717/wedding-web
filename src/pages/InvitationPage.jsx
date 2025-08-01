@@ -30,7 +30,6 @@ const InvitationPage = () => {
       <div {...fadeRSVP}><RSVP /></div>
       <div {...fadeGuestbook}><Guestbook /></div>
       <div {...fadeClosing}><Closing /></div>
-      
     </main>
   );
 };
