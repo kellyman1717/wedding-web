@@ -6,6 +6,7 @@ import floralBouquet2 from '../assets/images/floral-bouquet-16.png';
 import leaf1 from '../assets/images/leaf-branches-6.png';
 
 const RSVP = () => {
+  const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState('Hadir');
   const [guests, setGuests] = useState(1);
@@ -31,39 +32,13 @@ const RSVP = () => {
 
   return (
     <div className="relative py-16 px-8 text-center bg-gradient-to-b from-white to-custom-blue">
-      {/* Bunga Tengah */}
-      <img
-        src={leaf1}
-        alt="Ornamen Bunga Kiri"
-        className="absolute top-[-17px] left-[-34px] w-[143px] max-w-md h-auto z-0 rotate-[-5deg] opacity-55"
-      />
-      <img
-        src={leaf1}
-        alt="Ornamen Bunga Kanan"
-        className="absolute top-[-125px] right-[-40px] w-[143px] max-w-md h-auto z-0 rotate-[58deg] scale-y-[-1] opacity-55"
-      />
-      {/* Bunga Lurus */}
-      <img
-        src={floralStraight}
-        alt="Ornamen Bunga Kiri"
-        className="absolute bottom-[-23px] left-[-50px] w-[350px] max-w-md h-auto z-0"
-      />
-      <img
-        src={floralStraight}
-        alt="Ornamen Bunga Kanan"
-        className="absolute bottom-[-23px] right-[-70px] w-[350px] max-w-md h-auto z-0 scale-x-[-1]"
-      />
-      {/* Bunga Pojok */}
-      <img
-        src={floralBouquet1}
-        alt="Ornamen Bunga Pojok Kiri"
-        className="absolute bottom-[-23px] left-[-10px] w-[160px] max-w-md h-auto z-0 opacity-89"
-      />
-      <img
-        src={floralBouquet2}
-        alt="Ornamen Bunga Pojok Kanan"
-        className="absolute bottom-[-12px] right-[-45px] w-[140px] max-w-md h-auto z-0 opacity-89 rotate-[-14deg] scale-x-[-1]"
-      />
+            {/* Ornamen */}
+            <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="absolute top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
+            <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="absolute top-[-125px] right-[-40px] w-[143px] h-auto z-0 rotate-[58deg] scale-y-[-1] opacity-55"/>
+            <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-50px] w-[350px] h-auto z-0"/>
+            <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] right-[-70px] w-[350px] h-auto z-0 scale-x-[-1]"/>
+            <img src={`${cdnBaseUrl}floral-bouquet-10.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-10px] w-[160px] h-auto z-0 opacity-89"/>
+            <img src={`${cdnBaseUrl}floral-bouquet-16.webp`} alt="Ornamen" className="absolute bottom-[-12px] right-[-45px] w-[140px] h-auto z-0 opacity-89 rotate-[-14deg] scale-x-[-1]"/>
       <div className="relative z-10">
         <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Konfirmasi Kehadiran</h2>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">

@@ -1,5 +1,4 @@
 import { invitationData } from '../data/invitationData.js';
-import eventBg from '../assets/images/event-bg.png';
 
 const EventCard = ({ name, date, time, location, address, icon }) => (
   <div className="bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
@@ -13,18 +12,21 @@ const EventCard = ({ name, date, time, location, address, icon }) => (
 );
 
 const EventDetails = () => {
-  const receptionEvent = invitationData.events[0];
+    const receptionEvent = invitationData.events[0];
+    const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
-  return (
-    <div className="py-16 px-6 bg-white" style={{
-      backgroundImage: `url(${eventBg})`,
-      opacity: 0.7,
-      }}>
-      <div className="flex justify-center items-stretch">
-        {receptionEvent && <EventCard {...receptionEvent} />}
-      </div>
-    </div>
-  );
+    return (
+        <div className="py-16 px-6 bg-white" style={{
+            backgroundImage: `url(${cdnBaseUrl}event-bg.webp)`, // Diperbarui
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.9,
+        }}>
+            <div className="flex justify-center items-stretch">
+                {receptionEvent && <EventCard {...receptionEvent} />}
+            </div>
+        </div>
+    );
 };
 
 export default EventDetails;

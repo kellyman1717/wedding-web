@@ -1,63 +1,42 @@
 import { useState, useEffect } from 'react';
 import { addGuestbookEntry, getGuestbookEntries } from '../services/guestbookService.js';
-import flowerStraight1 from '../assets/images/floral-straight-4.png';
-import flowerStraight2 from '../assets/images/floral-straight-5.png';
-import floralBouquet1 from '../assets/images/floral-bouquet-14.png';
-import fern from '../assets/images/fern-2.png';
-
 
 const Guestbook = () => {
-  const [entries, setEntries] = useState([]);
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [formMessage, setFormMessage] = useState("");
+    const [entries, setEntries] = useState([]);
+    const [name, setName] = useState("");
+    const [message, setMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [formMessage, setFormMessage] = useState("");
+    const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
-  useEffect(() => {
-    const unsubscribe = getGuestbookEntries(setEntries);
-    return () => unsubscribe();
-  }, []);
+    useEffect(() => {
+        const unsubscribe = getGuestbookEntries(setEntries);
+        return () => unsubscribe();
+    }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!name || !message) {
-      setFormMessage('Nama dan ucapan tidak boleh kosong.');
-      return;
-    }
-    setIsLoading(true);
-    const result = await addGuestbookEntry(name, message);
-    setFormMessage(result.message);
-    if (result.success) {
-      setName("");
-      setMessage("");
-    }
-    setIsLoading(false);
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!name || !message) {
+            setFormMessage('Nama dan ucapan tidak boleh kosong.');
+            return;
+        }
+        setIsLoading(true);
+        const result = await addGuestbookEntry(name, message);
+        setFormMessage(result.message);
+        if (result.success) {
+            setName("");
+            setMessage("");
+        }
+        setIsLoading(false);
+    };
 
   return (
     <div className="relative py-16 px-6 bg-white text-center bg-gradient-to-b from-custom-blue to-white">
-      {/* Bunga Tengah */}
-      <img
-        src={fern}
-        alt="Ornamen Bunga Atas kanan"
-        className="absolute top-[10px] left-[0px] w-[250px] max-w-md h-auto z-0 scale-x-[-1]"
-      />
-      <img
-        src={floralBouquet1}
-        alt="Ornamen Bunga Atas kanan"
-        className="absolute top-[-65px] right-[-50px] w-[200px] max-w-md h-auto z-0 rotate-[-155deg] scale-x-[-1]"
-      />
-      <img
-        src={flowerStraight1}
-        alt="Ornamen Bunga Tengah Atas Kiri"
-        className="absolute top-[-55px] left-[-20px] w-[280px] max-w-md h-auto z-0"
-      />
-      <img
-        src={flowerStraight2}
-        alt="Ornamen Bunga Tengah Atas Kanan"
-        className="absolute top-[-55px] right-[-20px] w-[280px] max-w-md h-auto z-0"
-      />
-      <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
+      <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute top-[10px] left-[0px] w-[250px] h-auto z-0 scale-x-[-1]"/>
+            <img src={`${cdnBaseUrl}floral-bouquet-14.webp`} alt="Ornamen" className="absolute top-[-65px] right-[-50px] w-[200px] h-auto z-0 rotate-[-155deg] scale-x-[-1]"/>
+            <img src={`${cdnBaseUrl}floral-straight-4.webp`} alt="Ornamen" className="absolute top-[-55px] left-[-20px] w-[280px] h-auto z-0"/>
+            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-55px] right-[-20px] w-[280px] h-auto z-0"/>
+            <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-custom-blue-light p-8 rounded-lg shadow-lg mb-8">
           <div className="mb-4">
