@@ -15,6 +15,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 
   @apply bg-custom-blue text-custom-brown;
 }
@@ -114,4 +115,12 @@ body {
   .animate-wind-blow-rotated {
     animation: wind-blow-rotated 8s ease-in-out infinite;
   }
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

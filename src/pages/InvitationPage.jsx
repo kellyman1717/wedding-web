@@ -21,14 +21,14 @@ const InvitationPage = () => {
 
   return (
     <main>
-      <Hero />
-      <div {...fadeProfile}><Profile /></div>
-      <div {...fadeEvent}><EventDetails /></div>
-      <div {...fadeGallery}><Gallery /></div>
-      <div {...fadeLoveStory}><LoveStory /></div>
-      <div {...fadeMap}><LocationMap /></div>
-      <div {...fadeRSVP}><RSVP /></div>
-      <div {...fadeGuestbook}><Guestbook /></div>
+      <div id="home"><Hero /></div>
+      <div id="profile" {...fadeProfile}><Profile /></div>
+      <div id="event" {...fadeEvent}><EventDetails /></div>
+      <div id="gallery" {...fadeGallery}><Gallery /></div>
+      <div id="lovestory" {...fadeLoveStory}><LoveStory /></div>
+      <div id="location" {...fadeMap}><LocationMap /></div>
+      <div id="rsvp" {...fadeRSVP}><RSVP /></div>
+      <div id="guestbook" {...fadeGuestbook}><Guestbook /></div>
       <div {...fadeClosing}><Closing /></div>
     </main>
   );

@@ -4,6 +4,7 @@ import Cover from './components/Cover';
 import InvitationPage from './pages/InvitationPage';
 import MusicPlayer from './components/MusicPlayer';
 import audioFile from './assets/music/song.mp3';
+import BottomNavBar from './components/BottomNavBar';
 
 const INITIAL_LOAD_DURATION = 1800;
 const TRANSITION_OVERLAY_DURATION = 2300;
@@ -36,6 +37,7 @@ function App() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isFadingOutCover, setIsFadingOutCover] = useState(false);
   const audioRef = useRef(new Audio(audioFile));
+  const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -64,6 +66,10 @@ function App() {
       setShowHero(true);
       setShowOverlay(true);
     }, 1800);
+
+    setTimeout(() => {
+        setShowNavbar(true);
+    }, 1900);
 
     setTimeout(() => {
       setShowOverlay(false);
@@ -102,7 +108,10 @@ function App() {
       )}
       
       {showHero && (
+        <>
         <MusicPlayer isPlaying={isMusicPlaying} onTogglePlay={toggleMusic} />
+        <BottomNavBar isVisible={showNavbar} />
+        </>
       )}
     </>
   );
