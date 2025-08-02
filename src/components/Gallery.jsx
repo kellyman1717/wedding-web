@@ -1,5 +1,6 @@
 import { invitationData } from '../data/invitationData.js';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
+
 const Gallery = () => {
   const { galleryImages } = invitationData;
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';

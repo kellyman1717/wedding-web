@@ -1,8 +1,10 @@
 const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
 export const invitationData = {
-  groom: "Nama Pria",
-  bride: "Nama Wanita",
+  groomExt: "Ardian Syahrul Sulaiman",
+  brideExt: "Yulia Ananda Septiani",
+  groom: "Ardian",
+  bride: "Yulia",
   weddingDate: {
     day: "Jumat",
     date: 27,
@@ -14,13 +16,13 @@ export const invitationData = {
     fullName: "Nama Lengkap Pria",
     father: "Nama Ayah Pria",
     mother: "Nama Ibu Pria",
-    photo: `${cdnBaseUrl}groom.png`, // Diperbarui
+    photo: `${cdnBaseUrl}groom.png`,
   },
   brideProfile: {
     fullName: "Nama Lengkap Wanita",
     father: "Nama Ayah Wanita",
     mother: "Nama Ibu Wanita",
-    photo: `${cdnBaseUrl}bride.png`, // Diperbarui
+    photo: `${cdnBaseUrl}bride.png`,
   },
   events: [
     {
@@ -33,7 +35,7 @@ export const invitationData = {
       icon: '💍'
     }
   ],
-  // Path gambar galeri diperbarui ke URL CDN
+
   galleryImages: [
     `${cdnBaseUrl}gallery-1.png`,
     `${cdnBaseUrl}gallery-2.png`,

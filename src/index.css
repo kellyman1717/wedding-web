@@ -20,6 +20,61 @@ body {
 }
 
 @layer utilities {
+  @keyframes fade-blur-white {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  40% {
+    opacity: 1;
+    backdrop-filter: blur(60px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+.animate-fade-blur-white {
+  animation: fade-blur-white 5s ease-in-out forwards;
+}
+
+  @keyframes fadeout-scale-opacity {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    backdrop-filter: blur(30px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+    backdrop-filter: blur(0px);
+  }
+}
+
+.animate-fadeout-scale-opacity {
+  animation: fadeout-scale-opacity 3s ease-in-out forwards;
+}
+
+  @keyframes fadeout-blur {
+    0% {
+      opacity: 1;
+      backdrop-filter: blur(30px);
+    }
+    100% {
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+  }
+
+  .animate-fadeout-blur {
+    animation: fadeout-blur 2.3s ease-in-out forwards;
+  }
+
+  .animate-fadeout-blur1 {
+    animation: fadeout-blur 1.8s ease-in-out forwards;
+  }
+  
   @keyframes fade-in {
     from {
       opacity: 0;

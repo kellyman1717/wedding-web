@@ -1,4 +1,5 @@
 import { invitationData } from '../data/invitationData.js';
+
 const Closing = () => {
   const { groom, bride } = invitationData;
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
@@ -6,12 +7,12 @@ const Closing = () => {
   return (
     <div className="relative py-20 px-6 text-center bg-gradient-to-b from-white to-custom-blue">
       <img
-        src={`${cdnBaseUrl}fern-group-1.webp`} // Diperbarui
+        src={`${cdnBaseUrl}fern-group-1.webp`}
         alt="Ornamen Fern Bawah"
         className="absolute bottom-[-4px] left-[0px] w-[300px] max-w-md h-auto z-0 scale-x-[-1]"
       />
       <img
-        src={`${cdnBaseUrl}fern-group-1.webp`} // Diperbarui
+        src={`${cdnBaseUrl}fern-group-1.webp`}
         alt="Ornamen Fern Bawah"
         className="absolute bottom-[-4px] right-[-100px] w-[300px] max-w-md h-auto z-0"
       />
@@ -22,7 +23,11 @@ const Closing = () => {
         Atas kehadiran dan doa restu, kami ucapkan terima kasih.
       </p>
       <p className="font-sans text-lg mb-4">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
-      <p className="relative font-display text-4xl italic text-custom-blue-dark mb-10">{bride} & {groom}</p>
+      <div className="flex flex-col items-center font-display italic text-custom-blue-dark mb-10">
+        <p style={{ fontSize: '32px' }}>{bride}</p>
+        <p className="text-3xl my-2">&</p>
+        <p style={{ fontSize: '32px' }}>{groom}</p>
+      </div>
     </div>
   );
 };

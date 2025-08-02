@@ -1,7 +1,7 @@
 import { invitationData } from '../data/invitationData.js';
 
 const EventCard = ({ name, date, time, location, address, icon }) => (
-  <div className="bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
+  <div className="mt-[-38px] bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
     <span className="text-5xl mb-4">{icon}</span>
     <h3 className="font-display text-4xl text-custom-brown-dark mb-4">{name}</h3>
     <p className="font-sans font-semibold text-lg">{date}</p>
@@ -16,12 +16,7 @@ const EventDetails = () => {
     const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
     return (
-        <div className="py-16 px-6 bg-white" style={{
-            backgroundImage: `url(${cdnBaseUrl}event-bg.webp)`, // Diperbarui
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.9,
-        }}>
+        <div className="py-16 px-6 bg-white">
             <div className="flex justify-center items-stretch">
                 {receptionEvent && <EventCard {...receptionEvent} />}
             </div>

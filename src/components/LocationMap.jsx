@@ -20,7 +20,7 @@ L.Icon.Default.mergeOptions({
 const LocationMap = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   const receptionLocation = {
-    ...invitationData.events[1],
+    ...invitationData.events[0],
     position: [-7.681279, 111.498453],
     icon: resepsiIcon,
   };
@@ -63,12 +63,12 @@ const LocationMap = () => {
       </div>
       <div className="mt-6 flex justify-center">
         <a
-          href={receptionLocation.mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-custom-blue-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-blue-700 transition-all transform hover:scale-105" // Diperbarui
+            href={receptionLocation.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-custom-blue-dark text-white font-semibold py-2 px-6 rounded-md shadow-md hover:bg-blue-700 transition-all transform hover:scale-105"
         >
-          Buka {receptionLocation.name} di Google Maps
+            Buka di Google Maps
         </a>
       </div>
     </div>

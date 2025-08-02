@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes fadeout-blur {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(30px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+.animate-fadeout-blur {
+  animation: fadeout-blur 1.5s ease-out forwards;
+}

@@ -6,7 +6,6 @@ const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
             <img src={photo} alt={name} className="w-full h-full object-cover" />
         </div>
         <h3 className="font-display text-4xl italic text-custom-blue-dark">{name}</h3>
-        <p className="font-sans text-lg">{fullName}</p>
         <div className="text-center">
             <p className="font-semibold">{isBride ? 'Putri dari Pasangan' : 'Putra dari Pasangan'}</p>
             <p>{father}</p>
@@ -19,33 +18,31 @@ const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
 const Profile = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   return (
-    <div className="relative text-center py-16 px-6 bg-custom-blue-light" style={{ backgroundImage: `url(${cdnBaseUrl}profile-bg.webp)` }}>
-      {/* Ornamen */}
-            <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]"/>
-            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] right-[-40px] w-[210px] h-auto z-10 scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] left-[-40px] w-[210px] h-auto z-10"/>
-            <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="absolute top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10"/>
-            <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0"/>
-            <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}bismillah.png`} alt="Bismillah" className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[270px] h-auto z-10"/>
-            <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute bottom-[35rem] left-[-70px] w-[200px] h-auto z-0 opacity-75 rotate-[-26deg]"/>
-            <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute bottom-[20rem] right-[-80px] w-[200px] h-auto z-10 opacity-80 rotate-[-175deg] scale-y-[-1]"/>
-            <img src={`${cdnBaseUrl}fern-1.webp`} alt="Ornamen" className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] h-auto z-0 opacity-80"/>
-            <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute bottom-[35px] right-[-45px] w-[320px] h-auto z-0 opacity-80 rotate-90"/>
-
+    <div className="relative text-center py-16 px-10 bg-gradient-to-b from-custom-blue-light to-white">
+        <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]"/>
+        <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]"/>
+        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] right-[-40px] w-[210px] h-auto z-10 scale-x-[-1]"/>
+        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] left-[-40px] w-[210px] h-auto z-10"/>
+        <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="absolute top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10"/>
+        <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0"/>
+        <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]"/>
+        <img src={`${cdnBaseUrl}bismillah.png`} alt="Bismillah" className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[270px] h-auto z-10"/>
+        <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute top-[21rem] left-[-80px] w-[200px] h-auto z-0 opacity-75 rotate-[-26deg]"/>
+        <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute bottom-[20rem] right-[-85px] w-[200px] h-auto z-10 opacity-80 rotate-[-175deg] scale-y-[-1]"/>
+        <img src={`${cdnBaseUrl}fern-1.webp`} alt="Ornamen" className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] h-auto z-0 opacity-80"/>
+        <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute bottom-[35px] right-[-45px] w-[320px] h-auto z-0 opacity-80 rotate-90"/>
       <p className="max-w-3xl mx-auto mb-12 mt-[150px]">
         Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
       </p>
       <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
         <ProfileCard
-          name={invitationData.bride}
+          name={invitationData.brideExt}
           {...invitationData.brideProfile}
           isBride={true}
         />
         <span className="font-display text-5xl text-custom-blue-dark">&</span>
         <ProfileCard
-          name={invitationData.groom}
+          name={invitationData.groomExt}
           {...invitationData.groomProfile}
           isBride={false}
         />
