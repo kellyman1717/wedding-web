@@ -5,7 +5,7 @@ const Closing = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
   return (
-    <div className="relative py-20 px-6 text-center bg-gradient-to-b from-white to-custom-blue">
+    <div className="relative overflow-hidden y-20 px-6 text-center bg-gradient-to-b from-white to-custom-blue">
       <img
         src={`${cdnBaseUrl}fern-group-1.webp`}
         alt="Ornamen Fern Bawah"

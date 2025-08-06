@@ -26,7 +26,7 @@ const LocationMap = () => {
   };
 
   return (
-    <div className="relative py-16 px-6 bg-white text-center">
+    <div className="relative overflow-hidden py-16 px-6 bg-white text-center">
       {/* Ornamen Bunga */}
             <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-10px] right-0 w-[150px] h-auto z-0 rotate-[180deg]"/>
             <img src={`${cdnBaseUrl}floral-bouquet-19.webp`} alt="Ornamen" className="absolute top-[-10px] left-0 w-[150px] h-auto z-0 scale-y-[-1]"/>

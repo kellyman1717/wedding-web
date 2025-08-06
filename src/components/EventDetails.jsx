@@ -1,7 +1,7 @@
 import { invitationData } from '../data/invitationData.js';
 
 const EventCard = ({ name, date, time, location, address, icon }) => (
-  <div className="mt-[-38px] bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
+  <div className="relative overlay-hidden mt-[-38px] bg-custom-blue-light rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center">
     <span className="text-5xl mb-4">{icon}</span>
     <h3 className="font-display text-4xl text-custom-brown-dark mb-4">{name}</h3>
     <p className="font-sans font-semibold text-lg">{date}</p>

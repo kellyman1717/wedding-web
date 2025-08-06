@@ -10,7 +10,7 @@ import Closing from '../components/Closing.jsx';
 import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
 const InvitationPage = () => {
-  const fadeProfile = useScrollFadeIn();
+  const fadeProfile = useScrollFadeIn("up", 0, 0.1);
   const fadeEvent = useScrollFadeIn();
   const fadeMap = useScrollFadeIn("up");
   const fadeGallery = useScrollFadeIn("left");

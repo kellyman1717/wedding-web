@@ -39,8 +39,9 @@ const BottomNavBar = ({ isVisible }) => {
   return (
     <nav
       className={`fixed bottom-0 left-0 z-30 w-full transform px-4 pb-4 transition-all duration-700 ease-in-out
-                 md:px-0 md:pb-0
-                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'}`}>
+                md:px-0 md:pb-0
+                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'}
+                md:translate-y-0 md:pb-6`}>
       <div
         className="mx-auto flex h-16 items-center justify-start gap-2 overflow-x-auto
                    rounded-full bg-white/20 p-2 shadow-lg backdrop-blur-lg scrollbar-none

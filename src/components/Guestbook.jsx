@@ -31,11 +31,11 @@ const Guestbook = () => {
     };
 
   return (
-    <div className="relative py-16 px-6 bg-white text-center bg-gradient-to-b from-custom-blue to-white">
+    <div className="relative overflow-hidden py-16 px-6 bg-white text-center bg-gradient-to-b from-custom-blue to-white">
       <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute top-[10px] left-[0px] w-[250px] h-auto z-0 scale-x-[-1]"/>
             <img src={`${cdnBaseUrl}floral-bouquet-14.webp`} alt="Ornamen" className="absolute top-[-65px] right-[-50px] w-[200px] h-auto z-0 rotate-[-155deg] scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-straight-4.webp`} alt="Ornamen" className="absolute top-[-55px] left-[-20px] w-[280px] h-auto z-0"/>
-            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-55px] right-[-20px] w-[280px] h-auto z-0"/>
+            <img src={`${cdnBaseUrl}floral-straight-4.webp`} alt="Ornamen" className="fixed top-[-55px] left-[-20px] w-[280px] h-auto z-0"/>
+            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-55px] right-0 translate-x-[-20px] w-[280px] h-auto z-0"/>
             <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-custom-blue-light p-8 rounded-lg shadow-lg mb-8">

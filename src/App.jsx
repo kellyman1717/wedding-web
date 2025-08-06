@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsInitialLoading(false);
-    }, INITIAL_LOAD_DURATION); 
+    }, INITIAL_LOAD_DURATION);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,23 +54,33 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (showHero) {
+      const body = document.body;
+      const handleFirstScroll = () => {
+        setTimeout(() => {
+          setShowNavbar(true);
+        }, 1000);
+        body.removeEventListener('scroll', handleFirstScroll);
+      };
+      body.addEventListener('scroll', handleFirstScroll);
+      return () => {
+        body.removeEventListener('scroll', handleFirstScroll);
+      };
+    }
+  }, [showHero]);
+
   const handleOpenInvitation = () => {
     setIsBlurring(true);
     setIsFadingOutCover(true);
     audioRef.current.play().catch(err => console.error('Audio error', err));
     setIsMusicPlaying(true);
     setShowOverlay(true);
-
     setTimeout(() => {
       setShowCover(false);
       setShowHero(true);
       setShowOverlay(true);
     }, 1800);
-
-    setTimeout(() => {
-        setShowNavbar(true);
-    }, 1900);
-
     setTimeout(() => {
       setShowOverlay(false);
     }, TRANSITION_OVERLAY_DURATION + 5000);
@@ -89,28 +99,25 @@ function App() {
   return (
     <>
       {isInitialLoading && (
-        <div className="fixed inset-0 z-50 backdrop-blur-2xl animate-fadeout-blur1" />
+        <div className="fixed inset-0 z-50 backdrop-blur-2xl animate-fadeout-blur" />
       )}
       {showOverlay && (
         <div className="fixed inset-0 z-40 bg-white/60 backdrop-blur-2xl animate-fade-blur-white pointer-events-none" />
       )}
-
       {showCover && (
         <TransitionWrapper isVisible={showCover} animationClasses="scale-100 transition-transform duration-700 ease-in-out">
           <Cover onOpen={handleOpenInvitation} isBlurred={isBlurring} isFadingOut={isFadingOutCover} />
         </TransitionWrapper>
       )}
-
       {showHero && (
         <TransitionWrapper isVisible={showHero} animationClasses="translate-y-0" delay={2400}>
           <InvitationPage />
         </TransitionWrapper>
       )}
-      
       {showHero && (
         <>
-        <MusicPlayer isPlaying={isMusicPlaying} onTogglePlay={toggleMusic} />
-        <BottomNavBar isVisible={showNavbar} />
+          <MusicPlayer isPlaying={isMusicPlaying} onTogglePlay={toggleMusic} />
+          <BottomNavBar isVisible={showNavbar} />
         </>
       )}
     </>

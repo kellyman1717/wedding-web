@@ -18,7 +18,7 @@ const LoveStory = () => {
   }, []);
 
   return (
-    <div className="relative py-[55px] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
+    <div className="relative overflow-hidden py-[55px] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-custom-blue-light to-white">
             {/* Ornamen */}
             <img src={`${cdnBaseUrl}leaf-branches-3.webp`} alt="Ornamen" className="absolute top-[370px] left-[-25px] w-[215px] h-auto z-0 rotate-[165deg] opacity-90"/>
             <img src={`${cdnBaseUrl}leaf-branches-1.webp`} alt="Ornamen" className="absolute bottom-[160px] right-[-45px] w-[215px] h-auto z-0 rotate-[-155deg]"/>

@@ -18,12 +18,12 @@ const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
 const Profile = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   return (
-    <div className="relative text-center py-16 px-10 bg-gradient-to-b from-custom-blue-light to-white">
+    <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-custom-blue-light to-white">
         <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]"/>
         <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]"/>
-        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] right-[-40px] w-[210px] h-auto z-10 scale-x-[-1]"/>
-        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="absolute top-[-45px] left-[-40px] w-[210px] h-auto z-10"/>
-        <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="absolute top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10"/>
+        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] right-0 w-[210px] h-auto z-10 scale-x-[-1]"/>
+        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] left-0 w-[210px] h-auto z-10"/>
+        <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="fixed top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10"/>
         <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0"/>
         <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]"/>
         <img src={`${cdnBaseUrl}bismillah.png`} alt="Bismillah" className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[270px] h-auto z-10"/>

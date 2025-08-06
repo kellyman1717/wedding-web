@@ -27,7 +27,7 @@ const RSVP = () => {
   };
 
   return (
-    <div className="relative py-16 px-8 text-center bg-gradient-to-b from-white to-custom-blue">
+    <div className="relative overflow-hidden py-16 px-8 text-center bg-gradient-to-b from-white to-custom-blue">
             {/* Ornamen */}
             <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="absolute top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
             <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="absolute top-[-125px] right-[-40px] w-[143px] h-auto z-0 rotate-[58deg] scale-y-[-1] opacity-55"/>
