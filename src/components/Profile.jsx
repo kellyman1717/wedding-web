@@ -1,52 +1,259 @@
+import { motion } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
 
-const ProfileCard = ({ name, fullName, father, mother, photo, isBride }) => (
-    <div className="flex flex-col items-center gap-4">
-        <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
-            <img src={photo} alt={name} className="w-full h-full object-cover" />
-        </div>
-        <h3 className="font-display text-4xl italic text-custom-blue-dark">{name}</h3>
-        <div className="text-center">
-            <p className="font-semibold">{isBride ? 'Putri dari Pasangan' : 'Putra dari Pasangan'}</p>
-            <p>{father}</p>
-            <p>&</p>
-            <p>{mother}</p>
-        </div>
-    </div>
-);
+const ProfileCard = ({ name, father, mother, photo, isBride, variants }) => {
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        ease: "easeOut",
+        duration: 0.8
+      }
+    }
+  };
+
+  return (
+    // Kontainer kartu sekarang adalah komponen motion
+    <motion.div className="flex flex-col items-center gap-4" variants={variants}>
+      <motion.div 
+        className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg"
+        variants={childVariants}
+      >
+        <img src={photo} alt={name} className="w-full h-full object-cover" />
+      </motion.div>
+      <motion.h3 
+        className="font-display text-4xl italic text-gray-700"
+        variants={childVariants}
+      >
+        {name}
+      </motion.h3>
+      <motion.div className="text-center text-gray-600" variants={childVariants}>
+        <p className="font-semibold">{isBride ? 'Putri dari Pasangan' : 'Putra dari Pasangan'}</p>
+        <p>{father}</p>
+        <p>&</p>
+        <p>{mother}</p>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Profile = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
+
+  // PERUBAHAN BARU: Varian untuk kontainer profil dan itemnya
+  const profileSectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5, // Jeda animasi antar kartu profil dan simbol '&'
+        delayChildren: 0.5 // Mulai setelah animasi pembuka selesai
+      }
+    }
+  };
+
+  const profileItemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+        staggerChildren: 0.2 // Jeda animasi untuk foto, nama, dll di dalam kartu
+      }
+    }
+  };
+
+  // PERUBAHAN: Varian untuk kontainer konten dengan stagger effect
+  const contentContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4 // Jeda animasi antar elemen
+      }
+    }
+  };
+
+  // PERUBAHAN: Varian untuk setiap elemen di dalam kontainer
+  const contentChildVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.2,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // PERUBAHAN: Varian untuk daun kiri dengan animasi lambaian
+  const leafLeftVariants = {
+    hidden: { opacity: 0, x: -100, rotate: -26 },
+    visible: {
+      opacity: 0.75,
+      x: 0,
+      rotate: [-26, -29, -26], // Animasi rotasi berulang
+      transition: {
+        opacity: { duration: 1.5, ease: "easeInOut" },
+        x: { duration: 1.5, ease: "easeInOut" },
+        rotate: {
+          delay: 1.5, // Mulai setelah transisi awal
+          duration: 9,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }
+      }
+    }
+  };
+
+  // PERUBAHAN: Varian untuk daun kanan dengan animasi lambaian
+  const leafRightVariants = {
+    hidden: { opacity: 0, x: 100, rotate: -175, scaleY: -1 },
+    visible: {
+      opacity: 0.8,
+      x: 0,
+      scaleY: -1, // Pertahankan skala
+      rotate: [-175, -172, -175], // Animasi rotasi berulang
+      transition: {
+        opacity: { duration: 1.5, ease: "easeInOut" },
+        x: { duration: 1.5, ease: "easeInOut" },
+        rotate: {
+          delay: 1.5, // Mulai setelah transisi awal
+          duration: 9.5, // Sedikit beda durasi agar lebih natural
+          ease: "easeInOut",
+          repeat: Infinity,
+        }
+      }
+    }
+  };
+  
+  // Varian lainnya tetap sama
+  const fern1Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 0.8, y: 0, rotate: [-2, 2, -2], x: ['-2%', '2%', '-2%'],
+      transition: {
+        opacity: { duration: 1.5, ease: 'easeOut' }, y: { duration: 1.5, ease: 'easeOut' },
+        rotate: { delay: 1.5, duration: 9, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop', repeatDelay: 0.6 },
+        x: { delay: 1.5, duration: 9, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop', repeatDelay: 0.6 }
+      }
+    }
+  };
+  const fern2Variants = {
+    hidden: { opacity: 0, y: 50, rotate: 90 },
+    visible: {
+      opacity: 0.8, y: 0, rotate: [90, 88, 92, 90],
+      transition: {
+        opacity: { duration: 1.5, ease: 'easeOut' }, y: { duration: 1.5, ease: 'easeOut' },
+        rotate: { delay: 1.5, duration: 8, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop', repeatDelay: 0.6 }
+      }
+    }
+  };
+
   return (
     <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-custom-blue-light to-white">
-        <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]"/>
-        <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]"/>
-        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] right-0 w-[210px] h-auto z-10 scale-x-[-1]"/>
-        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] left-0 w-[210px] h-auto z-10"/>
-        <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="fixed top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10"/>
-        <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0"/>
-        <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]"/>
-        <img src={`${cdnBaseUrl}bismillah.png`} alt="Bismillah" className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[270px] h-auto z-10"/>
-        <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute top-[21rem] left-[-80px] w-[200px] h-auto z-0 opacity-75 rotate-[-26deg]"/>
-        <img src={`${cdnBaseUrl}leaf-branches-7.webp`} alt="Ornamen" className="absolute bottom-[20rem] right-[-85px] w-[200px] h-auto z-10 opacity-80 rotate-[-175deg] scale-y-[-1]"/>
-        <img src={`${cdnBaseUrl}fern-1.webp`} alt="Ornamen" className="animate-wind-blow absolute bottom-0 left-[-10px] w-[350px] h-auto z-0 opacity-80"/>
-        <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute bottom-[35px] right-[-45px] w-[320px] h-auto z-0 opacity-80 rotate-90"/>
-      <p className="max-w-3xl mx-auto mb-12 mt-[150px]">
-        Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
-      </p>
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+      {/* ... elemen gambar lainnya tetap sama ... */}
+      <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]" />
+      <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]" />
+      <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] right-0 w-[210px] h-auto z-10 scale-x-[-1]" />
+      <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] left-0 w-[210px] h-auto z-10" />
+      <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="fixed top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10" />
+      <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0" />
+      <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]" />
+
+      {/* PERUBAHAN: Kelas `rotate-[-26deg]` dihapus dari className */}
+      <motion.img
+        src={`${cdnBaseUrl}leaf-branches-7.webp`}
+        alt="Ornamen"
+        className="absolute top-[26rem] left-[-80px] w-[180px] h-auto z-0 opacity-75"
+        variants={leafLeftVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      />
+      <motion.img
+        src={`${cdnBaseUrl}leaf-branches-7.webp`}
+        alt="Ornamen"
+        className="absolute bottom-[20rem] right-[-85px] w-[185px] h-auto z-10 opacity-80"
+        variants={leafRightVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      />
+      
+      <motion.img
+        src={`${cdnBaseUrl}fern-1.webp`}
+        alt="Ornamen"
+        className="absolute bottom-0 left-[-20px] w-[330px] h-auto z-0 opacity-80"
+        variants={fern1Variants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      />
+      <motion.img
+        src={`${cdnBaseUrl}fern-2.webp`}
+        alt="Ornamen"
+        className="absolute bottom-[32px] right-[-45px] w-[300px] h-auto z-0"
+        variants={fern2Variants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      />
+
+      <motion.div
+        className="relative z-20 mt-[80px] flex flex-col items-center gap-6"
+        variants={contentContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {/* Gambar Bismillah */}
+        <motion.img
+          src={`${cdnBaseUrl}bismillah.png`}
+          alt="Bismillah"
+          className="w-[270px] h-auto"
+          variants={contentChildVariants}
+          onError={(e) => e.target.style.display = 'none'}
+        />
+        <motion.p
+          className="max-w-3xl mx-auto mb-12"
+          variants={contentChildVariants}
+        >
+          Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+        </motion.p>
+      </motion.div>
+      <motion.div 
+        className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 relative z-20"
+        variants={profileSectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }} // Muncul saat 50% terlihat
+      >
         <ProfileCard
           name={invitationData.brideExt}
           {...invitationData.brideProfile}
           isBride={true}
+          variants={profileItemVariants} // Terapkan varian item
         />
-        <span className="font-display text-5xl text-custom-blue-dark">&</span>
+        <motion.span 
+          className="font-display text-5xl text-gray-700"
+          variants={profileItemVariants} // Simbol '&' juga dianimasikan
+        >
+          &
+        </motion.span>
         <ProfileCard
           name={invitationData.groomExt}
           {...invitationData.groomProfile}
           isBride={false}
+          variants={profileItemVariants} // Terapkan varian item
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
