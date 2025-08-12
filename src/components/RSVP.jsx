@@ -27,38 +27,83 @@ const RSVP = () => {
   };
 
   return (
-    <div className="relative overflow-hidden py-16 px-8 text-center bg-gradient-to-b from-white to-custom-blue">
-            {/* Ornamen */}
-            <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
-            <img src={`${cdnBaseUrl}leaf-branches-6-cropped.webp`} alt="Ornamen" className="fixed top-[-125px] right-0 translate-x-[0px] w-[143px] h-auto z-0 opacity-55"/>
-            <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-50px] w-[350px] h-auto z-0"/>
-            <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] right-[-70px] w-[350px] h-auto z-0 scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-bouquet-10.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-10px] w-[160px] h-auto z-0 opacity-89"/>
-            <img src={`${cdnBaseUrl}floral-bouquet-16.webp`} alt="Ornamen" className="absolute bottom-[-12px] right-[-45px] w-[140px] h-auto z-0 opacity-89 rotate-[-14deg] scale-x-[-1]"/>
+    <div className="relative overflow-hidden py-16 px-8 text-center bg-gradient-to-b from-white to-blue-300">
+      <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
+      <img src={`${cdnBaseUrl}leaf-branches-6-cropped.webp`} alt="Ornamen" className="fixed top-[-125px] right-0 translate-x-[0px] w-[143px] h-auto z-0 opacity-55"/>
+      <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-50px] w-[350px] h-auto z-0"/>
+      <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] right-[-70px] w-[350px] h-auto z-0 scale-x-[-1]"/>
+      <img src={`${cdnBaseUrl}floral-bouquet-10.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-10px] w-[160px] h-auto z-0 opacity-89"/>
+      <img src={`${cdnBaseUrl}floral-bouquet-16.webp`} alt="Ornamen" className="absolute bottom-[-12px] right-[-45px] w-[140px] h-auto z-0 opacity-89 rotate-[-14deg] scale-x-[-1]"/>
+      
       <div className="relative z-10">
         <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8">Konfirmasi Kehadiran</h2>
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+        
+        <form 
+          onSubmit={handleSubmit} 
+          className="max-w-md mx-auto p-8 rounded-lg shadow-lg bg-white/10 backdrop-blur-md transform skew-[5deg, 3deg] border border-white/20"
+          style={{
+            backdropFilter: 'blur(2px)',  // Menambahkan blur 1px
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',  // Menambah bayangan lembut
+          }}
+        >
           <div className="mb-4">
             <label htmlFor="name" className="block text-left font-sans mb-1">Nama</label>
-            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2 border rounded" required />
+            <input 
+              type="text" 
+              id="name" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              className="w-full p-2 border rounded" 
+              required 
+            />
           </div>
+          
           <div className="mb-4">
             <label className="block text-left font-sans mb-1">Kehadiran</label>
             <div className="flex gap-4">
-              <label className="flex items-center"><input type="radio" name="attendance" value="Hadir" checked={attendance === 'Hadir'} onChange={(e) => setAttendance(e.target.value)} className="mr-2" /> Hadir</label>
-              <label className="flex items-center"><input type="radio" name="attendance" value="Tidak Hadir" checked={attendance === 'Tidak Hadir'} onChange={(e) => setAttendance(e.target.value)} className="mr-2" /> Tidak Hadir</label>
+              <label className="flex items-center">
+                <input 
+                  type="radio" 
+                  name="attendance" 
+                  value="Hadir" 
+                  checked={attendance === 'Hadir'} 
+                  onChange={(e) => setAttendance(e.target.value)} 
+                  className="mr-2" 
+                /> 
+                Hadir
+              </label>
+              <label className="flex items-center">
+                <input 
+                  type="radio" 
+                  name="attendance" 
+                  value="Tidak Hadir" 
+                  checked={attendance === 'Tidak Hadir'} 
+                  onChange={(e) => setAttendance(e.target.value)} 
+                  className="mr-2" 
+                /> 
+                Tidak Hadir
+              </label>
             </div>
           </div>
+
           {attendance === 'Hadir' && (
             <div className="mb-6">
               <label htmlFor="guests" className="block text-left font-sans mb-1">Jumlah Tamu (termasuk Anda)</label>
-              <input type="number" id="guests" value={guests} min="1" onChange={(e) => setGuests(parseInt(e.target.value))} className="w-full p-2 border rounded" />
+              <input 
+                type="number" 
+                id="guests" 
+                value={guests} 
+                min="1" 
+                onChange={(e) => setGuests(parseInt(e.target.value))} 
+                className="w-full p-2 border rounded" 
+              />
             </div>
           )}
+
           <button
             type="submit"
             disabled={isLoading}
-            className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
+            className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105"
           >
             {isLoading ? (
               <>

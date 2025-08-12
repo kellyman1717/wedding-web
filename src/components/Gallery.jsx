@@ -11,7 +11,7 @@ const Gallery = () => {
   const fadeIn4 = useScrollFadeIn("up", 500);
 
   return (
-    <div className="relative bg-custom-blue-light py-16 px-8 sm:px-8 lg:px-8 overflow-hidden">
+    <div className="relative bg-blue-200 py-16 px-8 sm:px-8 lg:px-8 overflow-hidden">
       {/* Ornamen Bunga */}
       <img src={`${cdnBaseUrl}leaf-5.webp`} alt="Ornamen" className="absolute top-[50px] left-[-50px] w-[160px] h-auto z-0 scale-y-[-1] opacity-75" />
       <img src={`${cdnBaseUrl}leaf-5.webp`} alt="Ornamen"  className="absolute top-[50px] right-[-50px] w-[160px] h-auto z-0 rotate-[180deg] opacity-75" />

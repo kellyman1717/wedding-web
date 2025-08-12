@@ -32,9 +32,9 @@ const LocationMap = () => {
             <img src={`${cdnBaseUrl}floral-bouquet-19.webp`} alt="Ornamen" className="absolute top-[-10px] left-0 w-[150px] h-auto z-0 scale-y-[-1]"/>
             <img src={`${cdnBaseUrl}leaf-2.webp`} alt="Ornamen" className="absolute top-[-15px] left-[-20px] w-[160px] h-auto z-0 rotate-[-180deg] scale-x-[-1] opacity-50"/>
             <img src={`${cdnBaseUrl}leaf-3.webp`} alt="Ornamen" className="absolute top-[17px] left-[-40px] w-[120px] h-auto z-0 rotate-[-270deg] scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-straight-2.webp`} alt="Ornamen" className="absolute top-[-80px] left-0 w-[260px] h-auto z-0"/>
-            <img src={`${cdnBaseUrl}floral-straight-2.webp`} alt="Ornamen" className="absolute top-[-80px] right-0 w-[260px] h-auto z-0 scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-bouquet-12.webp`} alt="Ornamen" className="absolute top-[-28px] left-1/2 -translate-x-1/2 w-[230px] h-auto z-0 rotate-[180deg]"/>
+            <img src={`${cdnBaseUrl}floral-straight-2.webp`} alt="Ornamen" className="fixed top-[-80px] left-0 w-[260px] h-auto z-0"/>
+            <img src={`${cdnBaseUrl}floral-straight-2.webp`} alt="Ornamen" className="fixed top-[-80px] right-0 w-[260px] h-auto z-0 scale-x-[-1]"/>
+            <img src={`${cdnBaseUrl}floral-bouquet-12.webp`} alt="Ornamen" className="fixed top-[-28px] left-1/2 -translate-x-1/2 w-[230px] h-auto z-0 rotate-[180deg]"/>
       <h2 className="py-5 font-display text-4xl md:text-5xl text-custom-brown mb-[10px] mt-7">
         Lokasi Acara
       </h2>

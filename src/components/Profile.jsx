@@ -157,7 +157,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-custom-blue-light to-white">
+    <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-blue-200 to-white">
       {/* ... elemen gambar lainnya tetap sama ... */}
       <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]" />
       <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]" />
