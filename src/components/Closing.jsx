@@ -23,7 +23,7 @@ const Closing = () => {
         Atas kehadiran dan doa restu, kami ucapkan terima kasih.
       </p>
       <p className="font-sans text-lg mb-4">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
-      <div className="flex flex-col items-center font-display italic text-custom-blue-dark mb-10">
+      <div className="flex flex-col items-center font-display italic text-custom-blue-dark mb-[150px]">
         <p style={{ fontSize: '32px' }}>{bride}</p>
         <p className="text-3xl my-2">&</p>
         <p style={{ fontSize: '32px' }}>{groom}</p>

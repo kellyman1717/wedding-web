@@ -9,7 +9,7 @@ export default {
       colors: {
         'custom-blue': {
           light: '#ddf1f0', // Latar belakang lebih terang
-          DEFAULT: '#abdbe3', // Latar belakang utama
+          DEFAULT: '#bfdbfe', // Latar belakang utama
           dark: '#063970' // Warna tombol
         },
         'custom-brown': {
