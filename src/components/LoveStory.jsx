@@ -20,12 +20,11 @@ const LoveStory = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5, // Jeda 0.5 detik antar kemunculan kartu
+        staggerChildren: 0.5,
       },
     },
   };
 
-  // Varian animasi untuk setiap item timeline
   const timelineItemVariants = {
     hidden: (direction) => ({ 
       opacity: 0, 
@@ -55,8 +54,6 @@ const LoveStory = () => {
         <h2 className="relative font-display text-4xl md:text-5xl text-gray-800">Kisah Cinta Kami</h2>
         <p className="relative font-sans mt-4 text-lg">Perjalanan yang membawa kami hingga ke titik ini.</p>
       </div>
-      
-      {/* PERUBAHAN: Kontainer diubah menjadi motion.div untuk mengontrol animasi berurutan */}
       <motion.div 
         className="relative max-w-3xl mx-auto"
         variants={timelineContainerVariants}
@@ -64,7 +61,6 @@ const LoveStory = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Garis Waktu */}
         <div className="absolute left-6 md:left-1/2 w-0.5 h-full bg-black transform md:-translate-x-1/2 z-0"></div>
         
         {invitationData.loveStory.map((story, index) => {
@@ -72,7 +68,6 @@ const LoveStory = () => {
           const animationDirection = isDesktop ? (isLeftOnDesktop ? "left" : "right") : "right";
 
           return (
-            // PERUBAHAN: Properti animasi individual dihapus dari sini, karena sudah diatur oleh parent
             <motion.div
               key={index}
               custom={animationDirection}
@@ -99,8 +94,6 @@ const LoveStory = () => {
                   </p>
                 </div>
               </div>
-              
-              {/* Titik pada Garis Waktu */}
               <div className="absolute top-1/2 left-6 md:left-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-black rounded-full border-2 border-white z-10"></div>
             </motion.div>
           );

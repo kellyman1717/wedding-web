@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
 import useScrollFadeIn from '../hooks/useScrollFadeIn.js';
 import CoupleNames from './CoupleNames.jsx';
@@ -6,20 +7,19 @@ import CoupleNames from './CoupleNames.jsx';
 const Hero = () => {
   const { groom, bride, weddingDate } = invitationData;
   const fadeInContent = useScrollFadeIn('up', 900);
-  const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
 
-  const [offsetY, setOffsetY] = useState(0);
-
-  useEffect(() => {
-    const body = document.body;
-    const handleScroll = () => {
-      setOffsetY(body.scrollTop);
-    };
-    body.addEventListener('scroll', handleScroll);
-    return () => {
-      body.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // Get global scroll for content parallax
+  const { scrollY } = useScroll();
+  
+  const smoothScrollY = useSpring(scrollY, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+  
+  // Content moves slower than background for parallax effect
+  const contentY = useTransform(smoothScrollY, [0, 1000], [0, -100]);
+  const contentOpacity = useTransform(smoothScrollY, [0, 300, 600], [1, 0.8, 0.3]);
 
   const calculateTimeLeft = () => {
     const difference = +new Date(invitationData.weddingDate.fullDate) - +new Date();
@@ -45,39 +45,88 @@ const Hero = () => {
   });
 
   return (
-    <div
-        className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6"
-        style={{
-        backgroundImage: `url(${cdnBaseUrl}hero-bg.jpg)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundPositionY: offsetY * 0.5,
-      }}
-    >
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
-      <div
+    <div className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6">
+      {/* Content with parallax movement and fade effect */}
+      <motion.div
         className="relative z-10 w-full h-full flex flex-col items-center justify-center"
+        style={{ 
+          y: contentY,
+          opacity: contentOpacity
+        }}
         {...fadeInContent}
-        style={fadeInContent.style}
       >
         <div className="relative z-10 flex flex-col gap-4">
-          <p className="font-sans text-lg tracking-widest uppercase">The Wedding Of</p>
-          <CoupleNames bride={bride} groom={groom} className="text-5xl md:text-8xl" />
-          <p className="font-sans text-xl mt-4">
+          <motion.p 
+            className="font-sans text-lg tracking-widest uppercase drop-shadow-lg"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            The Wedding Of
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
+            className="drop-shadow-2xl"
+          >
+            <CoupleNames bride={bride} groom={groom} className="text-5xl md:text-8xl" />
+          </motion.div>
+          
+          <motion.p 
+            className="font-sans text-xl mt-4 drop-shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
             {`${weddingDate.date}.${weddingDate.month}.${weddingDate.year}`}
-          </p>
+          </motion.p>
         </div>
-        <div className="mt-8">
-          <div className="flex items-center justify-center space-x-2 md:space-x-4 text-center font-sans animate-fade-up">
+
+        <motion.div 
+          className="mt-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
+          <div className="flex items-center justify-center space-x-2 md:space-x-4 text-center font-sans">
             {['days', 'hours', 'minutes', 'seconds'].map((unit, i) => (
-              <div key={unit} className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px] animate-bounce-smooth" style={{ animationDelay: `${i * 0.2}s` }}>
-                <div className="text-3xl md:text-5xl font-bold">{String(timeLeft[unit] || '00').padStart(2, '0')}</div>
-                <div className="text-xs md:text-sm uppercase tracking-widest">{unit == 'days' ? 'Hari' : unit == 'hours' ? 'Jam' : unit === 'minutes' ? 'Menit' : 'Detik'}</div>
-              </div>
+              <motion.div 
+                key={unit} 
+                className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px] backdrop-blur-md border border-white/20 shadow-lg"
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ 
+                  delay: 1.8 + (i * 0.1), 
+                  duration: 0.6,
+                  ease: "backOut"
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.3)"
+                }}
+              >
+                <motion.div 
+                  className="text-3xl md:text-5xl font-bold"
+                  key={timeLeft[unit] || '00'}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {String(timeLeft[unit] || '00').padStart(2, '0')}
+                </motion.div>
+                <div className="text-xs md:text-sm uppercase tracking-widest opacity-80">
+                  {unit === 'days' ? 'Hari' : 
+                   unit === 'hours' ? 'Jam' : 
+                   unit === 'minutes' ? 'Menit' : 'Detik'}
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

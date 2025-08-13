@@ -42,8 +42,8 @@ const RSVP = () => {
           onSubmit={handleSubmit} 
           className="max-w-md mx-auto p-8 rounded-lg shadow-lg bg-white/10 backdrop-blur-md transform skew-[5deg, 3deg] border border-white/20"
           style={{
-            backdropFilter: 'blur(2px)',  // Menambahkan blur 1px
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',  // Menambah bayangan lembut
+            backdropFilter: 'blur(2px)',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           }}
         >
           <div className="mb-4">

@@ -5,11 +5,10 @@ const EventCard = ({ name, date, time, location, address, icon }) => (
   <motion.div
     className="relative bg-white/20 bg-opacity-50 backdrop-blur-md rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center text-gray-700 mt-[-15px] mb-[20px]"
     style={{
-      // Menggunakan CSS untuk menambahkan distorsi di pinggir card
       borderRadius: '10px',
       border: '1px solid rgba(255, 255, 255, 0.3)',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-      backdropFilter: 'blur(10px)', // Menambahkan blur untuk efek glassmorphism
+      backdropFilter: 'blur(10px)',
     }}
   >
     <span className="text-5xl mb-4">{icon}</span>

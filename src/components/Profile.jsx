@@ -158,7 +158,6 @@ const Profile = () => {
 
   return (
     <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-blue-200 to-white">
-      {/* ... elemen gambar lainnya tetap sama ... */}
       <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]" />
       <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]" />
       <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] right-0 w-[210px] h-auto z-10 scale-x-[-1]" />
@@ -166,8 +165,6 @@ const Profile = () => {
       <img src={`${cdnBaseUrl}floral-straight-7.webp`} alt="Ornamen" className="fixed top-[-35px] left-1/2 -translate-x-1/2 w-[280px] h-auto z-10" />
       <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] left-0 w-[250px] h-auto z-0" />
       <img src={`${cdnBaseUrl}floral-straight-11.webp`} alt="Ornamen" className="absolute top-[10px] right-0 w-[250px] h-auto z-0 scale-x-[-1]" />
-
-      {/* PERUBAHAN: Kelas `rotate-[-26deg]` dihapus dari className */}
       <motion.img
         src={`${cdnBaseUrl}leaf-branches-7.webp`}
         alt="Ornamen"
@@ -186,7 +183,6 @@ const Profile = () => {
         whileInView="visible"
         viewport={{ once: true }}
       />
-      
       <motion.img
         src={`${cdnBaseUrl}fern-1.webp`}
         alt="Ornamen"
@@ -205,7 +201,6 @@ const Profile = () => {
         whileInView="visible"
         viewport={{ once: true }}
       />
-
       <motion.div
         className="relative z-20 mt-[80px] flex flex-col items-center gap-6"
         variants={contentContainerVariants}
@@ -213,7 +208,6 @@ const Profile = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {/* Gambar Bismillah */}
         <motion.img
           src={`${cdnBaseUrl}bismillah.png`}
           alt="Bismillah"
@@ -233,17 +227,17 @@ const Profile = () => {
         variants={profileSectionVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }} // Muncul saat 50% terlihat
+        viewport={{ once: true, amount: 0.5 }}
       >
         <ProfileCard
           name={invitationData.brideExt}
           {...invitationData.brideProfile}
           isBride={true}
-          variants={profileItemVariants} // Terapkan varian item
+          variants={profileItemVariants}
         />
         <motion.span 
           className="font-display text-5xl text-gray-700"
-          variants={profileItemVariants} // Simbol '&' juga dianimasikan
+          variants={profileItemVariants}
         >
           &
         </motion.span>
@@ -251,7 +245,7 @@ const Profile = () => {
           name={invitationData.groomExt}
           {...invitationData.groomProfile}
           isBride={false}
-          variants={profileItemVariants} // Terapkan varian item
+          variants={profileItemVariants}
         />
       </motion.div>
     </div>
