@@ -14,9 +14,9 @@ const InvitationPage = () => {
   const fadeEvent = useScrollFadeIn();
   const fadeMap = useScrollFadeIn("up");
   const fadeGallery = useScrollFadeIn("left");
-  const fadeLoveStory = useScrollFadeIn("right");
+  const fadeLoveStory = useScrollFadeIn("left");
   const fadeRSVP = useScrollFadeIn("left");
-  const fadeGuestbook = useScrollFadeIn("right");
+  const fadeGuestbook = useScrollFadeIn("left");
   const fadeClosing = useScrollFadeIn();
 
   return (

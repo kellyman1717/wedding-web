@@ -67,9 +67,8 @@ const GlobalParallaxBackground = ({ showHero }) => {
       
       {/* Fixed overlay */}
       <motion.div 
-        className="fixed inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60"
+        className="fixed inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60 backdrop-blur-sm"
         style={{
-          opacity: overlayOpacity,
           zIndex: -19,
         }}
       />
