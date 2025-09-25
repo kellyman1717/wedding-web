@@ -190,7 +190,7 @@ const LoveStory = () => {
         variants={gununganLeftVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       />
       
       {/* Gunungan Kanan dengan Transisi Berulang */}
@@ -224,28 +224,27 @@ const LoveStory = () => {
 
           return (
             <motion.div
-  key={index}
-  custom={animationDirection}
-  variants={timelineItemVariants}
-  className={`relative flex items-center mb-8 ${isDesktop ? (isLeftOnDesktop ? 'justify-start' : 'justify-end') : 'justify-start'}`}
->
-  <div className={`w-full pl-12 md:w-1/2 ${isLeftOnDesktop ? 'md:pr-6 md:pl-0' : 'md:pl-6'}`}>
-    <div
-      className="p-6 rounded-lg shadow-lg bg-white bg-opacity-20 backdrop-blur-md border border-white/30 transform hover:scale-[1.02] hover:shadow-xl transition-all duration-500"
-      style={{
-        backdropFilter: 'blur(2px)',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        background: 'rgba(255, 255, 255, 0.15)',
-      }}
-    >
-      <p className="font-bold font-sans text-blue-800">{story.date}</p>
-      <h3 className="text-xl font-display mt-1 text-black">{story.title}</h3>
-      <p className="font-sans text-sm mt-2 text-blue-950">{story.description}</p>
-    </div>
-  </div>
-  <div className="absolute top-1/2 left-6 md:left-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-black rounded-full border-2 border-white z-10"></div>
-</motion.div>
-
+              key={index}
+              custom={animationDirection}
+              variants={timelineItemVariants}
+              className={`relative flex items-center mb-8 ${isDesktop ? (isLeftOnDesktop ? 'justify-start' : 'justify-end') : 'justify-start'}`}
+            >
+              <div className={`w-full pl-12 md:w-1/2 ${isLeftOnDesktop ? 'md:pr-6 md:pl-0' : 'md:pl-6'}`}>
+                <div
+                  className="p-6 rounded-lg shadow-lg bg-white bg-opacity-20 backdrop-blur-md border border-white/30 transform hover:scale-[1.02] hover:shadow-xl transition-all duration-500"
+                  style={{
+                    backdropFilter: 'blur(2px)',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                    background: 'rgba(255, 255, 255, 0.15)',
+                  }}
+                >
+                  <p className="font-bold font-sans text-blue-800">{story.date}</p>
+                  <h3 className="text-xl font-display mt-1 text-black">{story.title}</h3>
+                  <p className="font-sans text-sm mt-2 text-blue-950">{story.description}</p>
+                </div>
+              </div>
+              <div className="absolute top-1/2 left-6 md:left-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-black rounded-full border-2 border-white z-10"></div>
+            </motion.div>
           );
         })}
       </motion.div>

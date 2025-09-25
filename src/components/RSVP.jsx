@@ -28,7 +28,7 @@ const RSVP = () => {
 
   return (
     <div className="relative overflow-hidden py-16 px-8 text-center bg-gradient-to-b from-white to-blue-300">
-      <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Ornamen" className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
+      <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Bunga Kiri" className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
       <img src={`${cdnBaseUrl}leaf-branches-6-cropped.webp`} alt="Ornamen" className="fixed top-[-125px] right-0 translate-x-[0px] w-[143px] h-auto z-0 opacity-55"/>
       <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-50px] w-[350px] h-auto z-0"/>
       <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] right-[-70px] w-[350px] h-auto z-0 scale-x-[-1]"/>
