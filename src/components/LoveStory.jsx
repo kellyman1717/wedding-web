@@ -177,7 +177,7 @@ const LoveStory = () => {
         variants={leaf1Variants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
       />
       <img src={`${cdnBaseUrl}floral-bouquet-2.webp`} alt="Ornamen" className="absolute top-[115px] right-[20px] w-[200px] h-auto z-0 opacity-70" onError={(e) => e.target.style.display = 'none'}/>
       
@@ -190,7 +190,7 @@ const LoveStory = () => {
         variants={gununganLeftVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
       />
       
       {/* Gunungan Kanan dengan Transisi Berulang */}

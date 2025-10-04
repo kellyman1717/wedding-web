@@ -11,47 +11,45 @@ const Gallery = () => {
   const fadeIn3 = useScrollFadeIn("up", 400);
   const fadeIn4 = useScrollFadeIn("up", 500);
 
-  // BARU: Varian untuk leaf-5.webp di kiri (dengan scaleY-1)
+  // Varian untuk animasi daun dan lainnya
   const leaf5LeftVariants = {
-    hidden: { opacity: 0, y: -50 }, // Muncul dari atas
+    hidden: { opacity: 0, y: -50 },
     visible: {
       opacity: 0.75,
       y: 0,
-      scaleY: -1, // Pertahankan flip vertikal
+      scaleY: -1,
       transition: {
         opacity: { duration: 1.5, ease: "easeInOut" },
         y: { duration: 1.5, ease: "easeInOut" },
         rotate: {
-          delay: 1.5, // Mulai animasi angin setelah fade-in
+          delay: 1.5,
           duration: 7,
           ease: "easeInOut",
           repeat: Infinity,
           repeatType: "mirror",
         },
       },
-      rotate: [-5, 6], // Ayunan lembut di sekitar sumbu normal
+      rotate: [-5, 6],
     },
   };
 
-  // BARU: Varian untuk leaf-5.webp di kanan (dengan rotate 180deg)
   const leaf5RightVariants = {
-    hidden: { opacity: 0, y: -50 }, // Muncul dari atas
+    hidden: { opacity: 0, y: -50 },
     visible: {
       opacity: 0.75,
       y: 0,
-      rotate: 180, // Pertahankan rotasi 180 derajat
+      rotate: 180,
       transition: {
         opacity: { duration: 1.5, ease: "easeInOut" },
         y: { duration: 1.5, ease: "easeInOut" },
         rotate: {
-          delay: 1.5, // Mulai animasi angin setelah fade-in
+          delay: 1.5,
           duration: 7,
           ease: "easeInOut",
           repeat: Infinity,
           repeatType: "mirror",
         },
       },
-      // Ayunan lembut di sekitar 180 derajat
       rotate: [175, 186],
     },
   };
@@ -72,18 +70,15 @@ const Gallery = () => {
           repeatType: "mirror",
         },
       },
-      // Animasi angin berayun di sekitar -45 derajat
       rotate: [-142, -148],
     },
   };
 
-  // Untuk leaf-branches-9.webp (terbalik vertikal & rotasi 100deg)
   const leaf9Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 0.9,
       y: 0,
-      // scaleY: -1 DIHAPUS, karena ini yang membuatnya terbalik
       transition: {
         opacity: { duration: 1.5, ease: "easeInOut" },
         y: { duration: 1.5, ease: "easeInOut" },
@@ -95,12 +90,10 @@ const Gallery = () => {
           repeatType: "mirror",
         },
       },
-      // Rotasi disesuaikan agar ujung menunjuk ke atas/kiri
-      rotate: [170, 180], // Mengatur rotasi awal di sekitar 170-180 derajat
+      rotate: [170, 180],
     },
   };
 
-  // Untuk leaf-branches-8.webp (tanpa flip)
   const leaf8Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -120,6 +113,31 @@ const Gallery = () => {
       rotate: [-3, 4],
     },
   };
+
+  // Varian untuk kontainer judul (parent)
+  const titleContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4, // Jeda antar animasi anak
+      },
+    },
+  };
+
+  // Varian untuk elemen teks (children)
+  const titleChildVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
 
   return (
     <div className="relative overflow-hidden bg-blue-200 py-16 px-8 sm:px-8 lg:px-8 overflow-hidden">
@@ -150,8 +168,7 @@ const Gallery = () => {
       <motion.img
         src={`${cdnBaseUrl}leaf-branches-10.webp`}
         alt="Ornamen"
-        // PERUBAHAN DI SINI: Posisi dan rotasi diubah sesuai gambar
-        className="absolute top-[545px] right-[0px] w-[143px] h-auto z-0 scale-x-[-1] -rotate-45 opacity-90"
+        className="absolute top-[545px] right-[0px] w-[143px] h-auto z-0 scale-x-[-1] -rotate-45 opacity-90 blur-[0.8px]"
         variants={leaf10Variants}
         initial="hidden"
         whileInView="visible"
@@ -160,7 +177,7 @@ const Gallery = () => {
       <motion.img
         src={`${cdnBaseUrl}leaf-branches-9.webp`}
         alt="Ornamen"
-        className="absolute bottom-[340px] left-[-13px] w-[143px] h-auto z-0 opacity-90"
+        className="absolute bottom-[340px] left-[-13px] w-[143px] h-auto z-0 opacity-90 blur-[0.8px]"
         variants={leaf9Variants}
         initial="hidden"
         whileInView="visible"
@@ -169,18 +186,32 @@ const Gallery = () => {
       <motion.img
         src={`${cdnBaseUrl}leaf-branches-8.webp`}
         alt="Ornamen"
-        className="absolute bottom-0 right-0 w-[143px] h-auto z-0 opacity-90 translate-x-[40px]"
+        className="absolute bottom-0 right-0 w-[143px] h-auto z-0 opacity-90 translate-x-[40px] blur-[0.8px]"
         variants={leaf8Variants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       />
 
-      {/* Judul */}
-      <div className="relative text-center mb-12 mt-[40px]">
-        <h2 className="font-display text-[32px] md:text-4xl text-gray-800 mt-5 font-medium">Gallery</h2>
-        <p className="font-sans mt-4 text-[18px]">Bagian dari tawa dan cinta yang membangun cerita kami.</p>
-      </div>
+      {/* Judul dengan transisi bertumpuk */}
+      <motion.div
+        className="relative text-center mb-12 mt-[40px]"
+        variants={titleContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        <motion.h2
+          variants={titleChildVariants}
+          className="font-display text-[32px] md:text-4xl text-gray-800 mt-5 font-medium">
+          Gallery
+        </motion.h2>
+        <motion.p
+          variants={titleChildVariants}
+          className="font-sans mt-4 text-[18px]">
+          Bagian dari tawa dan cinta yang membangun cerita kami.
+        </motion.p>
+      </motion.div>
 
       {/* Grid Gallery */}
       <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-3 gap-y-[30px] gap-x-[20px] max-w-5xl mx-auto md:h-auto mb-[10px]">

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { submitRsvp } from '../services/rsvpService.js';
 
 const RSVP = () => {
@@ -26,9 +27,38 @@ const RSVP = () => {
     setIsLoading(false);
   };
 
+  // Varian untuk animasi bunga kiri
+  const leafLeftVariants = {
+    hidden: { opacity: 0, x: -100, rotate: -5 },
+    visible: {
+      opacity: 0.55,
+      x: 0,
+      rotate: [-5, -8, -5], // Animasi rotasi berulang di sekitar -5 derajat
+      transition: {
+        opacity: { duration: 1.5, ease: "easeInOut" },
+        x: { duration: 1.5, ease: "easeInOut" },
+        rotate: {
+          delay: 1.5,
+          duration: 8,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "mirror",
+        }
+      }
+    }
+  };
+
   return (
     <div className="relative overflow-hidden py-16 px-8 text-center bg-gradient-to-b from-white to-blue-300">
-      <img src={`${cdnBaseUrl}leaf-branches-6.webp`} alt="Bunga Kiri" className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 rotate-[-5deg] opacity-55"/>
+      <motion.img
+        src={`${cdnBaseUrl}leaf-branches-6.webp`}
+        alt="Bunga Kiri"
+        className="fixed top-[-17px] left-[-34px] w-[143px] h-auto z-0 opacity-55"
+        variants={leafLeftVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      />
       <img src={`${cdnBaseUrl}leaf-branches-6-cropped.webp`} alt="Ornamen" className="fixed top-[-125px] right-0 translate-x-[0px] w-[143px] h-auto z-0 opacity-55"/>
       <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] left-[-50px] w-[350px] h-auto z-0"/>
       <img src={`${cdnBaseUrl}floral-straight-3.webp`} alt="Ornamen" className="absolute bottom-[-23px] right-[-70px] w-[350px] h-auto z-0 scale-x-[-1]"/>
