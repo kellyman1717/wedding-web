@@ -15,25 +15,37 @@ const navLinks = [
 const BottomNavBar = ({ isVisible }) => {
   const [activeSection, setActiveSection] = useState('home');
 
+  // PERBAIKAN 1: Menangani klik secara manual untuk navigasi
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveSection(targetId);
+    }
+  };
+
   useEffect(() => {
-    const mainContainer = document.querySelector('body');
-
+    // PERBAIKAN 2: Menggunakan 'window' untuk scroll listener yang lebih andal
     const handleScroll = () => {
-      const scrollPosition = mainContainer.scrollTop + window.innerHeight / 2;
+      // Menambahkan window.innerHeight / 3 untuk akurasi yang lebih baik di tengah layar
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
+      let currentSection = '';
       for (const link of navLinks) {
         const section = document.getElementById(link.id);
-        if (section) {
-          if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-            setActiveSection(link.id);
-            break;
-          }
+        if (section && scrollPosition >= section.offsetTop) {
+          currentSection = link.id;
         }
+      }
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
       }
     };
 
-    mainContainer.addEventListener('scroll', handleScroll);
-    return () => mainContainer.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -51,6 +63,7 @@ const BottomNavBar = ({ isVisible }) => {
             key={link.id}
             href={`#${link.id}`}
             title={link.label}
+            onClick={(e) => handleNavClick(e, link.id)} // Terapkan fungsi klik di sini
             className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full
                        transition-all duration-300
                        ${activeSection === link.id
