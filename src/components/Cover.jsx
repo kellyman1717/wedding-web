@@ -88,7 +88,7 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
             </div>
           )}
 
-          <div className="mt-18 flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3">
             <button
               onClick={onOpen}
               className="bg-custom-blue-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
@@ -99,7 +99,7 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
               href={`https://wa.me/?text=${encodeURIComponent('Hai! Cek undangan kami di sini: https://namadomain.com')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display text-sm underline text-white hover:text-blue-800 transition"
+              className="transform translate-y-6 tracking-wider font-semibold text-[14px] text-white hover:text-blue-800 transition"
             >
               Bagikan lewat WhatsApp
             </a>
