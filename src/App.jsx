@@ -5,7 +5,6 @@ import Cover from './components/Cover';
 import InvitationPage from './pages/InvitationPage';
 import MusicPlayer from './components/MusicPlayer';
 import audioFile from './assets/music/song.mp3';
-import BottomNavBar from './components/BottomNavBar';
 
 const INITIAL_LOAD_DURATION = 1800;
 const TRANSITION_OVERLAY_DURATION = 2300;
@@ -85,7 +84,6 @@ function App() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isFadingOutCover, setIsFadingOutCover] = useState(false);
   const audioRef = useRef(new Audio(audioFile));
-  const [showNavbar, setShowNavbar] = useState(false);
   const [guestName, setGuestName] = useState('');
 
   useEffect(() => {
@@ -108,22 +106,6 @@ function App() {
       audio.pause();
     };
   }, []);
-
-  useEffect(() => {
-    if (showHero) {
-      const body = document.body;
-      const handleFirstScroll = () => {
-        setTimeout(() => {
-          setShowNavbar(true);
-        }, 1000);
-        body.removeEventListener('scroll', handleFirstScroll);
-      };
-      body.addEventListener('scroll', handleFirstScroll);
-      return () => {
-        body.removeEventListener('scroll', handleFirstScroll);
-      };
-    }
-  }, [showHero]);
 
   const handleOpenInvitation = () => {
     setIsBlurring(true);
@@ -195,7 +177,6 @@ function App() {
       {showHero && (
         <>
           <MusicPlayer isPlaying={isMusicPlaying} onTogglePlay={toggleMusic} />
-          <BottomNavBar isVisible={showNavbar} />
         </>
       )}
     </>
