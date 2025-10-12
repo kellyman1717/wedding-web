@@ -14,23 +14,23 @@ export const invitationData = {
   },
   groomProfile: {
     fullName: "Nama Lengkap Pria",
-    father: "Nama Ayah Pria",
-    mother: "Nama Ibu Pria",
+    father: "Chaidir",
+    mother: "Atih Maryatih",
     photo: `${cdnBaseUrl}groom.png`,
   },
   brideProfile: {
     fullName: "Nama Lengkap Wanita",
-    father: "Nama Ayah Wanita",
-    mother: "Nama Ibu Wanita",
+    father: "Mochtar",
+    mother: "Iwin Yuliani",
     photo: `${cdnBaseUrl}bride.png`,
   },
   events: [
     {
       name: "Resepsi Pernikahan",
       date: "Sabtu, 27 Desember 2025",
-      time: "11:00 - 14:00 WIB",
-      location: "Gedung Resepsi",
-      address: "Jl. Contoh Alamat Resepsi No. 456, Kota",
+      time: "9:30 WIB - Selesai",
+      location: "Desa Tawangrejo RT 06/RW 02 Kec. Takeran. Kab. Magetan",
+      address: "",
       mapUrl: "https://maps.app.goo.gl/3EQ7w3E8LLU3XmyK6",
       icon: '💍'
     }

@@ -219,7 +219,7 @@ const Profile = () => {
           className="max-w-3xl mx-auto mb-12"
           variants={contentChildVariants}
         >
-          Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+          Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan kami.
         </motion.p>
       </motion.div>
       <motion.div 

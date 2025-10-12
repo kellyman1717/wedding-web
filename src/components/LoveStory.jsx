@@ -183,7 +183,7 @@ const LoveStory = () => {
       
       {/* Gunungan Kiri dengan Transisi */}
       <motion.img
-        src={`${cdnBaseUrl}gunungan_wayang.png`}
+        src={`${cdnBaseUrl}gunungan_wayang.webp`}
         alt="Gunungan Kiri"
         className="absolute bottom-[-65px] left-[-25px] w-[160px] h-auto z-0 transform-origin-bottom"
         onError={(e) => e.target.style.display = 'none'}
@@ -195,7 +195,7 @@ const LoveStory = () => {
       
       {/* Gunungan Kanan dengan Transisi Berulang */}
       <motion.img
-        src={`${cdnBaseUrl}gunungan_wayang.png`}
+        src={`${cdnBaseUrl}gunungan_wayang.webp`}
         alt="Gunungan Kanan"
         className="absolute bottom-[-65px] right-[-25px] w-[160px] h-auto z-0 transform-origin-bottom"
         onError={(e) => e.target.style.display = 'none'}

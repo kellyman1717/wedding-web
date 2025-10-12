@@ -86,8 +86,15 @@ function App() {
   const [isFadingOutCover, setIsFadingOutCover] = useState(false);
   const audioRef = useRef(new Audio(audioFile));
   const [showNavbar, setShowNavbar] = useState(false);
+  const [guestName, setGuestName] = useState('');
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('to');
+    if (name) {
+      setGuestName(name);
+    }
+
     const timer = setTimeout(() => {
       setIsInitialLoading(false);
     }, INITIAL_LOAD_DURATION);
@@ -168,6 +175,7 @@ function App() {
             onOpen={handleOpenInvitation} 
             isBlurred={isBlurring}
             isFadingOut={isFadingOutCover} 
+            guestName={guestName}
           />
         </TransitionWrapper>
       )}
