@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
 
-const EventCard = ({ name, date, time, location, address, icon }) => (
+const EventCard = ({ events }) => (
   <motion.div
     className="relative bg-white/20 bg-opacity-50 backdrop-blur-md rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center text-gray-700 mt-[-15px] mb-[20px]"
     style={{
@@ -11,17 +11,24 @@ const EventCard = ({ name, date, time, location, address, icon }) => (
       backdropFilter: 'blur(10px)',
     }}
   >
-    <span className="text-5xl mb-4">{icon}</span>
-    <h3 className="font-display text-4xl text-brown-800 mb-4">{name}</h3>
-    <p className="font-sans font-semibold text-lg">{date}</p>
-    <p className="font-sans mb-4">{time}</p>
-    <p className="font-sans font-bold">{location}</p>
-    <p className="font-sans">{address}</p>
+    {events.map((event, index) => (
+      <div key={index} className="w-full">
+        <span className="text-5xl mb-4">{event.icon}</span>
+        <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
+        <p className="font-sans font-semibold text-lg">{event.date}</p>
+        <p className="font-sans mb-4">{event.time}</p>
+        <p className="font-sans font-bold">{event.location}</p>
+        <p className="font-sans">{event.address}</p>
+        {index < events.length - 1 && (
+          <hr className="my-8 border-gray-400 w-3/4 mx-auto" />
+        )}
+      </div>
+    ))}
   </motion.div>
 );
 
 const EventDetails = () => {
-  const receptionEvent = invitationData.events[0];
+  const { events } = invitationData;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
@@ -44,7 +51,7 @@ const EventDetails = () => {
         viewport={{ once: true, amount: 0.5 }}
         variants={cardVariants}
       >
-        {receptionEvent && <EventCard {...receptionEvent} />}
+        <EventCard events={events} />
       </motion.div>
     </div>
   );

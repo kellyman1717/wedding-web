@@ -26,6 +26,15 @@ export const invitationData = {
   },
   events: [
     {
+      name: "Akad Nikah",
+      date: "Sabtu, 27 Desember 2025",
+      time: "07:30 WIB - 10:00 WIB",
+      location: "Desa Tawangrejo RT 06/RW 02 Kec. Takeran. Kab. Magetan",
+      address: "",
+      mapUrl: "https://maps.app.goo.gl/3EQ7w3E8LLU3XmyK6",
+      icon: '💍'
+    },
+    {
       name: "Resepsi Pernikahan",
       date: "Sabtu, 27 Desember 2025",
       time: "9:30 WIB - Selesai",
