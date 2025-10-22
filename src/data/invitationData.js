@@ -16,23 +16,23 @@ export const invitationData = {
     fullName: "Nama Lengkap Pria",
     father: "Chaidir",
     mother: "Atih Maryatih",
-    photo: `${cdnBaseUrl}groom.png`,
+    photo: `${cdnBaseUrl}groom.webp`,
   },
   brideProfile: {
     fullName: "Nama Lengkap Wanita",
-    father: "Mochtar",
+    father: "Mochtar (alm)",
     mother: "Iwin Yuliani",
-    photo: `${cdnBaseUrl}bride.png`,
+    photo: `${cdnBaseUrl}bride.webp`,
   },
   events: [
     {
       name: "Akad Nikah",
       date: "Sabtu, 27 Desember 2025",
-      time: "07:30 WIB - 10:00 WIB",
+      time: "07:30 WIB - Selesai",
       location: "Desa Tawangrejo RT 06/RW 02 Kec. Takeran. Kab. Magetan",
       address: "",
       mapUrl: "https://maps.app.goo.gl/3EQ7w3E8LLU3XmyK6",
-      icon: '💍'
+      icon: 'Gem'
     },
     {
       name: "Resepsi Pernikahan",
@@ -41,38 +41,38 @@ export const invitationData = {
       location: "Desa Tawangrejo RT 06/RW 02 Kec. Takeran. Kab. Magetan",
       address: "",
       mapUrl: "https://maps.app.goo.gl/3EQ7w3E8LLU3XmyK6",
-      icon: '💍'
+      icon: 'Flower2'
     }
   ],
 
   galleryImages: [
-    `${cdnBaseUrl}gallery-1.png`,
-    `${cdnBaseUrl}gallery-2.png`,
-    `${cdnBaseUrl}gallery-3.png`,
-    `${cdnBaseUrl}gallery-4.png`,
-    `${cdnBaseUrl}gallery-5.png`,
-    `${cdnBaseUrl}gallery-6.png`
+    `${cdnBaseUrl}gallery-1.webp`,
+    `${cdnBaseUrl}gallery-6.webp`,
+    `${cdnBaseUrl}gallery-5.webp`,
+    `${cdnBaseUrl}gallery-8.webp`,
+    `${cdnBaseUrl}gallery-3.webp`,
+    `${cdnBaseUrl}gallery-2.webp`
   ],
   loveStory: [
     {
-      date: "10 Januari 2022",
+      date: "25 Januari 2023",
       title: "Pertama Bertemu",
-      description: "Deskripsikan secara singkat momen pertama kali Anda bertemu. Di mana, bagaimana suasananya, dan apa yang membuat momen itu berkesan."
+      description: "Semua bermula dari sosial media. Kami kenal ketika saling tukar stiker di chat, obrolan singkat berubah jadi kebiasaan, sampai akhirnya jadi bagian dari keseharian. "
     },
     {
-      date: "15 Mei 2023",
+      date: "25 Februari 2023",
       title: "Memulai Hubungan",
-      description: "Ceritakan saat Anda berdua memutuskan untuk menjalin hubungan yang lebih serius. Apa yang menjadi pemicunya?"
+      description: "Hari itu aku nyatain perasaan ke dia. Gak pakai drama, langsung sat set. Untungnya, dia bilang iya dan sejak itu kami mulai serius."
     },
     {
-      date: "25 Desember 2024",
+      date: "5 Juli 2025",
       title: "Lamaran",
-      description: "Bagikan kisah di balik momen lamaran. Bagaimana prosesnya, di mana lokasinya, dan bagaimana perasaan Anda saat itu."
+      description: "Setelah lama kami menjalankan hubungan bersama, setelah itu saya menyatakan jika ingin membawa hubungan ini ke jenjang lebih serius. Kami lamaran di kediamannya, saat itu suasananya sangat romantis, dan orang orang pun yang hadir ikut senang."
     },
     {
-      date: "11 Juli 2025",
+      date: "27 Desember 2025",
       title: "Menuju Halal",
-      description: "Ungkapkan harapan dan doa Anda saat melangkah ke jenjang pernikahan, membangun keluarga yang sakinah, mawaddah, warahmah."
+      description: "Setelah semua yang dilewati bareng, kini saatnya melangkah lebih serius. Semoga pernikahan ini jadi awal keluarga yang sakinah, mawaddah, warahmah."
     }
   ],
 };

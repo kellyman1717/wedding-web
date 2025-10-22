@@ -24,12 +24,12 @@ const ProfileCard = ({ name, father, mother, photo, isBride, variants }) => {
         <img src={photo} alt={name} className="w-full h-full object-cover" />
       </motion.div>
       <motion.h3 
-        className="font-display text-4xl italic text-gray-700"
+        className="font-display text-4xl italic text-gray-700 mt-10"
         variants={childVariants}
       >
         {name}
       </motion.h3>
-      <motion.div className="text-center text-gray-600" variants={childVariants}>
+      <motion.div className="text-center text-gray-600 mt-5" variants={childVariants}>
         <p className="font-semibold">{isBride ? 'Putri dari Pasangan' : 'Putra dari Pasangan'}</p>
         <p>{father}</p>
         <p>&</p>
@@ -186,7 +186,7 @@ const Profile = () => {
       <motion.img
         src={`${cdnBaseUrl}fern-1.webp`}
         alt="Ornamen"
-        className="absolute bottom-0 left-[-20px] w-[330px] h-auto z-0 opacity-80"
+        className="absolute bottom-[-6px] left-[-20px] w-[330px] h-auto z-0 opacity-80"
         variants={fern1Variants}
         initial="hidden"
         whileInView="visible"

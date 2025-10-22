@@ -1,4 +1,3 @@
-import { invitationData } from '../data/invitationData.js';
 import { motion } from 'framer-motion';
 
 const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
@@ -20,9 +19,9 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
       y: 0,
       rotate: isTop ? 180 : 0,
       transition: {
-        duration: 3,          // Durasi diubah menjadi 3 detik
+        duration: 2.6,          // Durasi diubah menjadi 3 detik
         ease: 'easeOut',
-        delay: 0.8,
+        delay: 0.1,
       },
     }),
   };

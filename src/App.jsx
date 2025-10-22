@@ -55,7 +55,7 @@ const GlobalParallaxBackground = ({ showHero }) => {
       <motion.div
         className="fixed inset-0 w-full h-full"
         style={{
-          backgroundImage: `url(${cdnBaseUrl}hero-bg.jpg)`,
+          backgroundImage: `url(${cdnBaseUrl}gallery-4.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           y: backgroundY,
