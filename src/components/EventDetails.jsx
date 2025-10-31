@@ -1,19 +1,17 @@
 import { motion } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
-import { Gem, Flower2 } from 'lucide-react'; // Pastikan ikon diimpor
+import { Gem, Flower2 } from 'lucide-react';
 
-// Peta Ikon
 const iconMap = {
   Gem: Gem,
-  Flower2:Flower2
+  Flower2: Flower2,
 };
 
 const EventCard = ({ events }) => {
-  // Ambil detail lokasi dari acara pertama (karena lokasinya sama)
   const sharedLocation = events.length > 0 ? events[0] : null;
 
   if (!sharedLocation) {
-    return null; // Tidak menampilkan apa-apa jika tidak ada event
+    return null;
   }
 
   return (
@@ -26,7 +24,6 @@ const EventCard = ({ events }) => {
         backdropFilter: 'blur(10px)',
       }}
     >
-      {/* Tampilkan detail setiap acara di sini */}
       {events.map((event, index) => {
         const IconComponent = iconMap[event.icon] || iconMap.Default;
         return (
@@ -37,16 +34,12 @@ const EventCard = ({ events }) => {
             <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
             <p className="font-sans font-semibold text-lg">{event.date}</p>
             <p className="font-sans mb-4">{event.time}</p>
-
-            {/* Hanya tampilkan pemisah jika bukan acara terakhir */}
             {index < events.length - 1 && (
               <hr className="my-8 border-gray-400 w-3/4 mx-auto" />
             )}
           </div>
         );
       })}
-
-      {/* Tampilkan alamat satu kali saja di bagian bawah */}
       <hr className="my-8 border-gray-400 w-full mx-auto" />
       <div className="w-full">
         <p className="font-sans font-bold text-lg">Lokasi Acara:</p>
@@ -76,12 +69,8 @@ const EventDetails = () => {
   return (
     <div className="py-16 px-6 bg-gradient-to-b from-white to-blue-200 flex justify-center">
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={cardVariants}
+        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={cardVariants}
       >
-        {/* Sekarang kita panggil EventCard satu kali dan kirim semua events */}
         <EventCard events={events} />
       </motion.div>
     </div>

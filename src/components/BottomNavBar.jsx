@@ -15,7 +15,6 @@ const navLinks = [
 const BottomNavBar = ({ isVisible }) => {
   const [activeSection, setActiveSection] = useState('home');
 
-  // PERBAIKAN 1: Menangani klik secara manual untuk navigasi
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -26,11 +25,8 @@ const BottomNavBar = ({ isVisible }) => {
   };
 
   useEffect(() => {
-    // PERBAIKAN 2: Menggunakan 'window' untuk scroll listener yang lebih andal
     const handleScroll = () => {
-      // Menambahkan window.innerHeight / 3 untuk akurasi yang lebih baik di tengah layar
       const scrollPosition = window.scrollY + window.innerHeight / 3;
-
       let currentSection = '';
       for (const link of navLinks) {
         const section = document.getElementById(link.id);
@@ -38,7 +34,6 @@ const BottomNavBar = ({ isVisible }) => {
           currentSection = link.id;
         }
       }
-      
       if (currentSection) {
         setActiveSection(currentSection);
       }
@@ -50,27 +45,11 @@ const BottomNavBar = ({ isVisible }) => {
 
   return (
     <nav
-      className={`fixed bottom-0 left-0 z-30 w-full transform px-4 pb-4 transition-all duration-700 ease-in-out
-                md:px-0 md:pb-0
-                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'}
-                md:translate-y-0 md:pb-6`}>
+      className={`fixed bottom-0 left-0 z-30 w-full transform px-4 pb-4 transition-all duration-700 ease-in-out md:px-0 md:pb-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'} md:translate-y-0 md:pb-6`}>
       <div
-        className="mx-auto flex h-16 items-center justify-start gap-2 overflow-x-auto
-                   rounded-full bg-white/20 p-2 shadow-lg backdrop-blur-lg scrollbar-none
-                   md:justify-center md:overflow-x-hidden">
+        className="mx-auto flex h-16 items-center justify-start gap-2 overflow-x-auto rounded-full bg-white/20 p-2 shadow-lg backdrop-blur-lg scrollbar-none md:justify-center md:overflow-x-hidden">
         {navLinks.map((link) => (
-          <a
-            key={link.id}
-            href={`#${link.id}`}
-            title={link.label}
-            onClick={(e) => handleNavClick(e, link.id)} // Terapkan fungsi klik di sini
-            className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full
-                       transition-all duration-300
-                       ${activeSection === link.id
-                         ? 'bg-custom-blue-dark text-white shadow-md'
-                         : 'text-black hover:bg-white/50'
-                       }`}
-          >
+          <a key={link.id} href={`#${link.id}`} title={link.label} onClick={(e) => handleNavClick(e, link.id)} className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full transition-all duration-300 ${activeSection === link.id ? 'bg-custom-blue-dark text-white shadow-md' : 'text-black hover:bg-white/50'}`}>
             <link.icon size={24} />
           </a>
         ))}

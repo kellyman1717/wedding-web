@@ -33,29 +33,23 @@ const Guestbook = () => {
   return (
     <div className="relative overflow-hidden py-16 px-6 bg-white text-center bg-gradient-to-b from-blue-200 to-white">
       <img src={`${cdnBaseUrl}fern-2.webp`} alt="Ornamen" className="absolute top-[10px] left-[0px] w-[250px] h-auto z-0 scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-bouquet-14.webp`} alt="Ornamen" className="absolute top-[-65px] right-[-50px] w-[200px] h-auto z-0 rotate-[-155deg] scale-x-[-1]"/>
-            <img src={`${cdnBaseUrl}floral-straight-4.webp`} alt="Ornamen" className="fixed top-[-55px] left-[-20px] w-[280px] h-auto z-0"/>
-            <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-55px] right-0 translate-x-[-20px] w-[280px] h-auto z-0"/>
-            <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
+        <img src={`${cdnBaseUrl}floral-bouquet-14.webp`} alt="Ornamen" className="absolute top-[-65px] right-[-50px] w-[200px] h-auto z-0 rotate-[-155deg] scale-x-[-1]"/>
+        <img src={`${cdnBaseUrl}floral-straight-4.webp`} alt="Ornamen" className="fixed top-[-55px] left-[-20px] w-[280px] h-auto z-0"/>
+        <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-55px] right-0 translate-x-[-20px] w-[280px] h-auto z-0"/>
+        <h2 className="font-display text-4xl md:text-5xl text-custom-brown mb-8 mt-7">Buku Ucapan</h2>
       <div className="max-w-2xl mx-auto">
         <form 
           onSubmit={handleSubmit} 
           className="p-8 mb-8 rounded-lg shadow-lg bg-blue-100 bg-opacity-30 backdrop-blur-md border border-white/20"
-          style={{
-            backdropFilter: 'blur(1px)', // Menambah kontrol blur secara langsung
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Efek bayangan lebih lembut
-          }}
-        >
+          style={{backdropFilter: 'blur(1px)',boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',}}>
           <div className="mb-4">
             <input type="text" placeholder="Nama Anda" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2 border rounded" />
           </div>
           <div className="mb-4">
             <textarea placeholder="Tulis ucapan dan doa..." value={message} onChange={(e) => setMessage(e.target.value)} rows="4" className="w-full p-2 border rounded"></textarea>
           </div>
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105" // Diperbarui
+          <button type="submit" disabled={isLoading}
+            className="bg-custom-blue-dark text-white w-full py-3 rounded-md font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-400 flex items-center justify-center gap-2 transform hover:scale-105"
           >
             {isLoading ? (
               <>
@@ -82,7 +76,6 @@ const Guestbook = () => {
             <p className="text-gray-500">Jadilah yang pertama memberikan ucapan!</p>
           )}
         </div>
-
       </div>
     </div>
   );

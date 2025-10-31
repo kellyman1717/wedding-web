@@ -7,8 +7,6 @@ import CoupleNames from './CoupleNames.jsx';
 const Hero = () => {
   const { groom, bride, weddingDate } = invitationData;
   const fadeInContent = useScrollFadeIn('up', 900);
-
-  // Get global scroll for content parallax
   const { scrollY } = useScroll();
   
   const smoothScrollY = useSpring(scrollY, {
@@ -17,7 +15,6 @@ const Hero = () => {
     restDelta: 0.001
   });
   
-  // Content moves slower than background for parallax effect
   const contentY = useTransform(smoothScrollY, [0, 1000], [0, -100]);
   const contentOpacity = useTransform(smoothScrollY, [0, 300, 600], [1, 0.8, 0.3]);
 
@@ -46,62 +43,29 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-6">
-      {/* Content with parallax movement and fade effect */}
       <motion.div
-        className="relative z-10 w-full h-full flex flex-col items-center justify-center"
-        style={{ 
-          y: contentY,
-          opacity: contentOpacity
-        }}
-        {...fadeInContent}
-      >
+        className="relative z-10 w-full h-full flex flex-col items-center justify-center" style={{y: contentY, opacity: contentOpacity}}
+        {...fadeInContent}>
         <div className="relative z-10 flex flex-col gap-4">
-          <motion.p 
-            className="font-sans text-lg tracking-widest uppercase drop-shadow-lg"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
+          <motion.p className="font-sans text-lg tracking-widest uppercase drop-shadow-lg" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }}>
             The Wedding Of
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-            className="drop-shadow-2xl"
-          >
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, duration: 1, ease: "easeOut" }} className="drop-shadow-2xl">
             <CoupleNames bride={bride} groom={groom} className="text-5xl md:text-8xl" />
           </motion.div>
           
-          <motion.p 
-            className="font-sans text-xl mt-4 drop-shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
+          <motion.p className="font-sans text-xl mt-4 drop-shadow-lg" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.8 }}>
             {`${weddingDate.date}.${weddingDate.month}.${weddingDate.year}`}
           </motion.p>
         </div>
 
-        <motion.div 
-          className="mt-8"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1 }}
-        >
+        <motion.div className="mt-8" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 1 }}>
           <div className="flex items-center justify-center space-x-2 md:space-x-4 text-center font-sans">
             {['days', 'hours', 'minutes', 'seconds'].map((unit, i) => (
               <motion.div 
-                key={unit} 
-                className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px] backdrop-blur-md border border-white/20 shadow-lg"
-                initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ 
-                  delay: 1.8 + (i * 0.1), 
-                  duration: 0.6,
-                  ease: "backOut"
-                }}
+                key={unit}
+                className="p-2 md:p-4 bg-white/10 rounded-lg min-w-[60px] md:min-w-[80px] backdrop-blur-md border border-white/20 shadow-lg" initial={{ opacity: 0, scale: 0.8, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{delay: 1.8 + (i * 0.1), duration: 0.6, ease: "backOut"}}
                 whileHover={{ 
                   scale: 1.05, 
                   y: -5,
@@ -109,11 +73,8 @@ const Hero = () => {
                 }}
               >
                 <motion.div 
-                  className="text-3xl md:text-5xl font-bold"
                   key={timeLeft[unit] || '00'}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  className="text-3xl md:text-5xl font-bold" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}
                 >
                   {String(timeLeft[unit] || '00').padStart(2, '0')}
                 </motion.div>

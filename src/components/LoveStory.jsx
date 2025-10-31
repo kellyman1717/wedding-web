@@ -100,24 +100,19 @@ const LoveStory = () => {
     },
   };
 
-  // Varian untuk gunungan wayang kiri
    const gununganLeftVariants = {
     hidden: { opacity: 0, x: -50, y: 50, rotate: 30 },
     visible: {
       opacity: 0.4,
       x: 0,
       y: 0,
-      // Atur rentang rotasi di sini. [nilaiAwal, nilaiTengah, nilaiAkhir]
       rotate: [30, 35, 30], 
       transition: {
-        // Transisi untuk opacity, x, dan y (saat pertama kali muncul)
         default: { duration: 1.5, ease: "easeInOut" },
-        // Transisi khusus untuk rotasi (animasi melambai)
         rotate: {
-          // Atur kecepatan di sini (dalam detik)
           duration: 5, 
-          repeat: Infinity, // Membuat animasi berulang selamanya
-          repeatType: "mirror", // Membuatnya bolak-balik (misal: 30 -> 35 -> 30)
+          repeat: Infinity,
+          repeatType: "mirror",
           ease: "easeInOut"
         }
       }
@@ -130,12 +125,10 @@ const LoveStory = () => {
       opacity: 0.4,
       x: 0,
       y: 0,
-      // Atur rentang rotasi di sini.
       rotate: [-30, -35, -30],
       transition: {
         default: { duration: 1.5, ease: "easeInOut" },
         rotate: {
-          // Atur kecepatan di sini.
           duration: 5,
           repeat: Infinity,
           repeatType: "mirror",
@@ -145,10 +138,8 @@ const LoveStory = () => {
     }
   };
 
-
   return (
     <div className="relative  py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-200 to-white text-gray-700">
-      {/* Ornamen */}
       <motion.img
         src={`${cdnBaseUrl}leaf-5.webp`}
         alt="Ornamen"
@@ -181,7 +172,6 @@ const LoveStory = () => {
       />
       <img src={`${cdnBaseUrl}floral-bouquet-2.webp`} alt="Ornamen" className="absolute top-[115px] right-[20px] w-[200px] h-auto z-0 opacity-70" onError={(e) => e.target.style.display = 'none'}/>
       
-      {/* Gunungan Kiri dengan Transisi */}
       <motion.img
         src={`${cdnBaseUrl}gunungan_wayang.webp`}
         alt="Gunungan Kiri"
@@ -193,7 +183,6 @@ const LoveStory = () => {
         viewport={{ once: true }}
       />
       
-      {/* Gunungan Kanan dengan Transisi Berulang */}
       <motion.img
         src={`${cdnBaseUrl}gunungan_wayang.webp`}
         alt="Gunungan Kanan"
@@ -248,7 +237,6 @@ const LoveStory = () => {
           );
         })}
       </motion.div>
-      
       <p className="relative z-10 text-center mt-12 italic text-gray-800 max-w-xl mx-auto text-lg">
         "Setiap langkah kisah cinta ini adalah takdir terindah dari-Nya."
       </p>

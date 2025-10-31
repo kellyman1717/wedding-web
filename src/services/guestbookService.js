@@ -6,7 +6,7 @@ const guestbookCollection = collection(db, 'guestbook');
 export const addGuestbookEntry = async (name, message) => {
   try {
     let ip = await getPublicIP();
-    // Bypass di development mode
+    // Bypass development mode
     if (import.meta.env.MODE === 'development') {
       ip = `${ip}-dev-${Math.random().toString(36).substring(2, 6)}`;
     }

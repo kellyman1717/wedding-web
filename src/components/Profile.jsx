@@ -15,18 +15,11 @@ const ProfileCard = ({ name, father, mother, photo, isBride, variants }) => {
   };
 
   return (
-    // Kontainer kartu sekarang adalah komponen motion
     <motion.div className="flex flex-col items-center gap-4" variants={variants}>
-      <motion.div 
-        className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg"
-        variants={childVariants}
-      >
+      <motion.div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg" variants={childVariants}>
         <img src={photo} alt={name} className="w-full h-full object-cover" />
       </motion.div>
-      <motion.h3 
-        className="font-display text-4xl italic text-gray-700 mt-10"
-        variants={childVariants}
-      >
+      <motion.h3 className="font-display text-4xl italic text-gray-700 mt-10" variants={childVariants}>
         {name}
       </motion.h3>
       <motion.div className="text-center text-gray-600 mt-5" variants={childVariants}>
@@ -41,15 +34,13 @@ const ProfileCard = ({ name, father, mother, photo, isBride, variants }) => {
 
 const Profile = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
-
-  // PERUBAHAN BARU: Varian untuk kontainer profil dan itemnya
   const profileSectionVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5, // Jeda animasi antar kartu profil dan simbol '&'
-        delayChildren: 0.5 // Mulai setelah animasi pembuka selesai
+        staggerChildren: 0.5,
+        delayChildren: 0.5
       }
     }
   };
@@ -62,23 +53,21 @@ const Profile = () => {
       transition: {
         duration: 1,
         ease: "easeOut",
-        staggerChildren: 0.2 // Jeda animasi untuk foto, nama, dll di dalam kartu
+        staggerChildren: 0.2
       }
     }
   };
 
-  // PERUBAHAN: Varian untuk kontainer konten dengan stagger effect
   const contentContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4 // Jeda animasi antar elemen
+        staggerChildren: 0.4
       }
     }
   };
 
-  // PERUBAHAN: Varian untuk setiap elemen di dalam kontainer
   const contentChildVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
@@ -92,18 +81,17 @@ const Profile = () => {
     }
   };
 
-  // PERUBAHAN: Varian untuk daun kiri dengan animasi lambaian
   const leafLeftVariants = {
     hidden: { opacity: 0, x: -100, rotate: -26 },
     visible: {
       opacity: 0.75,
       x: 0,
-      rotate: [-26, -29, -26], // Animasi rotasi berulang
+      rotate: [-26, -29, -26],
       transition: {
         opacity: { duration: 1.5, ease: "easeInOut" },
         x: { duration: 1.5, ease: "easeInOut" },
         rotate: {
-          delay: 1.5, // Mulai setelah transisi awal
+          delay: 1.5,
           duration: 9,
           ease: "easeInOut",
           repeat: Infinity,
@@ -112,28 +100,26 @@ const Profile = () => {
     }
   };
 
-  // PERUBAHAN: Varian untuk daun kanan dengan animasi lambaian
   const leafRightVariants = {
     hidden: { opacity: 0, x: 100, rotate: -175, scaleY: -1 },
     visible: {
       opacity: 0.8,
       x: 0,
-      scaleY: -1, // Pertahankan skala
-      rotate: [-175, -172, -175], // Animasi rotasi berulang
+      scaleY: -1,
+      rotate: [-175, -172, -175],
       transition: {
         opacity: { duration: 1.5, ease: "easeInOut" },
         x: { duration: 1.5, ease: "easeInOut" },
         rotate: {
-          delay: 1.5, // Mulai setelah transisi awal
-          duration: 9.5, // Sedikit beda durasi agar lebih natural
+          delay: 1.5,
+          duration: 9.5,
           ease: "easeInOut",
           repeat: Infinity,
         }
       }
     }
   };
-  
-  // Varian lainnya tetap sama
+
   const fern1Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -215,10 +201,7 @@ const Profile = () => {
           variants={contentChildVariants}
           onError={(e) => e.target.style.display = 'none'}
         />
-        <motion.p
-          className="max-w-3xl mx-auto mb-12"
-          variants={contentChildVariants}
-        >
+        <motion.p className="max-w-3xl mx-auto mb-12" variants={contentChildVariants}>
           Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan kami.
         </motion.p>
       </motion.div>
@@ -235,10 +218,7 @@ const Profile = () => {
           isBride={true}
           variants={profileItemVariants}
         />
-        <motion.span 
-          className="font-display text-5xl text-gray-700"
-          variants={profileItemVariants}
-        >
+        <motion.span className="font-display text-5xl text-gray-700" variants={profileItemVariants}>
           &
         </motion.span>
         <ProfileCard

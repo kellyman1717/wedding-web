@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         'custom-blue': {
-          light: '#ddf1f0', // Latar belakang lebih terang
-          DEFAULT: '#bfdbfe', // Latar belakang utama
-          dark: '#063970' // Warna tombol
+          light: '#ddf1f0',
+          DEFAULT: '#bfdbfe', //bg utama
+          dark: '#063970' //warna tombol
         },
         'custom-brown': {
-          DEFAULT: '#4d4848ff' // Warna teks
+          DEFAULT: '#4d4848ff' //warna teks
         }
       },
       fontFamily: {
