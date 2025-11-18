@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback  } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Cover from './components/Cover';
@@ -61,6 +61,9 @@ function App() {
 
   const audioFileUrl = 'https://my-wedding-ec9a0.web.app/audio/song.mp3';
   const audioRef = useRef(new Audio(audioFileUrl));
+  const audioContextRef = useRef(null);
+  const gainNodeRef = useRef(null);
+  const isAudioChainInitializedRef = useRef(false);
   
   const [guestName, setGuestName] = useState('');
 
@@ -80,18 +83,60 @@ function App() {
   useEffect(() => {
     const audio = audioRef.current;
     audio.loop = true;
-    audio.volume = 0.4; 
+    audio.crossOrigin = 'anonymous';
+    audio.volume = 0.4;
     return () => {
       audio.pause();
+      if (audioContextRef.current) {
+        audioContextRef.current.close().catch(() => {});
+      }
     };
   }, []);
+
+  const initializeAudioChain = useCallback(async () => {
+    if (isAudioChainInitializedRef.current) return;
+    if (typeof window === 'undefined') return;
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextClass) {
+      isAudioChainInitializedRef.current = true;
+      return;
+    }
+
+    try {
+      const context = new AudioContextClass();
+      audioContextRef.current = context;
+
+      const source = context.createMediaElementSource(audioRef.current);
+      const gainNode = context.createGain();
+
+      gainNode.gain.value = volume;
+
+      source.connect(gainNode);
+      gainNode.connect(context.destination);
+
+      gainNodeRef.current = gainNode;
+
+      if (context.state === 'suspended') {
+        await context.resume();
+      }
+
+      isAudioChainInitializedRef.current = true;
+    } catch (error) {
+      console.error('Failed to initialize audio context', error);
+      isAudioChainInitializedRef.current = true;
+    }
+  }, [volume]);
 
   const handleOpenInvitation = () => {
     setIsBlurring(true);
     setIsFadingOutCover(true);
     
     setTimeout(() => {
-      audioRef.current.play().catch(err => console.error('Audio error', err));
+      initializeAudioChain().finally(() => {
+        audioRef.current.play().catch(err => console.error('Audio error', err));
+      });
       setIsMusicPlaying(true);
     }, 3400);
 
@@ -113,14 +158,25 @@ function App() {
     if (isMusicPlaying) {
       audio.pause();
     } else {
-      audio.play();
+      initializeAudioChain().finally(() => {
+        if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+          audioContextRef.current.resume().catch(err => console.error('Audio resume error', err));
+        }
+        audio.play().catch(err => console.error('Audio error', err));
+      });
     }
     setIsMusicPlaying(!isMusicPlaying);
   };
 
   const handleVolumeChange = (newVolume) => {
     setVolume(newVolume);
-    audioRef.current.volume = newVolume;
+    if (gainNodeRef.current && audioContextRef.current) {
+      const context = audioContextRef.current;
+      gainNodeRef.current.gain.cancelScheduledValues(context.currentTime);
+      gainNodeRef.current.gain.setTargetAtTime(newVolume, context.currentTime, 0.01);
+    } else {
+      audioRef.current.volume = newVolume;
+    }
   };
 
   return (
