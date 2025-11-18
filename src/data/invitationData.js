@@ -62,7 +62,7 @@ export const invitationData = {
     {
       date: "25 Februari 2023",
       title: "Memulai Hubungan",
-      description: "Hari itu aku nyatain perasaan ke dia. Gak pakai drama, langsung sat set. Untungnya, dia bilang iya dan sejak itu kami mulai serius."
+      description: "Pada hari itu, perasaan yang sudah lama tumbuh akhirnya dinyatakan. Respon yang didapat sangat menenangkan. Sejak saat itu hubungan pun resmi dimulai."
     },
     {
       date: "5 Juli 2025",

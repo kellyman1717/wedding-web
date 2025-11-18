@@ -59,7 +59,7 @@ function App() {
   const [isFadingOutCover, setIsFadingOutCover] = useState(false);
   const [volume, setVolume] = useState(0.4);
 
-  const audioFileUrl = 'https://my-wedding-ec9a0.web.app/audio/song.mp3';
+  const audioFileUrl = 'https://my-wedding-ec9a0.web.app/audio/lagu.mp3';
   const audioRef = useRef(new Audio(audioFileUrl));
   const audioContextRef = useRef(null);
   const gainNodeRef = useRef(null);
@@ -95,39 +95,8 @@ function App() {
 
   const initializeAudioChain = useCallback(async () => {
     if (isAudioChainInitializedRef.current) return;
-    if (typeof window === 'undefined') return;
-
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-
-    if (!AudioContextClass) {
-      isAudioChainInitializedRef.current = true;
-      return;
-    }
-
-    try {
-      const context = new AudioContextClass();
-      audioContextRef.current = context;
-
-      const source = context.createMediaElementSource(audioRef.current);
-      const gainNode = context.createGain();
-
-      gainNode.gain.value = volume;
-
-      source.connect(gainNode);
-      gainNode.connect(context.destination);
-
-      gainNodeRef.current = gainNode;
-
-      if (context.state === 'suspended') {
-        await context.resume();
-      }
-
-      isAudioChainInitializedRef.current = true;
-    } catch (error) {
-      console.error('Failed to initialize audio context', error);
-      isAudioChainInitializedRef.current = true;
-    }
-  }, [volume]);
+    isAudioChainInitializedRef.current = true;
+  }, []);
 
   const handleOpenInvitation = () => {
     setIsBlurring(true);
@@ -170,13 +139,7 @@ function App() {
 
   const handleVolumeChange = (newVolume) => {
     setVolume(newVolume);
-    if (gainNodeRef.current && audioContextRef.current) {
-      const context = audioContextRef.current;
-      gainNodeRef.current.gain.cancelScheduledValues(context.currentTime);
-      gainNodeRef.current.gain.setTargetAtTime(newVolume, context.currentTime, 0.01);
-    } else {
-      audioRef.current.volume = newVolume;
-    }
+    audioRef.current.volume = newVolume;
   };
 
   return (
