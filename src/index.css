@@ -5,22 +5,32 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
+  margin: 0;
+  padding: 0;
   height: 100%;
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: hidden;  /* cegah scroll horizontal */
+}
+
+html {
+  overflow-y: hidden;  /* html tidak scroll */
 }
 
 body {
-  height: 100%;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-y: hidden;  /* body juga TIDAK scroll (scroll-nya kita pindah ke container khusus) */
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
   @apply bg-custom-blue text-custom-brown;
 }
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+
 
 .music-player__slider {
   -webkit-appearance: none;

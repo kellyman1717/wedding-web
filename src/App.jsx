@@ -168,16 +168,18 @@ function App() {
       )}
       
       {showHero && (
-        <TransitionWrapper 
-          isVisible={showHero}
-          animationClasses="translate-y-0" 
-          delay={2400}
-        >
-          <div className="relative z-10">
-            <InvitationPage />
-          </div>
-        </TransitionWrapper>
-      )}
+  <TransitionWrapper 
+    isVisible={showHero}
+    animationClasses="translate-y-0" 
+    delay={2400}
+  >
+    {/* container scroll: Y saja, X disembunyikan */}
+    <div className="relative z-10 h-screen overflow-y-auto overflow-x-hidden">
+      <InvitationPage />
+    </div>
+  </TransitionWrapper>
+)}
+
       
       {showHero && (
         <>
