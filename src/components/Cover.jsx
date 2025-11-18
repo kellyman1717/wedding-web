@@ -42,10 +42,10 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
       <div className="absolute inset-0 z-0 bg-white/30" aria-hidden="true"></div>
 
       <motion.img
-        src={flowrCover} alt="Ornamen Bunga Atas" className="absolute top-[-15px] right-[-15px] z-10 w-[300px] md:w-64 pointer-events-none" aria-hidden="true" custom={true} variants={flwrVariants} initial="hidden" animate="visible"
+        src={flowrCover} alt="Ornamen Bunga Atas" className="absolute top-[-15px] right-[-15px] z-10 w-[250px] md:w-64 pointer-events-none" aria-hidden="true" custom={true} variants={flwrVariants} initial="hidden" animate="visible"
       />
       <motion.img
-        src={flowrCover} alt="Ornamen Bunga Bawah" className="absolute bottom-[-15px] left-[-15px] z-10 w-[300px] md:w-64 pointer-events-none" aria-hidden="true" custom={false} variants={flwrVariants} initial="hidden" animate="visible"
+        src={flowrCover} alt="Ornamen Bunga Bawah" className="absolute bottom-[-15px] left-[-15px] z-10 w-[250px] md:w-64 pointer-events-none" aria-hidden="true" custom={false} variants={flwrVariants} initial="hidden" animate="visible"
       />
 
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen w-full p-8 text-center text-white">
