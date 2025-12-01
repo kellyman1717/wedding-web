@@ -57,22 +57,25 @@ export const invitationData = {
     {
       date: "25 Januari 2023",
       title: "Pertama Bertemu",
-      description: "Semua bermula dari sosial media. Kami kenal ketika saling tukar stiker di chat, obrolan singkat berubah jadi kebiasaan, sampai akhirnya jadi bagian dari keseharian. "
+      description: "Semua bermula dari sosial media. Kami kenal ketika saling tukar stiker di chat, obrolan singkat berubah jadi kebiasaan, sampai akhirnya jadi bagian dari keseharian.",
     },
     {
       date: "25 Februari 2023",
       title: "Memulai Hubungan",
-      description: "Pada hari itu, perasaan yang sudah lama tumbuh akhirnya dinyatakan. Respon yang didapat sangat menenangkan. Sejak saat itu hubungan pun resmi dimulai."
+      description: "Pada hari itu, perasaan yang sudah lama tumbuh akhirnya dinyatakan. Respon yang didapat sangat menenangkan. Sejak saat itu hubungan pun resmi dimulai.",
+      image: `${cdnBaseUrl}gallery-2.webp` // Tambahkan baris ini
     },
     {
       date: "5 Juli 2025",
       title: "Lamaran",
-      description: "Setelah lama kami menjalankan hubungan bersama, setelah itu saya menyatakan jika ingin membawa hubungan ini ke jenjang lebih serius. Kami lamaran di kediamannya, saat itu suasananya sangat romantis, dan orang orang pun yang hadir ikut senang."
+      description: "Setelah lama kami menjalankan hubungan bersama, setelah itu saya menyatakan jika ingin membawa hubungan ini ke jenjang lebih serius. Kami lamaran di kediamannya.",
+      image: `${cdnBaseUrl}gallery-3.webp` // Tambahkan baris ini
     },
     {
       date: "27 Desember 2025",
       title: "Menuju Halal",
-      description: "Setelah semua yang dilewati bareng, kini saatnya melangkah lebih serius. Semoga pernikahan ini jadi awal keluarga yang sakinah, mawaddah, warahmah."
+      description: "Setelah semua yang dilewati bareng, kini saatnya melangkah lebih serius. Semoga pernikahan ini jadi awal keluarga yang sakinah, mawaddah, warahmah.",
+      image: `${cdnBaseUrl}gallery-4.webp` // Tambahkan baris ini
     }
   ],
 };
