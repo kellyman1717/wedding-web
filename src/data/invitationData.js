@@ -16,13 +16,13 @@ export const invitationData = {
     fullName: "Nama Lengkap Pria",
     father: "Chaidir",
     mother: "Atih Maryatih",
-    photo: `${cdnBaseUrl}groom.webp`,
+    photo: `${cdnBaseUrl}groom.jpeg`,
   },
   brideProfile: {
     fullName: "Nama Lengkap Wanita",
     father: "Mochtar (alm)",
     mother: "Iwin Yuliani",
-    photo: `${cdnBaseUrl}bride.webp`,
+    photo: `${cdnBaseUrl}bride.jpeg`,
   },
   events: [
     {

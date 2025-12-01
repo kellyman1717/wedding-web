@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
-  const bgCoverCdn = `${cdnBaseUrl}cover.webp`;
+  const bgCoverCdn = `${cdnBaseUrl}gallery-8.webp`;
   const flowrCover = `${cdnBaseUrl}flwr-cover.webp`;
 
   const flwrVariants = {
