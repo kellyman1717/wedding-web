@@ -59,7 +59,7 @@ function App() {
   const [isFadingOutCover, setIsFadingOutCover] = useState(false);
   const [volume, setVolume] = useState(0.4);
 
-  const audioFileUrl = 'https://my-wedding-ec9a0.web.app/audio/lagu.mp3';
+  const audioFileUrl = 'https://my-wedding-ec9a0.web.app/audio/song.mp3';
   const audioRef = useRef(new Audio(audioFileUrl));
   const audioContextRef = useRef(null);
   const gainNodeRef = useRef(null);
