@@ -46,12 +46,14 @@ export const invitationData = {
   ],
 
   galleryImages: [
-    `${cdnBaseUrl}gallery-1.webp`,
-    `${cdnBaseUrl}gallery-6.webp`,
-    `${cdnBaseUrl}gallery-5.webp`,
-    `${cdnBaseUrl}gallery-8.webp`,
-    `${cdnBaseUrl}gallery-3.webp`,
-    `${cdnBaseUrl}gallery-2.webp`
+    `${cdnBaseUrl}prambanan.webp`,
+    `${cdnBaseUrl}dieng.webp`,
+    `${cdnBaseUrl}kursi-lamaran.webp`,
+    `${cdnBaseUrl}lamaran.webp`,
+    `${cdnBaseUrl}prewed1.webp`,
+    `${cdnBaseUrl}prewed2.webp`,
+    `${cdnBaseUrl}prewed3.webp`,
+    `${cdnBaseUrl}gallery-7.webp`
   ],
   loveStory: [
     {
@@ -63,19 +65,19 @@ export const invitationData = {
       date: "25 Februari 2023",
       title: "Memulai Hubungan",
       description: "Pada hari itu, perasaan yang sudah lama tumbuh akhirnya dinyatakan. Respon yang didapat sangat menenangkan. Sejak saat itu hubungan pun resmi dimulai.",
-      image: `${cdnBaseUrl}gallery-2.webp` // Tambahkan baris ini
+      image: `${cdnBaseUrl}first_time.webp`
     },
     {
       date: "5 Juli 2025",
       title: "Lamaran",
       description: "Setelah lama kami menjalankan hubungan bersama, setelah itu saya menyatakan jika ingin membawa hubungan ini ke jenjang lebih serius. Kami lamaran di kediamannya.",
-      image: `${cdnBaseUrl}gallery-3.webp` // Tambahkan baris ini
+      image: `${cdnBaseUrl}lamaran3.webp`
     },
     {
       date: "27 Desember 2025",
       title: "Menuju Halal",
       description: "Setelah semua yang dilewati bareng, kini saatnya melangkah lebih serius. Semoga pernikahan ini jadi awal keluarga yang sakinah, mawaddah, warahmah.",
-      image: `${cdnBaseUrl}gallery-4.webp` // Tambahkan baris ini
+      image: `${cdnBaseUrl}kita-bg-biru.webp`
     }
   ],
 };
