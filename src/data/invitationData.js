@@ -60,12 +60,13 @@ export const invitationData = {
       date: "25 Januari 2023",
       title: "Pertama Bertemu",
       description: "Semua bermula dari sosial media. Kami kenal ketika saling tukar stiker di chat, obrolan singkat berubah jadi kebiasaan, sampai akhirnya jadi bagian dari keseharian.",
+      image: `${cdnBaseUrl}our_first_meet.webp`
     },
     {
       date: "25 Februari 2023",
       title: "Memulai Hubungan",
       description: "Pada hari itu, perasaan yang sudah lama tumbuh akhirnya dinyatakan. Respon yang didapat sangat menenangkan. Sejak saat itu hubungan pun resmi dimulai.",
-      image: `${cdnBaseUrl}first_time.webp`
+      image: `${cdnBaseUrl}memulai_hubungan.webp`
     },
     {
       date: "5 Juli 2025",
