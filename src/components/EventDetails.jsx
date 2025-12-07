@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
-import { Gem, Flower2, CalendarPlus } from 'lucide-react'; // Tambah icon CalendarPlus
+import { Gem, Flower2, CalendarPlus } from 'lucide-react';
 
 const iconMap = {
   Gem: Gem,
@@ -14,22 +14,30 @@ const EventCard = ({ events }) => {
     return null;
   }
 
-  const getGoogleCalendarUrl = (event) => {
-    const baseDate = new Date(invitationData.weddingDate.fullDate); 
-    const timeParts = event.time.split(' ')[0].split(':');
-    const hours = parseInt(timeParts[0]);
-    const minutes = parseInt(timeParts[1]);
+  const getCombinedCalendarUrl = () => {
+    const baseDate = new Date(invitationData.weddingDate.fullDate);
+    
+    const firstEventTime = events[0].time.split(' ')[0].split(':');
+    const startHours = parseInt(firstEventTime[0]);
+    const startMinutes = parseInt(firstEventTime[1]);
+
     const startDate = new Date(baseDate);
-    startDate.setHours(hours, minutes, 0);
+    startDate.setHours(startHours, startMinutes, 0);
 
     const endDate = new Date(startDate);
-    endDate.setHours(startDate.getHours() + 2);
+    endDate.setHours(13, 0, 0); 
 
     const formatTime = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
 
-    const details = `Acara: ${event.name}\nLokasi: ${event.location}`;
+    const title = `The Wedding of ${invitationData.bride} & ${invitationData.groom}`;
     
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.name + " - " + invitationData.bride + " & " + invitationData.groom)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(event.location)}`;
+    let eventDetails = "Acara Pernikahan:\n";
+    events.forEach((ev, idx) => {
+        eventDetails += `${idx + 1}. ${ev.name}: ${ev.time}\n`;
+    });
+    eventDetails += `\nLokasi: ${sharedLocation.location}`;
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(sharedLocation.location)}`;
   };
 
   return (
@@ -52,23 +60,26 @@ const EventCard = ({ events }) => {
             <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
             <p className="font-sans font-semibold text-lg">{event.date}</p>
             <p className="font-sans mb-4">{event.time}</p>
-            <a 
-              href={getGoogleCalendarUrl(event)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-4 py-2 rounded-full text-sm font-semibold transition-colors mb-4"
-            >
-              <CalendarPlus size={16} />
-              Simpan Tanggal
-            </a>
-
+            
             {index < events.length - 1 && (
               <hr className="my-8 border-gray-400 w-3/4 mx-auto" />
             )}
           </div>
         );
       })}
+
       <hr className="my-8 border-gray-400 w-full mx-auto" />
+
+      <a 
+        href={getCombinedCalendarUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-5 py-3 rounded-full text-sm font-semibold transition-colors mb-8 transform hover:scale-105"
+      >
+        <CalendarPlus size={18} />
+        Simpan Tanggal Akad Nikah dan Resepsi
+      </a>
+
       <div className="w-full">
         <p className="font-sans font-bold text-lg">Lokasi Acara:</p>
         <p className="font-sans mt-2">{sharedLocation.location}</p>

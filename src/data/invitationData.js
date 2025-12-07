@@ -5,6 +5,7 @@ export const invitationData = {
   brideExt: "Yulia Ananda Septiani",
   groom: "Ardian",
   bride: "Yulia",
+  audioUrl: 'https://my-wedding-ec9a0.web.app/audio/song.mp3',
   weddingDate: {
     day: "Jumat",
     date: 27,

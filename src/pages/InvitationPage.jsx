@@ -8,6 +8,7 @@ import RSVP from '../components/RSVP.jsx';
 import Guestbook from '../components/Guestbook.jsx';
 import Gift from '../components/Gift.jsx';
 import Closing from '../components/Closing.jsx';
+import BackToTop from '../components/BackToTop.jsx';
 import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
 const InvitationPage = () => {
@@ -33,6 +34,7 @@ const InvitationPage = () => {
       <div id="guestbook" {...fadeGuestbook}><Guestbook /></div>
       <div id="gift" {...fadeGift}><Gift /></div>
       <div {...fadeClosing}><Closing /></div>
+      <BackToTop />
     </main>
   );
 };

@@ -63,7 +63,7 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
             <button onClick={onOpen} className="bg-custom-blue-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
               Buka Undangan
             </button>
-            <a href={`https://wa.me/?text=${encodeURIComponent('Hai! Cek undangan pernikahan kami di sini: https://namadomain.com')}`} target="_blank" rel="noopener noreferrer" className="transform translate-y-6 tracking-wider font-semibold text-[14px] text-white hover:text-blue-800 transition">
+            <a href={`https://wa.me/?text=${encodeURIComponent('Hai! Cek undangan pernikahan kami di sini: https://yuliaardian.com')}`} target="_blank" rel="noopener noreferrer" className="transform translate-y-6 tracking-wider font-semibold text-[14px] text-white hover:text-blue-800 transition">
               Bagikan lewat WhatsApp
             </a>
           </div>
