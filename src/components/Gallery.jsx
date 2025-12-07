@@ -59,12 +59,12 @@ const Gallery = () => {
       <motion.img src={`${cdnBaseUrl}leaf-branches-10.webp`} alt="Ornamen" className="absolute top-[545px] right-[0px] w-[143px] h-auto z-0 scale-x-[-1] -rotate-45 opacity-90 blur-[0.8px]" variants={leaf10Variants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} />
       <motion.img src={`${cdnBaseUrl}leaf-branches-9.webp`} alt="Ornamen" className="absolute bottom-[340px] left-[-13px] w-[143px] h-auto z-0 opacity-90 blur-[0.8px]" variants={leaf9Variants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} />
       <motion.img src={`${cdnBaseUrl}leaf-branches-8.webp`} alt="Ornamen" className="absolute bottom-0 right-0 w-[143px] h-auto z-0 opacity-90 translate-x-[40px] blur-[0.8px]" variants={leaf8Variants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} />
-      <motion.div className="relative text-center mb-16 mt-[40px]" variants={titleContainerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>
+      <motion.div className="relative z-50 text-center mb-16 mt-8 md:mt-24 mx-auto px-12 md:px-0 max-w-[20rem] md:max-w-3xl" variants={titleContainerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>
         <motion.h2 variants={titleChildVariants} className="font-display text-[32px] md:text-4xl text-gray-800 mt-5 font-medium">
           Gallery
         </motion.h2>
         <motion.p variants={titleChildVariants} className="font-sans mt-4 text-[18px]">
-          Bagian dari tawa dan cinta yang membangun cerita kami.
+          Kumpulan memori manis dalam perjalanan menuju ikatan abadi.
         </motion.p>
       </motion.div>
       <div className="flex gap-4 max-w-5xl mx-auto items-start px-2">
