@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { invitationData } from '../data/invitationData.js';
-import { Gem, Flower2 } from 'lucide-react';
+import { Gem, Flower2, CalendarPlus } from 'lucide-react'; // Tambah icon CalendarPlus
 
 const iconMap = {
   Gem: Gem,
@@ -13,6 +13,24 @@ const EventCard = ({ events }) => {
   if (!sharedLocation) {
     return null;
   }
+
+  const getGoogleCalendarUrl = (event) => {
+    const baseDate = new Date(invitationData.weddingDate.fullDate); 
+    const timeParts = event.time.split(' ')[0].split(':');
+    const hours = parseInt(timeParts[0]);
+    const minutes = parseInt(timeParts[1]);
+    const startDate = new Date(baseDate);
+    startDate.setHours(hours, minutes, 0);
+
+    const endDate = new Date(startDate);
+    endDate.setHours(startDate.getHours() + 2);
+
+    const formatTime = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
+
+    const details = `Acara: ${event.name}\nLokasi: ${event.location}`;
+    
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.name + " - " + invitationData.bride + " & " + invitationData.groom)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(event.location)}`;
+  };
 
   return (
     <motion.div
@@ -34,6 +52,16 @@ const EventCard = ({ events }) => {
             <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
             <p className="font-sans font-semibold text-lg">{event.date}</p>
             <p className="font-sans mb-4">{event.time}</p>
+            <a 
+              href={getGoogleCalendarUrl(event)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-4 py-2 rounded-full text-sm font-semibold transition-colors mb-4"
+            >
+              <CalendarPlus size={16} />
+              Simpan Tanggal
+            </a>
+
             {index < events.length - 1 && (
               <hr className="my-8 border-gray-400 w-3/4 mx-auto" />
             )}

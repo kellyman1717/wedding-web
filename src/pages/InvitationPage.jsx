@@ -6,6 +6,7 @@ import LoveStory from '../components/LoveStory.jsx';
 import LocationMap from "../components/LocationMap.jsx";
 import RSVP from '../components/RSVP.jsx';
 import Guestbook from '../components/Guestbook.jsx';
+import Gift from '../components/Gift.jsx';
 import Closing from '../components/Closing.jsx';
 import useScrollFadeIn from "../hooks/useScrollFadeIn.js";
 
@@ -17,6 +18,7 @@ const InvitationPage = () => {
   const fadeLoveStory = useScrollFadeIn("left");
   const fadeRSVP = useScrollFadeIn("left");
   const fadeGuestbook = useScrollFadeIn("left");
+  const fadeGift = useScrollFadeIn("up");
   const fadeClosing = useScrollFadeIn();
 
   return (
@@ -29,6 +31,7 @@ const InvitationPage = () => {
       <div id="location" {...fadeMap}><LocationMap /></div>
       <div id="rsvp" {...fadeRSVP}><RSVP /></div>
       <div id="guestbook" {...fadeGuestbook}><Guestbook /></div>
+      <div id="gift" {...fadeGift}><Gift /></div>
       <div {...fadeClosing}><Closing /></div>
     </main>
   );
