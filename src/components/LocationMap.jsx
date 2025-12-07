@@ -35,7 +35,7 @@ const LocationMap = () => {
         <img src={`${cdnBaseUrl}floral-straight-2.webp`} alt="Ornamen" className="fixed top-[-80px] right-0 w-[260px] h-auto z-0 scale-x-[-1]"/>
         <img src={`${cdnBaseUrl}floral-bouquet-12.webp`} alt="Ornamen" className="fixed top-[-28px] left-1/2 -translate-x-1/2 w-[230px] h-auto z-0 rotate-[180deg]"/>
       <h2 className="py-5 font-display text-4xl md:text-5xl text-custom-brown mb-[10px] mt-7">Lokasi Acara</h2>
-      <p className="mb-4 font-sans text-lg">Peta lokasi acara resepsi pernikahan kami.</p>
+      <p className="mb-4 font-sans text-lg">Peta lokasi acara pernikahan kami.</p>
       <div className="max-w-3xl mx-auto rounded-lg overflow-hidden shadow-lg">
         <MapContainer
           center={receptionLocation.position}

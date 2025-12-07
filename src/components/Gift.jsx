@@ -44,13 +44,13 @@ const Gift = () => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   const bankAccounts = [
     {
-      bankName: "BCA",
-      accountNumber: "1234567890",
+      bankName: "Blu by BCA",
+      accountNumber: "005693250661",
       ownerName: invitationData.groomExt
     },
     {
-      bankName: "BRI",
-      accountNumber: "0987654321000",
+      bankName: "Blu by BCA",
+      accountNumber: "009533295421",
       ownerName: invitationData.brideExt
     }
   ];

@@ -14,7 +14,7 @@ const EventCard = ({ events }) => {
     return null;
   }
 
-  const getGoogleCalendarLink = () => {
+  const handleAddToCalendar = () => {
     const baseDate = new Date(invitationData.weddingDate.fullDate);
     const firstEventTime = events[0].time.split(' ')[0].split(':');
     const startHours = parseInt(firstEventTime[0]);
@@ -36,71 +36,9 @@ const EventCard = ({ events }) => {
     });
     eventDetails += `\nLokasi: ${sharedLocation.location}`;
 
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(sharedLocation.location)}`;
-  };
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(sharedLocation.location)}`;
 
-  const handleIOSCalendar = () => {
-    const baseDate = new Date(invitationData.weddingDate.fullDate);
-    const firstEventTime = events[0].time.split(' ')[0].split(':');
-    const startHours = parseInt(firstEventTime[0]);
-    const startMinutes = parseInt(firstEventTime[1]);
-
-    const startDate = new Date(baseDate);
-    startDate.setHours(startHours, startMinutes, 0);
-
-    const endDate = new Date(startDate);
-    endDate.setHours(13, 0, 0);
-
-    const formatDate = (date) => {
-      const pad = (n) => (n < 10 ? `0${n}` : n);
-      return (
-        date.getFullYear() +
-        pad(date.getMonth() + 1) +
-        pad(date.getDate()) +
-        'T' +
-        pad(date.getHours()) +
-        pad(date.getMinutes()) +
-        pad(date.getSeconds())
-      );
-    };
-
-    const title = `The Wedding of ${invitationData.bride} & ${invitationData.groom}`;
-    const location = sharedLocation.location;
-    
-    let description = "Acara Pernikahan:\\n";
-    events.forEach((ev, idx) => {
-        description += `${idx + 1}. ${ev.name}: ${ev.time}\\n`;
-    });
-    description += `\\nLokasi: ${location}`;
-
-    const icsContent = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//YuliaArdian//WeddingInvitation//EN',
-      'BEGIN:VEVENT',
-      `UID:${Date.now()}@wedding-invitation`,
-      `DTSTAMP:${formatDate(new Date())}`,
-      `DTSTART:${formatDate(startDate)}`,
-      `DTEND:${formatDate(endDate)}`,
-      `SUMMARY:${title}`,
-      `DESCRIPTION:${description}`,
-      `LOCATION:${location}`,
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
-    const fileUrl = "data:text/calendar;charset=utf8," + encodeURIComponent(icsContent);
-    window.open(fileUrl);
-  };
-
-  const handleCalendarClick = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-    
-    if (isIOS) {
-      handleIOSCalendar();
-    } else {
-      window.open(getGoogleCalendarLink(), '_blank');
-    }
+    window.open(googleCalendarUrl, '_blank');
   };
 
   return (
@@ -134,7 +72,7 @@ const EventCard = ({ events }) => {
       <hr className="my-8 border-gray-400 w-full mx-auto" />
 
       <button 
-        onClick={handleCalendarClick}
+        onClick={handleAddToCalendar}
         className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-5 py-3 rounded-full text-sm font-semibold transition-colors mb-8 transform hover:scale-105 cursor-pointer"
       >
         <CalendarPlus size={18} />
