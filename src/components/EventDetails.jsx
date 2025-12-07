@@ -39,7 +39,7 @@ const EventCard = ({ events }) => {
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(sharedLocation.location)}`;
   };
 
-  const downloadIcsFile = () => {
+  const handleIOSCalendar = () => {
     const baseDate = new Date(invitationData.weddingDate.fullDate);
     const firstEventTime = events[0].time.split(' ')[0].split(':');
     const startHours = parseInt(firstEventTime[0]);
@@ -88,23 +88,16 @@ const EventCard = ({ events }) => {
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
-
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'wedding-invitation.ics');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const fileUrl = "data:text/calendar;charset=utf8," + encodeURIComponent(icsContent);
+    window.open(fileUrl);
   };
 
   const handleCalendarClick = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const isMobile = /android|iPad|iPhone|iPod/i.test(userAgent);
-
-    if (isMobile) {
-      downloadIcsFile();
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    
+    if (isIOS) {
+      handleIOSCalendar();
     } else {
       window.open(getGoogleCalendarLink(), '_blank');
     }

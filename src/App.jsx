@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Cover from './components/Cover';
 import InvitationPage from './pages/InvitationPage';
 import MusicPlayer from './components/MusicPlayer';
+import BackToTop from './components/BackToTop';
 import { invitationData } from './data/invitationData.js';
 
 const INITIAL_LOAD_DURATION = 1800;
@@ -174,9 +175,9 @@ function App() {
           animationClasses="translate-y-0"
           delay={2400}
         >
-          <div 
-            id="main-scroll-container" 
-            className="relative z-10 h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+          <div
+            id="main-scroll-container"
+            className="relative z-10 h-screen overflow-y-auto overflow-x-hidden"
           >
             <InvitationPage />
           </div>
@@ -184,6 +185,7 @@ function App() {
       )}
       {showHero && (
         <>
+          <BackToTop />
           <MusicPlayer
             isPlaying={isMusicPlaying}
             onTogglePlay={toggleMusic}
