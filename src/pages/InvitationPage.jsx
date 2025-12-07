@@ -30,9 +30,9 @@ const InvitationPage = () => {
       <div id="gallery" {...fadeGallery}><Gallery /></div>
       <div id="lovestory" {...fadeLoveStory}><LoveStory /></div>
       <div id="location" {...fadeMap}><LocationMap /></div>
+      <div id="gift" {...fadeGift}><Gift /></div>
       <div id="rsvp" {...fadeRSVP}><RSVP /></div>
       <div id="guestbook" {...fadeGuestbook}><Guestbook /></div>
-      <div id="gift" {...fadeGift}><Gift /></div>
       <div {...fadeClosing}><Closing /></div>
       <BackToTop />
     </main>

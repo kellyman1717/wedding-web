@@ -6,13 +6,12 @@ const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Cari elemen container scroll
     const scrollContainer = document.getElementById('main-scroll-container');
+    const locationSection = document.getElementById('location');
 
     const toggleVisibility = () => {
-      if (scrollContainer) {
-        // Cek posisi scroll dari container, bukan window
-        if (scrollContainer.scrollTop > 500) {
+      if (scrollContainer && locationSection) {
+        if (scrollContainer.scrollTop >= locationSection.offsetTop - 300) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
@@ -20,7 +19,6 @@ const BackToTop = () => {
       }
     };
 
-    // Pasang event listener ke container, bukan window
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', toggleVisibility);
     }
@@ -52,8 +50,7 @@ const BackToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          // Pastikan z-index tinggi (z-50) agar tidak tertutup elemen lain
-          className="fixed bottom-24 right-6 z-50 p-3 bg-custom-blue-dark text-white rounded-full shadow-lg border border-white/20 backdrop-blur-sm hover:bg-blue-800 transition-colors"
+          className="fixed bottom-28 right-6 z-[60] p-3 bg-custom-blue-dark text-white rounded-full shadow-lg border border-white/20 backdrop-blur-sm hover:bg-blue-800 transition-colors"
           aria-label="Kembali ke atas"
         >
           <ArrowUp size={24} />

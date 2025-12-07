@@ -14,9 +14,8 @@ const EventCard = ({ events }) => {
     return null;
   }
 
-  const getCombinedCalendarUrl = () => {
+  const getGoogleCalendarLink = () => {
     const baseDate = new Date(invitationData.weddingDate.fullDate);
-    
     const firstEventTime = events[0].time.split(' ')[0].split(':');
     const startHours = parseInt(firstEventTime[0]);
     const startMinutes = parseInt(firstEventTime[1]);
@@ -25,7 +24,7 @@ const EventCard = ({ events }) => {
     startDate.setHours(startHours, startMinutes, 0);
 
     const endDate = new Date(startDate);
-    endDate.setHours(13, 0, 0); 
+    endDate.setHours(13, 0, 0);
 
     const formatTime = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
 
@@ -38,6 +37,77 @@ const EventCard = ({ events }) => {
     eventDetails += `\nLokasi: ${sharedLocation.location}`;
 
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(sharedLocation.location)}`;
+  };
+
+  const downloadIcsFile = () => {
+    const baseDate = new Date(invitationData.weddingDate.fullDate);
+    const firstEventTime = events[0].time.split(' ')[0].split(':');
+    const startHours = parseInt(firstEventTime[0]);
+    const startMinutes = parseInt(firstEventTime[1]);
+
+    const startDate = new Date(baseDate);
+    startDate.setHours(startHours, startMinutes, 0);
+
+    const endDate = new Date(startDate);
+    endDate.setHours(13, 0, 0);
+
+    const formatDate = (date) => {
+      const pad = (n) => (n < 10 ? `0${n}` : n);
+      return (
+        date.getFullYear() +
+        pad(date.getMonth() + 1) +
+        pad(date.getDate()) +
+        'T' +
+        pad(date.getHours()) +
+        pad(date.getMinutes()) +
+        pad(date.getSeconds())
+      );
+    };
+
+    const title = `The Wedding of ${invitationData.bride} & ${invitationData.groom}`;
+    const location = sharedLocation.location;
+    
+    let description = "Acara Pernikahan:\\n";
+    events.forEach((ev, idx) => {
+        description += `${idx + 1}. ${ev.name}: ${ev.time}\\n`;
+    });
+    description += `\\nLokasi: ${location}`;
+
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//YuliaArdian//WeddingInvitation//EN',
+      'BEGIN:VEVENT',
+      `UID:${Date.now()}@wedding-invitation`,
+      `DTSTAMP:${formatDate(new Date())}`,
+      `DTSTART:${formatDate(startDate)}`,
+      `DTEND:${formatDate(endDate)}`,
+      `SUMMARY:${title}`,
+      `DESCRIPTION:${description}`,
+      `LOCATION:${location}`,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'wedding-invitation.ics');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleCalendarClick = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobile = /android|iPad|iPhone|iPod/i.test(userAgent);
+
+    if (isMobile) {
+      downloadIcsFile();
+    } else {
+      window.open(getGoogleCalendarLink(), '_blank');
+    }
   };
 
   return (
@@ -70,15 +140,13 @@ const EventCard = ({ events }) => {
 
       <hr className="my-8 border-gray-400 w-full mx-auto" />
 
-      <a 
-        href={getCombinedCalendarUrl()}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-5 py-3 rounded-full text-sm font-semibold transition-colors mb-8 transform hover:scale-105"
+      <button 
+        onClick={handleCalendarClick}
+        className="inline-flex items-center gap-2 bg-custom-blue-dark/10 hover:bg-custom-blue-dark/20 text-custom-blue-dark px-5 py-3 rounded-full text-sm font-semibold transition-colors mb-8 transform hover:scale-105 cursor-pointer"
       >
         <CalendarPlus size={18} />
         Simpan Tanggal Akad Nikah dan Resepsi
-      </a>
+      </button>
 
       <div className="w-full">
         <p className="font-sans font-bold text-lg">Lokasi Acara:</p>
