@@ -55,7 +55,7 @@ const Gift = () => {
     }
   ];
 
-  const qrisImage = `${cdnBaseUrl}qris-placeholder.png`;
+  const qrisImage = `${cdnBaseUrl}qris.webp`;
 
   return (
     <div className="relative py-16 px-6 bg-gradient-to-b from-white via-blue-200 to-white text-center">
