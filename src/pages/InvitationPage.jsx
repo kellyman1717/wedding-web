@@ -34,7 +34,6 @@ const InvitationPage = () => {
       <div id="rsvp" {...fadeRSVP}><RSVP /></div>
       <div id="guestbook" {...fadeGuestbook}><Guestbook /></div>
       <div {...fadeClosing}><Closing /></div>
-      
     </main>
   );
 };

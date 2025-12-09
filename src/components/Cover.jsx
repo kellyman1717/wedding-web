@@ -4,6 +4,24 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
   const cdnBaseUrl = 'https://my-wedding-ec9a0.web.app/images/';
   const bgCoverCdn = `${cdnBaseUrl}gallery-8.webp`;
   const flowrCover = `${cdnBaseUrl}flwr-cover.webp`;
+  const invitationUrl = 'https://yuliaardian.site';
+
+  const shareMessage = `
+    Assalamu’alaikum Warahmatullahi Wabarakatuh
+
+    Dengan penuh rasa syukur, kami ingin berbagi kabar bahagia mengenai pernikahan kami. Melalui pesan ini, kami mengundang Bapak/Ibu/Saudara/i untuk dapat hadir dan menyaksikan momen istimewa tersebut.
+
+    Informasi lengkap mengenai akad dan resepsi dapat dilihat melalui tautan berikut:
+
+    ${invitationUrl}
+
+    Kehadiran serta doa restu dari Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan besar bagi kami.
+
+    Atas perhatian dan doa terbaik yang diberikan, kami ucapkan terima kasih.
+
+    Hormat kami,
+    Yulia & Ardian
+  `.trim();
 
   const flwrVariants = {
     hidden: (isTop) => ({
@@ -37,15 +55,35 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
       }}
     >
       <picture>
-        <img src={bgCoverCdn} alt="Latar Belakang Undangan" className="absolute inset-0 z-0 object-cover w-full h-full" style={{ opacity: 1 }} loading="eager"/>
+        <img
+          src={bgCoverCdn}
+          alt="Latar Belakang Undangan"
+          className="absolute inset-0 z-0 object-cover w-full h-full"
+          style={{ opacity: 1 }}
+          loading="eager"
+        />
       </picture>
       <div className="absolute inset-0 z-0 bg-white/30" aria-hidden="true"></div>
 
       <motion.img
-        src={flowrCover} alt="Ornamen Bunga Atas" className="absolute top-[-15px] right-[-15px] z-10 w-[250px] md:w-64 pointer-events-none" aria-hidden="true" custom={true} variants={flwrVariants} initial="hidden" animate="visible"
+        src={flowrCover}
+        alt="Ornamen Bunga Atas"
+        className="absolute top-[-15px] right-[-15px] z-10 w-[250px] md:w-64 pointer-events-none"
+        aria-hidden="true"
+        custom={true}
+        variants={flwrVariants}
+        initial="hidden"
+        animate="visible"
       />
       <motion.img
-        src={flowrCover} alt="Ornamen Bunga Bawah" className="absolute bottom-[-15px] left-[-15px] z-10 w-[250px] md:w-64 pointer-events-none" aria-hidden="true" custom={false} variants={flwrVariants} initial="hidden" animate="visible"
+        src={flowrCover}
+        alt="Ornamen Bunga Bawah"
+        className="absolute bottom-[-15px] left-[-15px] z-10 w-[250px] md:w-64 pointer-events-none"
+        aria-hidden="true"
+        custom={false}
+        variants={flwrVariants}
+        initial="hidden"
+        animate="visible"
       />
 
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen w-full p-8 text-center text-white">
@@ -60,10 +98,18 @@ const Cover = ({ onOpen, isBlurred, isFadingOut, guestName }) => {
           )}
 
           <div className="flex flex-col items-center gap-3">
-            <button onClick={onOpen} className="bg-custom-blue-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+            <button
+              onClick={onOpen}
+              className="bg-custom-blue-dark text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
+            >
               Buka Undangan
             </button>
-            <a href={`https://wa.me/?text=${encodeURIComponent('Hai! Cek undangan pernikahan kami di sini: https://yuliaardian.site')}`} target="_blank" rel="noopener noreferrer" className="transform translate-y-6 tracking-wider font-semibold text-[14px] text-white hover:text-blue-800 transition">
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(shareMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transform translate-y-6 tracking-wider font-semibold text-[14px] text-white hover:text-blue-800 transition"
+            >
               Bagikan lewat WhatsApp
             </a>
           </div>

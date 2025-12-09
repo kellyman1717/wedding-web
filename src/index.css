@@ -10,16 +10,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-x: hidden;  /* cegah scroll horizontal */
+  overflow-x: hidden;
 }
 
 html {
-  overflow-y: hidden;  /* html tidak scroll */
+  overflow-y: hidden;
 }
 
 body {
-  overflow-y: hidden;  /* body juga TIDAK scroll (scroll-nya kita pindah ke container khusus) */
-  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
   scroll-behavior: smooth;
 
   @apply bg-custom-blue text-custom-brown;
