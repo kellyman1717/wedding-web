@@ -13,19 +13,20 @@ const BankAccount = ({ bankName, accountNumber, ownerName }) => {
   };
 
   return (
-    <div className="bg-white/40 backdrop-blur-sm border border-white/50 p-5 rounded-xl shadow-sm mb-4 text-left w-full max-w-sm mx-auto">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="bg-custom-blue-dark text-white p-2 rounded-lg">
-            <CreditCard size={20} /> 
+    <div className="bg-white/40 backdrop-blur-sm border border-white/50 p-5 rounded-xl shadow-sm text-left w-full mx-auto h-full flex flex-col justify-between">
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+            <div className="bg-custom-blue-dark text-white p-2 rounded-lg">
+                <CreditCard size={20} /> 
+            </div>
+            <h4 className="font-bold font-sans text-lg text-gray-700">{bankName}</h4>
         </div>
-        <h4 className="font-bold font-sans text-lg text-gray-700">{bankName}</h4>
+        
+        <p className="font-mono text-xl tracking-wider text-gray-800 my-1">{accountNumber}</p>
+        <p className="font-sans text-sm text-gray-600 mb-4">a.n {ownerName}</p>
       </div>
-      
-      <div className="flex justify-between items-end">
-        <div>
-          <p className="font-mono text-xl tracking-wider text-gray-800 my-1">{accountNumber}</p>
-          <p className="font-sans text-sm text-gray-600">a.n {ownerName}</p>
-        </div>
+
+      <div className="flex justify-end">
         <button 
           onClick={handleCopy}
           className="flex items-center gap-1 text-sm bg-white hover:bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-md transition-all shadow-sm active:scale-95"
@@ -59,19 +60,20 @@ const Gift = () => {
 
   return (
     <div className="relative py-16 px-6 bg-gradient-to-b from-white via-blue-200 to-white text-center">
-      
-      <div className="relative z-10 max-w-2xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto">
         <div className="mb-10">
             <div className="flex justify-center mb-4 text-custom-blue-dark">
                 <GiftIcon size={48} />
             </div>
             <h2 className="font-display text-4xl text-custom-brown mb-4">Amplop Digital</h2>
         </div>
+        
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto"
         >
             {bankAccounts.map((acc, idx) => (
                 <BankAccount 
@@ -82,6 +84,7 @@ const Gift = () => {
                 />
             ))}
         </motion.div>
+
         <motion.div 
             className="mt-8 bg-white p-4 rounded-xl shadow-md inline-block max-w-xs w-full"
             initial={{ opacity: 0, scale: 0.9 }}

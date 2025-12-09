@@ -43,7 +43,7 @@ const EventCard = ({ events }) => {
 
   return (
     <motion.div
-      className="relative bg-white/20 bg-opacity-50 backdrop-blur-md rounded-lg shadow-lg p-8 w-full max-w-md text-center flex flex-col items-center text-gray-700 mt-[-15px] mb-[20px]"
+      className="relative bg-white/20 bg-opacity-50 backdrop-blur-md rounded-lg shadow-lg p-8 w-full max-w-md md:max-w-4xl text-center flex flex-col items-center text-gray-700 mt-[-15px] mb-[20px]"
       style={{
         borderRadius: '10px',
         border: '1px solid rgba(255, 255, 255, 0.3)',
@@ -51,23 +51,27 @@ const EventCard = ({ events }) => {
         backdropFilter: 'blur(10px)',
       }}
     >
-      {events.map((event, index) => {
-        const IconComponent = iconMap[event.icon] || iconMap.Default;
-        return (
-          <div key={index} className="w-full">
-            <div className="mb-4 flex justify-center">
-              <IconComponent size={48} className="text-brown-800" />
+      <div className="w-full flex flex-col md:flex-row md:justify-around md:gap-8">
+        {events.map((event, index) => {
+          const IconComponent = iconMap[event.icon] || iconMap.Default;
+          return (
+            <div key={index} className="w-full relative">
+              <div className="mb-4 flex justify-center">
+                <IconComponent size={48} className="text-brown-800" />
+              </div>
+              <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
+              <p className="font-sans font-semibold text-lg">{event.date}</p>
+              <p className="font-sans mb-4">{event.time}</p>
+              {index < events.length - 1 && (
+                <hr className="my-8 border-gray-400 w-3/4 mx-auto md:hidden" />
+              )}
+              {index < events.length - 1 && (
+                <div className="hidden md:block absolute right-0 top-4 bottom-4 border-r border-gray-400/50"></div>
+              )}
             </div>
-            <h3 className="font-display text-4xl text-brown-800 mb-4">{event.name}</h3>
-            <p className="font-sans font-semibold text-lg">{event.date}</p>
-            <p className="font-sans mb-4">{event.time}</p>
-            
-            {index < events.length - 1 && (
-              <hr className="my-8 border-gray-400 w-3/4 mx-auto" />
-            )}
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
 
       <hr className="my-8 border-gray-400 w-full mx-auto" />
 
@@ -108,6 +112,7 @@ const EventDetails = () => {
     <div className="py-16 px-6 bg-gradient-to-b from-white to-blue-200 flex justify-center">
       <motion.div
         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={cardVariants}
+        className="w-full flex justify-center"
       >
         <EventCard events={events} />
       </motion.div>

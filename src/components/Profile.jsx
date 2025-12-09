@@ -143,7 +143,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="relative overflow-hidden text-center py-16 px-10 bg-gradient-to-b from-blue-200 to-white">
+    <div className="relative overflow-hiddenQl text-center py-16 px-10 bg-gradient-to-b from-blue-200 to-white">
       <img src={`${cdnBaseUrl}floral-bouquet-17.webp`} alt="Ornamen" className="absolute top-[-5px] left-[0px] w-[160px] h-auto z-10 scale-y-[-1]" />
       <img src={`${cdnBaseUrl}floral-bouquet-18.webp`} alt="Ornamen" className="absolute top-[-5px] right-[0px] w-[160px] h-auto z-10 rotate-[180deg]" />
       <img src={`${cdnBaseUrl}floral-straight-5.webp`} alt="Ornamen" className="fixed top-[-45px] right-0 w-[210px] h-auto z-10 scale-x-[-1]" />
@@ -187,47 +187,51 @@ const Profile = () => {
         whileInView="visible"
         viewport={{ once: true }}
       />
-      <motion.div
-        className="relative z-20 mt-[80px] flex flex-col items-center gap-6"
-        variants={contentContainerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.img
-          src={`${cdnBaseUrl}bismillah.png`}
-          alt="Bismillah"
-          className="w-[270px] h-auto"
-          variants={contentChildVariants}
-          onError={(e) => e.target.style.display = 'none'}
-        />
-        <motion.p className="max-w-3xl mx-auto mb-12" variants={contentChildVariants}>
-          Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan kami.
-        </motion.p>
-      </motion.div>
-      <motion.div 
-        className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 relative z-20"
-        variants={profileSectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-      >
-        <ProfileCard
-          name={invitationData.brideExt}
-          {...invitationData.brideProfile}
-          isBride={true}
-          variants={profileItemVariants}
-        />
-        <motion.span className="font-display text-5xl text-gray-700" variants={profileItemVariants}>
-          &
-        </motion.span>
-        <ProfileCard
-          name={invitationData.groomExt}
-          {...invitationData.groomProfile}
-          isBride={false}
-          variants={profileItemVariants}
-        />
-      </motion.div>
+      
+      <div className="max-w-5xl mx-auto relative z-20">
+        <motion.div
+          className="flex flex-col items-center gap-6 mt-[80px]"
+          variants={contentContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.img
+            src={`${cdnBaseUrl}bismillah.png`}
+            alt="Bismillah"
+            className="w-[270px] h-auto"
+            variants={contentChildVariants}
+            onError={(e) => e.target.style.display = 'none'}
+          />
+          <motion.p className="max-w-3xl mx-auto mb-12" variants={contentChildVariants}>
+            Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan kami.
+          </motion.p>
+        </motion.div>
+        
+        <motion.div 
+          className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-24"
+          variants={profileSectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <ProfileCard
+            name={invitationData.brideExt}
+            {...invitationData.brideProfile}
+            isBride={true}
+            variants={profileItemVariants}
+          />
+          <motion.span className="font-display text-5xl text-gray-700" variants={profileItemVariants}>
+            &
+          </motion.span>
+          <ProfileCard
+            name={invitationData.groomExt}
+            {...invitationData.groomProfile}
+            isBride={false}
+            variants={profileItemVariants}
+          />
+        </motion.div>
+      </div>
     </div>
   );
 };
